@@ -16,7 +16,7 @@ public class TubeScript : MonoBehaviour
 
     private void Awake()
     {
-        _tubeGameControllerScript = GameObject.Find("TubeGameController").GetComponent<TubeGameControllerScript>()
+        _tubeGameControllerScript = GameObject.Find("TubeGameController").GetComponent<TubeGameControllerScript>();
     }
 
     // Start is called before the first frame update
