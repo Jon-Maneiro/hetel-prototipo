@@ -25,7 +25,6 @@ public class TubeScript : MonoBehaviour
         _possibleRotation = correctRotation.Length;
         int rand = Random.Range(0, rotations.Length);
         transform.eulerAngles = new Vector3(0,0,rotations[rand]);
-        Debug.Log(correctRotation.Length);
         CheckCorrectRotation();
         
     }
@@ -51,13 +50,19 @@ public class TubeScript : MonoBehaviour
             if (Math.Abs(transform.eulerAngles.z - correctRotation[0]) < 1 ||
                 Math.Abs(transform.eulerAngles.z - correctRotation[1]) < 1)
             {
-                isPlaced = true;
-                _tubeGameControllerScript.CorrectMove();
+                if (!isPlaced)
+                {
+                    isPlaced = true;
+                    _tubeGameControllerScript.CorrectMove();    
+                }
             }
             else
             {
-                isPlaced = false;
-                _tubeGameControllerScript.WrongMove();
+                if (isPlaced)
+                {
+                    isPlaced = false;
+                    _tubeGameControllerScript.WrongMove();    
+                }
             }
                 
         }
@@ -65,13 +70,19 @@ public class TubeScript : MonoBehaviour
         {
             if (Math.Abs(transform.eulerAngles.z - correctRotation[0]) < 1)
             {
-                isPlaced = true;
-                _tubeGameControllerScript.CorrectMove();
+                if (!isPlaced)
+                {
+                    isPlaced = true;
+                    _tubeGameControllerScript.CorrectMove();    
+                }
             }
             else
             {
-                isPlaced = false;
-                _tubeGameControllerScript.WrongMove();
+                if (isPlaced)
+                {
+                    isPlaced = false;
+                    _tubeGameControllerScript.WrongMove();    
+                }
             }
         }
     }

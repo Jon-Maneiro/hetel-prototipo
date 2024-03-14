@@ -18,6 +18,7 @@ public class TubeGameControllerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tubeContainer = GameObject.Find("TubeContainer");
         totalTubes = tubeContainer.transform.childCount;
 
         tubes = new GameObject[totalTubes];
@@ -31,14 +32,21 @@ public class TubeGameControllerScript : MonoBehaviour
     public void CorrectMove()
     {
         _correctTubes += 1;
+        Debug.Log("Ese ahi esta bien " + _correctTubes);
         if (_correctTubes == neededCorrectTubes)
         {
             Debug.Log("heeeeeey que bien, has ganado bro, sigue estudiando");
+            EndGame();
         }
     }
 
     public void WrongMove()
     {
         _correctTubes -= 1;
+    }
+
+    private void EndGame()
+    {
+        //Scene Change or Victory Text Here
     }
 }

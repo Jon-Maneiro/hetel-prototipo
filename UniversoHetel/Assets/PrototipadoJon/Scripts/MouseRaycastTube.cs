@@ -39,7 +39,6 @@ public class MouseRaycastTube : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
-                Debug.Log(hit.transform.name);
                 hit.transform.gameObject.GetComponent<TubeScript>().RotatePiece();
             }
         }
