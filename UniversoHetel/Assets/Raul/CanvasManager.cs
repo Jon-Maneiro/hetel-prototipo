@@ -1,25 +1,40 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Raul
 {
     public class CanvasManager : MonoBehaviour
     {
-        
+        public static event Action PulsadoNo;
+        public static event Action PulsadoYes;
         [SerializeField] private Canvas canvasPregunta;
-        [SerializeField] private Button boton1;
-        [SerializeField] private Button boton2;
+
         void Start()
         {
             PlanetScript.ActivaCanvas += ActivaCanvas;
+            PlanetScript.PlanetaActivo += IrAPlaneta;
         }
 
         private void ActivaCanvas()
         {
             canvasPregunta.gameObject.SetActive(true);
-            /*boton1.transform.gameObject.SetActive(true);
-            boton2.transform.gameObject.SetActive(true);*/
+        }
+
+        private void IrAPlaneta(GameObject planeta)
+        {
+            Debug.Log("SE HA SELECCIONADO EL PLANTA " + planeta.transform.parent.gameObject);
+        }
+
+        public void ButtonNo()
+        {
+            canvasPregunta.gameObject.SetActive(false);
+            PulsadoNo?.Invoke();
+        }
+
+        public void ButtonYes()
+        {
+            canvasPregunta.gameObject.SetActive(false);
+            PulsadoYes?.Invoke();
         }
     }
 }
