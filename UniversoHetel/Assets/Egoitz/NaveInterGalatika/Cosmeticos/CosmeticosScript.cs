@@ -24,32 +24,20 @@ public class CosmeticosScript : MonoBehaviour
     {
         
     }
-
-    private void updateCosmetics()
+    
+    public void updateCosmetics()
     {
 
         for (int i = 0; i < stickers.Length; i++)
         {
-            if (CosmeticosSingleton.Instance.stickers[i])
-            {
-                stickers[i].SetActive(true);
-            }
-            else
-            {
-                stickers[i].SetActive(false);
-            }
+            stickers[i].SetActive(CosmeticosSingleton.Instance.stickers[i]);
         }
+
         
-        for (int i = 0; i < gorros.Length; i++)
-        {
-            if (CosmeticosSingleton.Instance.gorros[i])
-            {
-                gorros[i].SetActive(true);
-            }
-            else
-            {
-                gorros[i].SetActive(false);
-            }
+        for (int j = 0; j < gorros.Length; j++)
+        { 
+            gorros[j].SetActive(CosmeticosSingleton.Instance.gorros[j]);
+           
         }
         
     }

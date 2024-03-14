@@ -35,4 +35,45 @@ public class CosmeticosSingleton : MonoBehaviour
     {
         
     }
+
+    public void changeHat(int id)
+    {
+        if (gorros.Length <= id)
+        {
+            Debug.Log("El sombrero seleccionado no esiste");
+        }
+        else
+        {
+            if (gorros[id])
+            {
+                gorros[id] = false;
+            }
+            else
+            {
+                gorros[id] = true;
+            }
+        }    
+            
+        
+    }
+    
+    public void changesticker(int id)
+    {
+        if (stickers.Length <= id)
+        {
+            Debug.Log("El pegatina seleccionado no esiste");
+        }
+        else
+        {
+            if (stickers[id])
+            {
+                stickers[id] = false;
+            }
+            else
+            {
+                stickers[id] = true;
+            }
+        } 
+       
+    }
 }
