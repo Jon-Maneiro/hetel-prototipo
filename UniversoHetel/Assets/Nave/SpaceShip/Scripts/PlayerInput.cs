@@ -1,0 +1,68 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerInput : MonoBehaviour
+{
+    
+    // Input Actions
+    private InputActions _controls;
+    public ShipMovement shipMovement;
+
+    public float angularDragDecayFactor;  //Higher Value means less angular drag or rotation slowing
+    public float angleOffset;
+    public float speedFactor;
+    private Vector3 worldMousePosition;
+    private float angle;
+    
+    // Events
+    public static event Action ForwardEvent;
+    public static event Action HorizontalEvent;
+    public static event Action RotationEvent;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        _controls = new InputActions();
+        
+        _controls.Enable();
+
+        _controls.ShipMovement.ForwardMovement.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
+        //_controls.ShipMovement.ForwardMovement.canceled += context => CancelInvoke(nameof(Movement));
+        _controls.ShipMovement.HorizontalMovement.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
+    //     _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
+    //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
+    //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));
+     }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    
+
+    private void Movement()
+    {
+        if (ForwardEvent != null)
+        {
+            if (_controls.ShipMovement.ForwardMovement.ReadValue<float>() != 0) ForwardEvent?.Invoke();
+        }
+
+        if (HorizontalEvent != null)
+        {
+            if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() == 0) shipMovement.HorizontalMoveStop();
+            
+            HorizontalEvent?.Invoke();
+            //if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() != 0) HorizontalEvent?.Invoke();
+        }
+
+        // if (RotationEvent != null)
+        // {
+        //     if (_controls.ShipMovement.PitchYaw.ReadValue<float>() != 0) RotationEvent?.Invoke();
+        // }
+    }
+    
+}
