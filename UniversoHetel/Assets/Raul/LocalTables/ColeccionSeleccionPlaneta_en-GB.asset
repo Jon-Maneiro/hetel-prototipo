@@ -16,8 +16,7 @@ MonoBehaviour:
     m_Code: en-GB
   m_SharedData: {fileID: 11400000, guid: b793002b09a1ea64e9180f5247142173, type: 2}
   m_Metadata:
-    m_Items:
-    - rid: 1892834859552079907
+    m_Items: []
   m_TableData:
   - m_Id: 12670099456
     m_Localized: DIGITAL WORLD
@@ -44,10 +43,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 22759370547200
-    m_Localized: Do you want to go to planet {0}?
+    m_Localized: Do you want to go to this planet?
     m_Metadata:
-      m_Items:
-      - rid: 1892834859552079907
+      m_Items: []
   - m_Id: 41083533942784
     m_Localized: Yes
     m_Metadata:
@@ -58,8 +56,4 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 1892834859552079907
-      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Entries: 00603214b3140000
+    RefIds: []
