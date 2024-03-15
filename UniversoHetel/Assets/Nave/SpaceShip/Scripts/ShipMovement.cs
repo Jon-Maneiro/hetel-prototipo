@@ -48,6 +48,7 @@ public class ShipMovement : MonoBehaviour
         float inputHorizontal = _control.ShipMovement.HorizontalMovement.ReadValue<float>();
         _rigidbody.AddForce(gameObject.transform.right * inputHorizontal * horizontalThrustPower * Time.deltaTime);
         //_rigidbody.AddTorque(gameObject.transform.up * inputHorizontal * horizontalThrustPower * Time.deltaTime);
+        transform.Rotate(0f, inputHorizontal * .5f, 0f);
         //_rigidbody.angularVelocity = Vector3.zero;
         
     }
@@ -56,6 +57,6 @@ public class ShipMovement : MonoBehaviour
      {
          //Vector3 actual = transform.position;
          //_rigidbody.angularVelocity = Vector3.zero;
-         _rigidbody.velocity = new Vector3(0, 0, _rigidbody.velocity.z);
+         //_rigidbody.velocity = new Vector3(0, 0, _rigidbody.velocity.z);
      }
 }
