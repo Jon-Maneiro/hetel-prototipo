@@ -16,10 +16,11 @@ namespace Raul
         [SerializeField] private Scene escenaRelacionada;
         [SerializeField] private GameObject outline;
         [SerializeField] private GameObject sol;
-        [SerializeField] private float direccion;
-        
+        [SerializeField] private int speed;
         private float _xAngle, _zAngle;
         private bool _seleccionado;
+        private bool _agrandando;
+        private bool _empequenecendo;
         
         void Start()
         {
@@ -31,6 +32,8 @@ namespace Raul
             _xAngle = Random.Range(-0.5f, 0.5f);
             _zAngle = Random.Range(-0.5f, 0.5f);
             _seleccionado = false;
+            _empequenecendo = false;
+            _agrandando = false;
             
             InvokeRepeating(nameof(Rotate), 0f, 0.01f);
         }
@@ -38,7 +41,7 @@ namespace Raul
         private void Update()
         {
             GameObject o;
-            (o = transform.parent.gameObject).transform.RotateAround(sol.transform.position, new Vector3(0f,0f,direccion), 2* Time.deltaTime);
+            (o = transform.parent.gameObject).transform.RotateAround(sol.transform.position, new Vector3(0f,0f,1), speed * Time.deltaTime);
             o.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         }
 
@@ -78,15 +81,21 @@ namespace Raul
 
         private IEnumerator Agrandar()
         {
+            yield return new WaitUntil(() => !_empequenecendo);
+            _agrandando = true;
             InvokeRepeating(nameof(EscalarUp), 0f, 0.01f);
             yield return new WaitUntil(() => Math.Abs(transform.localScale.x - 1.5f) < 0.05f);
+            _agrandando = false;
             CancelInvoke(nameof(EscalarUp));
         }
 
         private IEnumerator Empequenecer()
         {
+            yield return new WaitUntil(() => !_agrandando);
+            _empequenecendo = true;
             InvokeRepeating(nameof(EscalarDown), 0f, 0.01f);
             yield return new WaitUntil(() => Math.Abs(transform.localScale.x - 1f) < 0.05f);
+            _empequenecendo = false;
             CancelInvoke(nameof(EscalarDown));
         }
 
