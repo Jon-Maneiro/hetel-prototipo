@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CanvasContinenteScrip : MonoBehaviour
 {
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private Canvas canvas1;
+    [SerializeField] private Canvas canvas2;
     
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,17 @@ public class CanvasContinenteScrip : MonoBehaviour
     }
     
 
-    private void OnActivaCanvasContinente()
+    private void OnActivaCanvasContinente(bool tipo)
     {
-        canvas.gameObject.SetActive(true);
+        if (tipo)
+        {
+            canvas1.gameObject.SetActive(true);
+        }
+        else
+        {
+            canvas2.gameObject.SetActive(true);
+        }
+        
+        
     }
 }

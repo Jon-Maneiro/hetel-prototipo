@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class Raycastcosa : MonoBehaviour
 {
+    public bool tipo;
     private bool _seleccionado;
     
-    public static event Action ActivaCanvasContinente;
+    public static event Action<bool> ActivaCanvasContinente;
     //public static event Action ActivaCanvasContinente;
     
     // Start is called before the first frame update
@@ -26,6 +27,6 @@ public class Raycastcosa : MonoBehaviour
     private void RayHit(GameObject hitObject)
     {
         if (!hitObject.Equals(gameObject)) return;
-        ActivaCanvasContinente?.Invoke();
+        ActivaCanvasContinente?.Invoke(tipo);
     }
 }
