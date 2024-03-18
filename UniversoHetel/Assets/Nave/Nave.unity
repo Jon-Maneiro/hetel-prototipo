@@ -132,24 +132,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1032418500919227686, guid: a61ca2eb350ca7242a99bf2ad49acea2, type: 3}
-      propertyPath: speedMult
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1032418500919227686, guid: a61ca2eb350ca7242a99bf2ad49acea2, type: 3}
-      propertyPath: maxForwardThrust
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 1032418500919227686, guid: a61ca2eb350ca7242a99bf2ad49acea2, type: 3}
       propertyPath: forwardThrustPower
-      value: 75
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1032418500919227686, guid: a61ca2eb350ca7242a99bf2ad49acea2, type: 3}
       propertyPath: horizontalThrustPower
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269210096165039896, guid: a61ca2eb350ca7242a99bf2ad49acea2, type: 3}
-      propertyPath: m_Mass
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7233374994341116429, guid: a61ca2eb350ca7242a99bf2ad49acea2, type: 3}
       propertyPath: m_Name

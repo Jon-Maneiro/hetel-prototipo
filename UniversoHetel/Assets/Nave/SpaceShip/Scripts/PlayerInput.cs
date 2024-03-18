@@ -39,41 +39,29 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetMouseInput();
+
     }
+
+    
 
     private void Movement()
     {
         if (ForwardEvent != null)
         {
-            // if (_controls.ShipMovement.ForwardMovement.ReadValue<float>() != 0) ForwardEvent?.Invoke();
-            ForwardEvent?.Invoke();
+            if (_controls.ShipMovement.ForwardMovement.ReadValue<float>() != 0) ForwardEvent?.Invoke();
         }
 
         if (HorizontalEvent != null)
         {
-            if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() != 0) HorizontalEvent?.Invoke();
+            if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() == 0) shipMovement.HorizontalMoveStop();
             
-            //shipMovement.HorizontalMoveStop();
-            
+            HorizontalEvent?.Invoke();
             //if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() != 0) HorizontalEvent?.Invoke();
         }
 
-        if (RotationEvent != null)
-        {
-            if (_controls.ShipMovement.RotateMovement.ReadValue<float>() != 0) RotationEvent?.Invoke();
-        }
-    }
-
-    private void GetMouseInput()
-    {
-        // Vector3 mousePosition = Input.mousePosition;
-        //
-        // float yaw = (mousePosition.x - (Screen.width * .5f)) / (Screen.width * .5f);
-        //
         // if (RotationEvent != null)
         // {
-        //     if (yaw != 0) HorizontalEvent?.Invoke();
+        //     if (_controls.ShipMovement.PitchYaw.ReadValue<float>() != 0) RotationEvent?.Invoke();
         // }
     }
     

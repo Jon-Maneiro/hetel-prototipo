@@ -46,13 +46,13 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""RotateMovement"",
-                    ""type"": ""Value"",
-                    ""id"": ""de6d2e3d-1309-4f42-a447-d1bfeec5113e"",
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5cdbd3a-e565-45bb-b1cf-48807569f4ad"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -123,37 +123,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""ff14f227-aaa3-4d72-9e54-068d48078f03"",
-                    ""path"": ""1DAxis"",
+                    ""name"": """",
+                    ""id"": ""30c8bbab-1972-49e8-b6c7-9bc625484520"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RotateMovement"",
-                    ""isComposite"": true,
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""b2f9919f-83f7-47cf-9d27-30bbc492d010"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RotateMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""69af1721-8a96-4d03-9fba-8ee9902ae493"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RotateMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -164,7 +142,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_ShipMovement = asset.FindActionMap("ShipMovement", throwIfNotFound: true);
         m_ShipMovement_ForwardMovement = m_ShipMovement.FindAction("ForwardMovement", throwIfNotFound: true);
         m_ShipMovement_HorizontalMovement = m_ShipMovement.FindAction("HorizontalMovement", throwIfNotFound: true);
-        m_ShipMovement_RotateMovement = m_ShipMovement.FindAction("RotateMovement", throwIfNotFound: true);
+        m_ShipMovement_Newaction = m_ShipMovement.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -228,14 +206,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private List<IShipMovementActions> m_ShipMovementActionsCallbackInterfaces = new List<IShipMovementActions>();
     private readonly InputAction m_ShipMovement_ForwardMovement;
     private readonly InputAction m_ShipMovement_HorizontalMovement;
-    private readonly InputAction m_ShipMovement_RotateMovement;
+    private readonly InputAction m_ShipMovement_Newaction;
     public struct ShipMovementActions
     {
         private @InputActions m_Wrapper;
         public ShipMovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @ForwardMovement => m_Wrapper.m_ShipMovement_ForwardMovement;
         public InputAction @HorizontalMovement => m_Wrapper.m_ShipMovement_HorizontalMovement;
-        public InputAction @RotateMovement => m_Wrapper.m_ShipMovement_RotateMovement;
+        public InputAction @Newaction => m_Wrapper.m_ShipMovement_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_ShipMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -251,9 +229,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HorizontalMovement.started += instance.OnHorizontalMovement;
             @HorizontalMovement.performed += instance.OnHorizontalMovement;
             @HorizontalMovement.canceled += instance.OnHorizontalMovement;
-            @RotateMovement.started += instance.OnRotateMovement;
-            @RotateMovement.performed += instance.OnRotateMovement;
-            @RotateMovement.canceled += instance.OnRotateMovement;
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
         }
 
         private void UnregisterCallbacks(IShipMovementActions instance)
@@ -264,9 +242,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HorizontalMovement.started -= instance.OnHorizontalMovement;
             @HorizontalMovement.performed -= instance.OnHorizontalMovement;
             @HorizontalMovement.canceled -= instance.OnHorizontalMovement;
-            @RotateMovement.started -= instance.OnRotateMovement;
-            @RotateMovement.performed -= instance.OnRotateMovement;
-            @RotateMovement.canceled -= instance.OnRotateMovement;
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
         }
 
         public void RemoveCallbacks(IShipMovementActions instance)
@@ -288,6 +266,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnForwardMovement(InputAction.CallbackContext context);
         void OnHorizontalMovement(InputAction.CallbackContext context);
-        void OnRotateMovement(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
