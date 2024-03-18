@@ -24,13 +24,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "f5cdbd3a-e565-45bb-b1cf-48807569f4ad",
+                    "name": "RotateMovement",
+                    "type": "Value",
+                    "id": "de6d2e3d-1309-4f42-a447-d1bfeec5113e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -101,15 +101,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "30c8bbab-1972-49e8-b6c7-9bc625484520",
-                    "path": "",
+                    "name": "1D Axis",
+                    "id": "ff14f227-aaa3-4d72-9e54-068d48078f03",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
+                    "action": "RotateMovement",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "b2f9919f-83f7-47cf-9d27-30bbc492d010",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "69af1721-8a96-4d03-9fba-8ee9902ae493",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
