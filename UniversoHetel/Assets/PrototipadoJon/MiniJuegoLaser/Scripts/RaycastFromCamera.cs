@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseRaycastTube : MonoBehaviour
+public class RaycastFromCamera : MonoBehaviour
 {
 
     private Camera _cam;
@@ -38,7 +38,8 @@ public class MouseRaycastTube : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
-                hit.transform.gameObject.GetComponent<TubeScript>().RotatePiece();
+                /*Here Goes What you Want to do with the object that has been hit*/
+                hit.transform.gameObject;
             }
         }
     }
