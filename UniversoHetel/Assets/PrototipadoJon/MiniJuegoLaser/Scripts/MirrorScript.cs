@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MirrorScript : MonoBehaviour
 {
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class MirrorScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RotateMirror()
+    {
+        transform.Rotate(new Vector3(0f,0f,-15f), Space.Self);
     }
 }
