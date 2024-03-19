@@ -9,7 +9,6 @@ namespace Raul
 {
     public class PlanetScript : MonoBehaviour
     {
-        public static event Action ActivaCanvas;
         public static event Action DesactivaTodos;
         public static event Action<GameObject> PlanetaActivo;
         
@@ -17,6 +16,10 @@ namespace Raul
         [SerializeField] private GameObject outline;
         [SerializeField] private GameObject sol;
         [SerializeField] private int speed;
+        [SerializeField] private GameObject cameraPlaneta;
+        [SerializeField] private GameObject cameraPrincipal;
+        [SerializeField] private GameObject canvas;
+        
         private float _xAngle, _zAngle;
         private bool _seleccionado;
         private bool _agrandando;
@@ -60,12 +63,14 @@ namespace Raul
             if (_seleccionado) return;
             DesactivaTodos?.Invoke();
             ActivarSeleccionado();
-            ActivaCanvas?.Invoke();
         }
 
         private void ActivarSeleccionado()
         {
             if (_seleccionado) return;
+            cameraPlaneta.SetActive(true);
+            cameraPrincipal.SetActive(false);
+            canvas.SetActive(true);
             _seleccionado = true;
             outline.SetActive(true);
             StartCoroutine(nameof(Agrandar));
@@ -74,6 +79,9 @@ namespace Raul
         private void DesactivarSeleccionado()
         {
             if (!_seleccionado) return;
+            cameraPlaneta.SetActive(false);
+            cameraPrincipal.SetActive(true);
+            canvas.SetActive(false);
             _seleccionado = false;
             outline.SetActive(false);
             StartCoroutine(nameof(Empequenecer));

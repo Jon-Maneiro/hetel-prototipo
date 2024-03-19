@@ -11,13 +11,7 @@ namespace Raul
 
         void Start()
         {
-            PlanetScript.ActivaCanvas += ActivaCanvas;
             PlanetScript.PlanetaActivo += IrAPlaneta;
-        }
-
-        private void ActivaCanvas()
-        {
-            canvasPregunta.gameObject.SetActive(true);
         }
 
         private void IrAPlaneta(GameObject planeta)
@@ -27,12 +21,14 @@ namespace Raul
 
         public void ButtonNo()
         {
+            Debug.Log("PULSADO NO");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoNo?.Invoke();
         }
 
         public void ButtonYes()
         {
+            Debug.Log("PULSADO SI");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoYes?.Invoke();
         }
