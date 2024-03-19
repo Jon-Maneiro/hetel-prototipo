@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class LaserLogic : MonoBehaviour
 {
-    [SerializeField] private int dist;
     [SerializeField] private String reftag;
-    [SerializeField] private int maxReflections;
+    [SerializeField] private String passtag;
+    [SerializeField] private String errortag;
+    [SerializeField] private String walltag;
     [SerializeField] private Transform startPoint;
-    [SerializeField] private bool reflectOnlyMirror;
     
-    private int _verti = 1;
     private bool _iactive;
     private Vector3 _currot;
     private Vector3 _curpos;
     private LineRenderer _lr;
-    private int _limit = 100;
     
     public int laserDistance = 100; //max raycasting distance
     public int laserLimit = 10; //the laser can be reflected this many times
@@ -26,18 +24,19 @@ public class LaserLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _lr = laserRenderer;
         
-        _lr.SetPosition(0, startPoint.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DrawLaser();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            DrawLaser();    
+        }
     }
     
-    void DrawLaser()
+    private void DrawLaser()
     {
         
         int laserReflected = 1; //How many times it got reflected
@@ -65,7 +64,24 @@ public class LaserLogic : MonoBehaviour
                     lastLaserPosition = hit.point;
                     laserDirection = Vector3.Reflect(laserDirection, hit.normal);
                 }
-            } else {
+
+                if (hit.transform.CompareTag(passtag))
+                {
+                    Debug.Log("jaja");
+                }
+
+                if (hit.transform.CompareTag(errortag))
+                {
+                    
+                }
+
+                if (hit.transform.CompareTag(walltag))
+                {
+
+                }
+
+            }
+            else {
                 laserReflected++;
                 vertexCounter++;
                 laserRenderer.positionCount =  vertexCounter;
@@ -78,4 +94,6 @@ public class LaserLogic : MonoBehaviour
         }
         
     }
+    
+    
 }
