@@ -21,14 +21,12 @@ namespace Raul
 
         public void ButtonNo()
         {
-            Debug.Log("PULSADO NOOOOOO");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoNo?.Invoke();
         }
 
         public void ButtonYes()
         {
-            Debug.Log("PULSADO SI");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoYes?.Invoke();
         }
