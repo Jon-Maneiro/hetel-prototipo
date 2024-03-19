@@ -136,8 +136,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274251842}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: direccion
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: direccionZ
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -145,15 +153,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.41
+      value: 13.266573
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.46
+      value: -9.086546
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -185,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792016895709090518, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_Name
-      value: Planeta (3)
+      value: CONSTRUCCION
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -219,7 +227,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175151710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -228,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: -40}
+  m_AnchoredPosition: {x: -20, y: -40}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175151712
@@ -403,7 +411,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.83, z: 11.11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -467,8 +475,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274251842}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: direccion
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: direccionZ
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -476,15 +492,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.25
+      value: 10.390778
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.68
+      value: 8.696817
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -516,7 +532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792016895709090518, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_Name
-      value: Planeta (2)
+      value: CENCIA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -536,8 +552,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274251842}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: speed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: direccion
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: direccionZ
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -545,15 +569,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.15
+      value: -1.0375366
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.15
+      value: 8.376001
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -585,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792016895709090518, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_Name
-      value: Planeta (4)
+      value: ENERGIA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -605,7 +629,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274251842}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: speed
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: direccion
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: direccionZ
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
@@ -614,15 +646,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.89
+      value: 3.3242958
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.0293007
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.82
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -654,7 +686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792016895709090518, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_Name
-      value: Planeta (5)
+      value: VIDA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -674,8 +706,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274251842}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: speed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: direccion
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: direccionZ
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -683,15 +723,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.13
+      value: -9.447648
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.47
+      value: 5.750251
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -723,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792016895709090518, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_Name
-      value: Planeta (1)
+      value: MAQUINAS
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1374183717821220469, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
@@ -1128,7 +1168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -40}
+  m_AnchoredPosition: {x: 20, y: -40}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792754036
@@ -1474,7 +1514,7 @@ Transform:
   m_GameObject: {fileID: 1920535711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -15.15}
+  m_LocalPosition: {x: 0, y: 1, z: -32.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1759,7 +1799,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136669635}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: -65}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1768,10 +1808,10 @@ RectTransform:
   - {fileID: 175151711}
   - {fileID: 1792754035}
   m_Father: {fileID: 449198720}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 27}
+  m_AnchoredPosition: {x: -30, y: 45}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1007569084231240955
@@ -1787,7 +1827,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274251842}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: direccion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: direccionZ
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
@@ -1820,15 +1868,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.78
+      value: 1.6172241
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.3
+      value: -5.1
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399130340864261074, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1860,7 +1908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6792016895709090518, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_Name
-      value: Planeta
+      value: DIGITAL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
