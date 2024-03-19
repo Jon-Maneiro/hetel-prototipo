@@ -39,7 +39,7 @@ public class RaycastFromCamera : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
                 /*Here Goes What you Want to do with the object that has been hit*/
-                hit.transform.gameObject;
+                //hit.transform.gameObject;
             }
         }
     }
