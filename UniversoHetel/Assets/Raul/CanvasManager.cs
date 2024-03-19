@@ -21,7 +21,7 @@ namespace Raul
 
         public void ButtonNo()
         {
-            Debug.Log("PULSADO NO");
+            Debug.Log("PULSADO NOOOOOO");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoNo?.Invoke();
         }
