@@ -6,17 +6,24 @@ namespace Raul
     public class PointScript : MonoBehaviour
     {
         public static event Action<GameObject> RayHit;
+        public static event Action CamaraCerca;
+        public static event Action CamaraLejos;
+        
         [SerializeField] private LayerMask mask;
+        
         private GameObject _nuevaCam;
         private Vector3 _originalPos;
         private Camera _cam;
+        private bool _enPlaneta;
 
         private void Start()
         {
-            _cam = GetComponent<Camera>();
-            _originalPos = transform.position;
             PlanetScript.MoveCamera += MoveCamera;
             PlanetScript.RestoreCamera += Restore;
+            
+            _cam = GetComponent<Camera>();
+            _originalPos = transform.position;
+            _enPlaneta = false;
         }
 
         void Update()
@@ -37,12 +44,21 @@ namespace Raul
             _nuevaCam = position;
             CancelInvoke(nameof(Move));
             CancelInvoke(nameof(RestorePosition));
-            InvokeRepeating(nameof(Move), 0f, 0.002f);
+            InvokeRepeating(nameof(CheckCamera), 0f, 0.01f);
+            InvokeRepeating(nameof(Move), 0f, 0.001f);
         }
 
         private void Move()
         {
-            transform.position = Vector3.MoveTowards(transform.position, _nuevaCam.transform.position, 30 * Time.deltaTime);
+            if (_enPlaneta)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _nuevaCam.transform.position, 5 * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _nuevaCam.transform.position, 30 * Time.deltaTime);
+            }
+            
         }
 
         private void Restore()
@@ -55,6 +71,23 @@ namespace Raul
         private void RestorePosition()
         {
             transform.position = Vector3.MoveTowards(transform.position, _originalPos, 80 * Time.deltaTime);
+        }
+
+        private void CheckCamera()
+        {
+            if (Math.Abs(transform.position.z - _nuevaCam.transform.position.z) < 0.1f)
+            {
+                CamaraCerca?.Invoke();
+                _enPlaneta = true;
+            }
+            else
+            {
+                _enPlaneta = false;
+            }
+            
+            if (Math.Abs(Vector3.Distance(transform.position, _nuevaCam.transform.position)) > 0.1f) {
+                CamaraLejos?.Invoke();
+            }
         }
     }
 }
