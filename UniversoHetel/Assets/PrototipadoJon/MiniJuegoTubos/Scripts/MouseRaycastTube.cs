@@ -14,7 +14,6 @@ public class MouseRaycastTube : MonoBehaviour
     void Start()
     {
         _cam = Camera.main;
-        print(_cam.name);
     }
 
     // Update is called once per frame

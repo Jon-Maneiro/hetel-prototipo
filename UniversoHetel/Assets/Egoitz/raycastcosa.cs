@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Raycastcosa : MonoBehaviour
 {
-    public bool tipo;
+    public int tipo;
     private bool _seleccionado;
     
-    public static event Action<bool> ActivaCanvasContinente;
+    public static event Action<int> ActivaCanvasContinente;
     //public static event Action ActivaCanvasContinente;
     
     // Start is called before the first frame update
