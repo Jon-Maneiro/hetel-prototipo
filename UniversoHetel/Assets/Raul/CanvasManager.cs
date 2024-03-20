@@ -7,6 +7,7 @@ namespace Raul
     {
         public static event Action PulsadoNo;
         public static event Action PulsadoYes;
+        
         [SerializeField] private Canvas canvasPregunta;
 
         void Start()
@@ -21,14 +22,12 @@ namespace Raul
 
         public void ButtonNo()
         {
-            Debug.Log("PULSADO NOOOOOO");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoNo?.Invoke();
         }
 
         public void ButtonYes()
         {
-            Debug.Log("PULSADO SI");
             canvasPregunta.gameObject.SetActive(false);
             PulsadoYes?.Invoke();
         }
