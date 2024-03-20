@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Raul
@@ -11,13 +10,14 @@ namespace Raul
     {
         public static event Action DesactivaTodos;
         public static event Action<GameObject> PlanetaActivo;
+        public static event Action<GameObject> MoveCamera;
+        public static event Action RestoreCamera;
         
         [SerializeField] private Scene escenaRelacionada;
         [SerializeField] private GameObject outline;
         [SerializeField] private GameObject sol;
         [SerializeField] private int speed;
-        [SerializeField] private GameObject cameraPlaneta;
-        [SerializeField] private GameObject cameraPrincipal;
+        [SerializeField] private GameObject punto;
         [SerializeField] private GameObject canvas;
         
         private float _xAngle, _zAngle;
@@ -68,19 +68,17 @@ namespace Raul
         private void ActivarSeleccionado()
         {
             if (_seleccionado) return;
-            cameraPlaneta.SetActive(true);
-            cameraPrincipal.SetActive(false);
+            MoveCamera?.Invoke(punto);
             canvas.SetActive(true);
             _seleccionado = true;
             outline.SetActive(true);
             StartCoroutine(nameof(Agrandar));
         }
-
+        
         private void DesactivarSeleccionado()
         {
             if (!_seleccionado) return;
-            cameraPlaneta.SetActive(false);
-            cameraPrincipal.SetActive(true);
+            RestoreCamera?.Invoke();
             canvas.SetActive(false);
             _seleccionado = false;
             outline.SetActive(false);
