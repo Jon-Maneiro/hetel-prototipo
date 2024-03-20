@@ -40,6 +40,7 @@ public class RaycastFromCamera : MonoBehaviour
             {
                 /*Here Goes What you Want to do with the object that has been hit*/
                 //hit.transform.gameObject;
+                hit.transform.gameObject.GetComponent<MirrorScript>().RotateMirror();
             }
         }
     }
