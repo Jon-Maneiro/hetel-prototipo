@@ -7,6 +7,7 @@ namespace Raul
     {
         public static event Action PulsadoNo;
         public static event Action PulsadoYes;
+        
         [SerializeField] private Canvas canvasPregunta;
 
         void Start()
