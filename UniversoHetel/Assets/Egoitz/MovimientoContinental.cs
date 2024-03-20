@@ -16,7 +16,7 @@ public class MovimientoContinental : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Moverse con el teclado
         float moveAmount = 20f;
