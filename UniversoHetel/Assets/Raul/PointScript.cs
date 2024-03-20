@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Raul
@@ -8,13 +7,14 @@ namespace Raul
     {
         public static event Action<GameObject> RayHit;
         [SerializeField] private LayerMask mask;
-        private GameObject nuevaCam;
-        private Vector3 originalPos;
-        
+        private GameObject _nuevaCam;
+        private Vector3 _originalPos;
+        private Camera _cam;
 
         private void Start()
         {
-            originalPos = transform.position;
+            _cam = GetComponent<Camera>();
+            _originalPos = transform.position;
             PlanetScript.MoveCamera += MoveCamera;
             PlanetScript.RestoreCamera += Restore;
         }
@@ -23,8 +23,7 @@ namespace Raul
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Camera cam = GetComponent<Camera>();
-                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 1000, mask))
                 {
@@ -35,7 +34,7 @@ namespace Raul
         
         private void MoveCamera(GameObject position)
         {
-            nuevaCam = position;
+            _nuevaCam = position;
             CancelInvoke(nameof(Move));
             CancelInvoke(nameof(RestorePosition));
             InvokeRepeating(nameof(Move), 0f, 0.002f);
@@ -43,7 +42,7 @@ namespace Raul
 
         private void Move()
         {
-            transform.position = Vector3.MoveTowards(transform.position, nuevaCam.transform.position, 20 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _nuevaCam.transform.position, 30 * Time.deltaTime);
         }
 
         private void Restore()
@@ -55,7 +54,7 @@ namespace Raul
 
         private void RestorePosition()
         {
-            transform.position = Vector3.MoveTowards(transform.position, originalPos, 80 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _originalPos, 80 * Time.deltaTime);
         }
     }
 }
