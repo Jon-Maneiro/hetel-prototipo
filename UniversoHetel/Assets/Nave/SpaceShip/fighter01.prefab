@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 15.57
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -64,10 +64,10 @@ PrefabInstance:
       addedObject: {fileID: 1269210096165039896}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1032418500919227686}
+      addedObject: {fileID: 6267531373950139651}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6267531373950139651}
+      addedObject: {fileID: 6249246774571656431}
   m_SourcePrefab: {fileID: 100100000, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
 --- !u!1 &7233374994341116429 stripped
 GameObject:
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2e95b61aca064a14fa7e168d2b2ea68c, type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -142,9 +142,9 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaTensor: {x: 0, y: 0, z: 0}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
@@ -152,31 +152,13 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1032418500919227686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7233374994341116429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1ccf027830a234c851f0973a07f3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardThrustPower: 50
-  maxForwardThrust: 100
-  horizontalThrustPower: 30
-  speedMult: 1
-  speedMultAngle: 0.5
-  speedRollMultAngle: 0.05
 --- !u!65 &6267531373950139651
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,3 +180,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07996366, y: 0.053095654, z: 0.10672183}
   m_Center: {x: 0, y: 0.0020478275, z: 0.009151058}
+--- !u!114 &6249246774571656431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233374994341116429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1ccf027830a234c851f0973a07f3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardThrustPower: 55
+  maxForwardThrust: 50
+  horizontalThrustPower: 0
+  speedMult: 1
+  speedMultAngle: 0.5
+  speedRollMultAngle: 0.05
+  throttleIncrement: 0.1
+  reponsiveness: 10
+  curSpeed: 0

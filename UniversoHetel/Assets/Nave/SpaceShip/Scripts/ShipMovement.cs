@@ -6,6 +6,7 @@ using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -66,22 +67,25 @@ public class ShipMovement : MonoBehaviour
 
     void Update()
     {
-        
-        if (_control.ShipMovement.ForwardMovement.ReadValue<float>() != 0) throttle += throttleIncrement;
-        else if (_control.ShipMovement.HorizontalMovement.ReadValue<float>() != 0) throttle -= throttleIncrement;
-        throttle = Mathf.Clamp(throttle, 0f, 100f);
+        _rigidbody.freezeRotation = true;
+        // if (_control.ShipMovement.ForwardMovement.ReadValue<float>() >= 0) throttle += throttleIncrement;
+        // else if (_control.ShipMovement.ForwardMovement.ReadValue<float>() == 0) throttle = 0;
+        // else if (_control.ShipMovement.HorizontalMovement.ReadValue<float>() <= 0) throttle -= throttleIncrement;
+        // Debug.Log("Throttle: " + throttle);
+        // throttle = Mathf.Clamp(throttle, 0f, 20f);
     }
 
     private void FixedUpdate()
     {
         lookInput.x = Input.mousePosition.x;
         lookInput.y = Input.mousePosition.y;
-    
+        
         mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
         mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
         
         transform.Rotate(-mouseDistance.y * lookSpeed * Time.deltaTime, mouseDistance.x * lookSpeed * Time.deltaTime, 0f, Space.Self);
     }
+    
 
     private void ForwardThrust()
     {
@@ -90,13 +94,16 @@ public class ShipMovement : MonoBehaviour
         //transform.forward *= inputForward * forwardThrustPower * speedMult * Time.deltaTime;
         //_rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.forward) * inputForward * maxForwardThrust * throttle * speedMult * Time.deltaTime);
         Debug.Log("Velocidad: " + _rigidbody.velocity.magnitude);
-        if (_rigidbody.velocity.magnitude >= maxForwardThrust)
+        if (_rigidbody.velocity.magnitude < maxForwardThrust)
         {
-            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, maxForwardThrust);
+            _rigidbody.velocity += transform.forward * forwardThrustPower * inputForward * Time.deltaTime;
+            //_rigidbody.AddRelativeForce(new Vector3(0f, 0f, 1f) * inputForward * forwardThrustPower * speedMult * Time.fixedDeltaTime);
+
         }
         else
         {
-            _rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.forward) * inputForward * maxForwardThrust * throttle * speedMult * Time.deltaTime);
+            //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, maxForwardThrust);
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, _rigidbody.velocity.z - 5f);
         }
         //_rigidbody.transform.forward += new Vector3(0f, 0f, (inputForward * forwardThrustPower) * Time.deltaTime);
     }
