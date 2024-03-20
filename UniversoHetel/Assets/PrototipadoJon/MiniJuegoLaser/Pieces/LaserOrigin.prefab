@@ -130,11 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bcf03b67f5e804f82d341d0bdfb4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: 50
   reftag: Reflect
-  maxReflections: 20
+  passtag: 
+  errortag: 
+  walltag: 
   startPoint: {fileID: 7832904609683430053}
-  reflectOnlyMirror: 0
   laserDistance: 100
   laserLimit: 10
   laserRenderer: {fileID: 3540325240095039219}

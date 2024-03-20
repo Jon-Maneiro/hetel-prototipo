@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class LaserLogic : MonoBehaviour
 {
     [SerializeField] private String reftag;
-    [SerializeField] private String passtag;
+    [SerializeField] private String goodtag;
     [SerializeField] private String errortag;
     [SerializeField] private String walltag;
     [SerializeField] private Transform startPoint;
@@ -19,20 +21,40 @@ public class LaserLogic : MonoBehaviour
     public int laserDistance = 100; //max raycasting distance
     public int laserLimit = 10; //the laser can be reflected this many times
     public LineRenderer laserRenderer; //the line renderer
-    
+
+    private LaserControls _laser;
+    private bool _toggleLaser = false;
+
+    public static event Action<GameObject> CubeHit;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        _laser = new LaserControls();
+        _laser.Enable();
+        _laser.Laser.Space.performed += context => ActivateLaser();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+
+    }
+
+    private void ActivateLaser()
+    {
+        _toggleLaser = !_toggleLaser;
+        Debug.Log("jaja");
+        if (_toggleLaser)
         {
-            DrawLaser();    
+            laserRenderer.enabled = true;
+            InvokeRepeating(nameof(DrawLaser),0,0.01f);
+        }
+        else
+        {
+            CancelInvoke(nameof(DrawLaser));
+            laserRenderer.enabled = false;
         }
     }
     
@@ -65,19 +87,29 @@ public class LaserLogic : MonoBehaviour
                     laserDirection = Vector3.Reflect(laserDirection, hit.normal);
                 }
 
-                if (hit.transform.CompareTag(passtag))
+                if (hit.transform.CompareTag(goodtag))
                 {
-                    Debug.Log("jaja");
+                    Debug.Log("Buen Cubo");
+                    CubeHit?.Invoke(hit.transform.gameObject);
+                    loopActive = false;
                 }
 
                 if (hit.transform.CompareTag(errortag))
                 {
-                    
+                    Debug.Log("Mal Cubo");
+                    CubeHit?.Invoke(hit.transform.gameObject);
+                    loopActive = false;
                 }
 
                 if (hit.transform.CompareTag(walltag))
                 {
-
+                    loopActive = false;
+                    vertexCounter += 2;
+                    laserRenderer.positionCount = vertexCounter;
+                    laserRenderer.SetPosition(vertexCounter - 2,
+                        Vector3.MoveTowards(hit.point, lastLaserPosition, 0.01f));
+                    laserRenderer.SetPosition(vertexCounter - 1, hit.point);
+                    lastLaserPosition = hit.point;
                 }
 
             }
