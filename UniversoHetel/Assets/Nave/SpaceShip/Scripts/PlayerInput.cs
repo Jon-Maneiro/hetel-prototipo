@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
     public static event Action ForwardEvent;
     public static event Action HorizontalEvent;
     public static event Action RotationEvent;
+    public static event Action FireEvent;
     
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,14 @@ public class PlayerInput : MonoBehaviour
         _controls.Enable();
 
         _controls.ShipMovement.ForwardMovement.performed += context => InvokeRepeating(nameof(Movement), 0f, 0.01f);
-        _controls.ShipMovement.ForwardMovement.canceled += context => CancelInvoke(nameof(Movement));
-        _controls.ShipMovement.HorizontalMovement.performed += context => Movement();
+       // _controls.ShipMovement.ForwardMovement.canceled += context => CancelInvoke(nameof(Movement));
+        _controls.ShipMovement.HorizontalMovement.performed += context => InvokeRepeating(nameof(Movement), 0f, 0.01f);
+        //_controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
     //     _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
     //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
     //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));
+        
+        
      }
 
     // Update is called once per frame
@@ -57,6 +61,11 @@ public class PlayerInput : MonoBehaviour
             //shipMovement.HorizontalMoveStop();
             
             //if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() != 0) HorizontalEvent?.Invoke();
+        }
+
+        if (FireEvent != null)
+        {
+            if (Input.GetMouseButton(0)) FireEvent?.Invoke();
         }
 
         // if (RotationEvent != null)

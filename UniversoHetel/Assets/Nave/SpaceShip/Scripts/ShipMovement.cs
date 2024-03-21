@@ -30,6 +30,7 @@ public class ShipMovement : MonoBehaviour
     private float mouseInputX;
     private float mouseInputY;
     private float speed;
+    private float deadZoneRadius = .07f;
 
     private float throttle;
     private float roll;
@@ -46,11 +47,14 @@ public class ShipMovement : MonoBehaviour
     
     private Rigidbody _rigidbody;
     private Collider _collider;
+    private Weapon myWeapon;
     
     void Start()
     {
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
+
+        myWeapon = transform.GetComponentInChildren<Weapon>();
         
         //Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
@@ -62,6 +66,7 @@ public class ShipMovement : MonoBehaviour
         PlayerInput.ForwardEvent += ForwardThrust;
         PlayerInput.HorizontalEvent += HorizontalMoveStart;
         PlayerInput.RotationEvent += RotationMove;
+        PlayerInput.FireEvent += FireWeapon;
         //PlayerInput.HorizontalEvent -= HorizontalMoveStop;
     }
 
@@ -75,6 +80,11 @@ public class ShipMovement : MonoBehaviour
         // throttle = Mathf.Clamp(throttle, 0f, 20f);
     }
 
+    private void FireWeapon()
+    {
+        myWeapon.Fire(_rigidbody.velocity);
+    }
+
     private void FixedUpdate()
     {
         lookInput.x = Input.mousePosition.x;
@@ -82,28 +92,32 @@ public class ShipMovement : MonoBehaviour
         
         mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.x;
         mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
-        
+        if (Mathf.Abs(mouseDistance.x) < deadZoneRadius) mouseDistance.x = 0;
+        if (Mathf.Abs(mouseDistance.y) < deadZoneRadius) mouseDistance.y = 0;
         transform.Rotate(-mouseDistance.y * lookSpeed * Time.deltaTime, mouseDistance.x * lookSpeed * Time.deltaTime, 0f, Space.Self);
+        
+        
     }
     
 
     private void ForwardThrust()
     {
         float inputForward = _control.ShipMovement.ForwardMovement.ReadValue<float>();
+        if (inputForward == 0) _rigidbody.velocity = Vector3.forward * 0 * Time.fixedDeltaTime;
         Debug.Log("inputDorward: " + inputForward);
         //transform.forward *= inputForward * forwardThrustPower * speedMult * Time.deltaTime;
         //_rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.forward) * inputForward * maxForwardThrust * throttle * speedMult * Time.deltaTime);
         Debug.Log("Velocidad: " + _rigidbody.velocity.magnitude);
         if (_rigidbody.velocity.magnitude < maxForwardThrust)
         {
-            _rigidbody.velocity += transform.forward * forwardThrustPower * inputForward * Time.deltaTime;
+            _rigidbody.velocity += transform.forward * forwardThrustPower * inputForward * Time.fixedDeltaTime;
             //_rigidbody.AddRelativeForce(new Vector3(0f, 0f, 1f) * inputForward * forwardThrustPower * speedMult * Time.fixedDeltaTime);
 
         }
         else
         {
             //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, maxForwardThrust);
-            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _rigidbody.velocity.y, _rigidbody.velocity.z - 5f);
+            _rigidbody.velocity = transform.forward * 100 * Time.fixedDeltaTime;
         }
         //_rigidbody.transform.forward += new Vector3(0f, 0f, (inputForward * forwardThrustPower) * Time.deltaTime);
     }
@@ -111,10 +125,10 @@ public class ShipMovement : MonoBehaviour
     public void HorizontalMoveStart()
     {
         float inputHorizontal = _control.ShipMovement.HorizontalMovement.ReadValue<float>();
-        _rigidbody.AddTorque(_rigidbody.transform.TransformDirection(Vector3.forward) * - inputHorizontal * horizontalThrustPower * responseModifier * Time.deltaTime);
+        //_rigidbody.AddTorque(_rigidbody.transform.TransformDirection(Vector3.up) * - inputHorizontal * horizontalThrustPower * responseModifier * Time.deltaTime);
         
         //_rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.right) * inputHorizontal * horizontalThrustPower * speedMult * Time.fixedDeltaTime, ForceMode.Force);
-        //_rigidbody.AddTorque(_rigidbody.transform.right * speedMultAngle * inputHorizontal, ForceMode.VelocityChange);
+        _rigidbody.AddTorque(_rigidbody.transform.forward * speedMultAngle * inputHorizontal * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }   
 
      public void HorizontalMoveStop()
