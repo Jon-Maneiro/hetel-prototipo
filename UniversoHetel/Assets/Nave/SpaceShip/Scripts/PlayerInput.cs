@@ -30,9 +30,9 @@ public class PlayerInput : MonoBehaviour
         _controls.Enable();
 
         _controls.ShipMovement.ForwardMovement.performed += context => InvokeRepeating(nameof(Movement), 0f, 0.01f);
-       // _controls.ShipMovement.ForwardMovement.canceled += context => CancelInvoke(nameof(Movement));
+        _controls.ShipMovement.ForwardMovement.canceled += context => CancelInvoke(nameof(Movement));
         _controls.ShipMovement.HorizontalMovement.performed += context => InvokeRepeating(nameof(Movement), 0f, 0.01f);
-        //_controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
+        _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
     //     _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
     //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
     //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));

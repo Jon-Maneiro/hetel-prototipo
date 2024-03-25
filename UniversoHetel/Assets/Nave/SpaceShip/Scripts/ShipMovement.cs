@@ -23,7 +23,7 @@ public class ShipMovement : MonoBehaviour
     private float forwardGlide, HorizontalGlide = 0f;
     [SerializeField] private float speedMult = 1;
     [SerializeField] private float speedMultAngle = 0.5f;
-    [SerializeField] private float speedRollMultAngle = 0.05f;
+    [SerializeField] private float speedRollAngle = 0.05f;
     [SerializeField] private float throttleIncrement = 0.1f;
     [SerializeField] private float reponsiveness = 10f;
     [SerializeField] private float curSpeed;
@@ -32,7 +32,7 @@ public class ShipMovement : MonoBehaviour
     private float speed;
     private float deadZoneRadius = .07f;
 
-    private float throttle;
+    private float verticalMove;
     private float roll;
     private float pitch;
     private float yaw;
@@ -63,7 +63,7 @@ public class ShipMovement : MonoBehaviour
         _control = new InputActions();
         _control.Enable();
 
-        PlayerInput.ForwardEvent += ForwardThrust;
+       // PlayerInput.ForwardEvent += ForwardThrust;
         PlayerInput.HorizontalEvent += HorizontalMoveStart;
         PlayerInput.RotationEvent += RotationMove;
         PlayerInput.FireEvent += FireWeapon;
@@ -73,6 +73,8 @@ public class ShipMovement : MonoBehaviour
     void Update()
     {
         _rigidbody.freezeRotation = true;
+        verticalMove = Input.GetAxis("Vertical");
+
         // if (_control.ShipMovement.ForwardMovement.ReadValue<float>() >= 0) throttle += throttleIncrement;
         // else if (_control.ShipMovement.ForwardMovement.ReadValue<float>() == 0) throttle = 0;
         // else if (_control.ShipMovement.HorizontalMovement.ReadValue<float>() <= 0) throttle -= throttleIncrement;
@@ -87,6 +89,8 @@ public class ShipMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.forward) * verticalMove * forwardThrustPower * speedMult, ForceMode.VelocityChange);
+        
         lookInput.x = Input.mousePosition.x;
         lookInput.y = Input.mousePosition.y;
         
@@ -128,7 +132,7 @@ public class ShipMovement : MonoBehaviour
         //_rigidbody.AddTorque(_rigidbody.transform.TransformDirection(Vector3.up) * - inputHorizontal * horizontalThrustPower * responseModifier * Time.deltaTime);
         
         //_rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.right) * inputHorizontal * horizontalThrustPower * speedMult * Time.fixedDeltaTime, ForceMode.Force);
-        _rigidbody.AddTorque(_rigidbody.transform.forward * speedMultAngle * inputHorizontal * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        _rigidbody.AddTorque(_rigidbody.transform.forward * speedMultAngle * speedRollAngle * inputHorizontal * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }   
 
      public void HorizontalMoveStop()
