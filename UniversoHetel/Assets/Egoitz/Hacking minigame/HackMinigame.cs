@@ -14,23 +14,21 @@ public class HackMinigame : MonoBehaviour
     [SerializeField] private Text text1;
     [SerializeField] private Text text2;
     [SerializeField] private Button[] butons;
+    [SerializeField] private float moveRate;
     
     // Start is called before the first frame update
     void Start()
     {
         //MostrarTexto(ipMix, text2);
         MostrarTexto(solution, text1);
-        MostrarBoton(ipMix, butons);
+        MostrarBoton();
+        
+        
+        InvokeRepeating("MoverValores", 0.0f, moveRate);
+        InvokeRepeating("MostrarBoton", 0.0f, moveRate);
+        InvokeRepeating("resetButtons", 0.0f, moveRate);
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-    
-    
     private void MostrarTexto(string[] strings, Text textArea)
     {
         
@@ -43,13 +41,30 @@ public class HackMinigame : MonoBehaviour
         textArea.text = textoAmostrar.ToString();
         
     }
+
+    private void MoverValores()
+    {
+        String primeraIp = ipMix[0];
+
+        for (int i = 0; i < ipMix.Length; i++)
+        {
+            if (i == ipMix.Length-1)
+            {
+                ipMix[ipMix.Length-1] = primeraIp;
+            }
+            else
+            {
+                ipMix[i] = ipMix[i + 1];  
+            }
+        }
+    }
     
-    private void MostrarBoton(string[] strings, Button[] botones)
+    private void MostrarBoton()
     {
 
-        for (int i = 0; i < botones.Length; i++)
+        for (int i = 0; i < butons.Length; i++)
         {
-            botones[i].GetComponentInChildren<Text>().text = strings[i].ToString();
+            butons[i].GetComponentInChildren<Text>().text = ipMix[i].ToString();
         }
     }
 
@@ -198,8 +213,6 @@ public class HackMinigame : MonoBehaviour
             button7,
             button8
         };
-       
-        
         
         //Mostrar resultados
         string selectedStrings = null;
@@ -214,6 +227,7 @@ public class HackMinigame : MonoBehaviour
             for (int i = 0; i < selectedButtonSequence.Length; i++)
             {
                 selectedButtonSequence[i].GetComponent<Image>().color = Color.green;
+                Time.timeScale = 0;
             }
         }
         else
@@ -225,6 +239,15 @@ public class HackMinigame : MonoBehaviour
         }
         
         Debug.Log(selectedStrings + "|" + isCorrect);
+    }
+
+    private void resetButtons()
+    {
+        for (int i = 0; i < butons.Length; i++)
+        {
+            butons[i].GetComponent<Image>().color = Color.white;  
+        }
+        
     }
     
 }
