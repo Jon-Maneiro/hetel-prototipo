@@ -13,13 +13,17 @@ public class HackMinigame : MonoBehaviour
 
     [SerializeField] private Text text1;
     [SerializeField] private Text text2;
+    [SerializeField] private Text text3;
+    [SerializeField] private Text text4;
+    
     [SerializeField] private Button[] butons;
     [SerializeField] private float moveRate;
+    [SerializeField] private float time;
     
     // Start is called before the first frame update
     void Start()
     {
-        //MostrarTexto(ipMix, text2);
+        text4.gameObject.SetActive(false);
         MostrarTexto(solution, text1);
         MostrarBoton();
         
@@ -29,6 +33,23 @@ public class HackMinigame : MonoBehaviour
         InvokeRepeating("resetButtons", 0.0f, moveRate);
 
     }
+
+    private void FixedUpdate()
+    {
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+            text3.text = time.ToString();
+        }
+        else
+        {
+            text3.text = "Time over";
+            allButtonsRed();
+            endScreen("Failure!");
+            Time.timeScale = 0;
+        }
+    }
+
     private void MostrarTexto(string[] strings, Text textArea)
     {
         
@@ -226,7 +247,8 @@ public class HackMinigame : MonoBehaviour
             isCorrect = true;
             for (int i = 0; i < selectedButtonSequence.Length; i++)
             {
-                selectedButtonSequence[i].GetComponent<Image>().color = Color.green;
+                selectedButtonSequence[i].GetComponent<Image>().color = Color.white;
+                endScreen("Succes!");
                 Time.timeScale = 0;
             }
         }
@@ -245,9 +267,29 @@ public class HackMinigame : MonoBehaviour
     {
         for (int i = 0; i < butons.Length; i++)
         {
-            butons[i].GetComponent<Image>().color = Color.white;  
+            butons[i].GetComponent<Image>().color = Color.black;  
         }
         
+    }
+    
+    private void allButtonsRed()
+    {
+        for (int i = 0; i < butons.Length; i++)
+        {
+            butons[i].GetComponent<Image>().color = Color.red;  
+        }
+        
+    }
+
+    private void endScreen(String message)
+    {
+        for (int i = 0; i < butons.Length; i++)
+        {
+            butons[i].gameObject.SetActive(false);
+        }
+
+        text4.text = message;
+        text4.gameObject.SetActive(true);
     }
     
 }
