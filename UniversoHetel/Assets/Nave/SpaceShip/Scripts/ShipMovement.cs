@@ -90,6 +90,8 @@ public class ShipMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.forward) * verticalMove * forwardThrustPower * speedMult, ForceMode.VelocityChange);
+
+        
         
         lookInput.x = Input.mousePosition.x;
         lookInput.y = Input.mousePosition.y;

@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
             CoolDownTimer = Time.time + coolDownRate;
             GameObject newProyectile = Instantiate(ordinancePrefab, weaponBarrel.transform.position, weaponBarrel.transform.rotation) as GameObject;
             Rigidbody projRb = newProyectile.GetComponent<Rigidbody>();
-            projRb.velocity = parentVelocity + newProyectile.transform.forward * muzzleVelocity;
+            projRb.velocity = newProyectile.transform.forward * muzzleVelocity;
         }
     }
 }

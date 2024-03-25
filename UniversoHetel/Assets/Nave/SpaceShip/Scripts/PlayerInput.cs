@@ -33,12 +33,13 @@ public class PlayerInput : MonoBehaviour
         _controls.ShipMovement.ForwardMovement.canceled += context => CancelInvoke(nameof(Movement));
         _controls.ShipMovement.HorizontalMovement.performed += context => InvokeRepeating(nameof(Movement), 0f, 0.01f);
         _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
-    //     _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
-    //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
-    //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));
-        
-        
-     }
+        _controls.ShipMovement.Shoot.performed += context => Shoot();
+        //     _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
+        //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
+        //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));
+
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -63,15 +64,15 @@ public class PlayerInput : MonoBehaviour
             //if (_controls.ShipMovement.HorizontalMovement.ReadValue<float>() != 0) HorizontalEvent?.Invoke();
         }
 
-        if (FireEvent != null)
-        {
-            if (Input.GetMouseButton(0)) FireEvent?.Invoke();
-        }
-
         // if (RotationEvent != null)
         // {
         //     if (_controls.ShipMovement.RotateMovement.ReadValue<float>() != 0) RotationEvent?.Invoke();
         // }
+    }
+
+    private void Shoot()
+    { 
+        FireEvent?.Invoke();
     }
 
     private void GetMouseInput()
