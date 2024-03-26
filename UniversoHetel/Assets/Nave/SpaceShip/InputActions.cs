@@ -46,7 +46,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""f5cdbd3a-e565-45bb-b1cf-48807569f4ad"",
                     ""expectedControlType"": ""Button"",
@@ -90,8 +90,19 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""212e8d9c-17f5-4bad-a6a0-5f21ab6198cb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""1D Axis"",
-                    ""id"": ""81db6a12-957c-4543-a588-19b2eb822309"",
+                    ""id"": ""241a17b7-dc1d-4228-9108-36fa6c2eb5b6"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -101,8 +112,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""21c56a45-5310-4f4a-a007-4e4ac91953fd"",
+                    ""name"": ""positive"",
+                    ""id"": ""9829119c-d859-4498-908b-99f5a59d8cfe"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -112,8 +123,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""710ac7dc-c259-42f5-a61b-2fc3d9511afa"",
+                    ""name"": ""negative"",
+                    ""id"": ""77fca2f0-6b87-4a84-8ebf-554bc8dc0ce6"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -121,17 +132,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""HorizontalMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""30c8bbab-1972-49e8-b6c7-9bc625484520"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -142,7 +142,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_ShipMovement = asset.FindActionMap("ShipMovement", throwIfNotFound: true);
         m_ShipMovement_ForwardMovement = m_ShipMovement.FindAction("ForwardMovement", throwIfNotFound: true);
         m_ShipMovement_HorizontalMovement = m_ShipMovement.FindAction("HorizontalMovement", throwIfNotFound: true);
-        m_ShipMovement_Newaction = m_ShipMovement.FindAction("New action", throwIfNotFound: true);
+        m_ShipMovement_Shoot = m_ShipMovement.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -206,14 +206,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private List<IShipMovementActions> m_ShipMovementActionsCallbackInterfaces = new List<IShipMovementActions>();
     private readonly InputAction m_ShipMovement_ForwardMovement;
     private readonly InputAction m_ShipMovement_HorizontalMovement;
-    private readonly InputAction m_ShipMovement_Newaction;
+    private readonly InputAction m_ShipMovement_Shoot;
     public struct ShipMovementActions
     {
         private @InputActions m_Wrapper;
         public ShipMovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @ForwardMovement => m_Wrapper.m_ShipMovement_ForwardMovement;
         public InputAction @HorizontalMovement => m_Wrapper.m_ShipMovement_HorizontalMovement;
-        public InputAction @Newaction => m_Wrapper.m_ShipMovement_Newaction;
+        public InputAction @Shoot => m_Wrapper.m_ShipMovement_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_ShipMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -229,9 +229,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HorizontalMovement.started += instance.OnHorizontalMovement;
             @HorizontalMovement.performed += instance.OnHorizontalMovement;
             @HorizontalMovement.canceled += instance.OnHorizontalMovement;
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(IShipMovementActions instance)
@@ -242,9 +242,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @HorizontalMovement.started -= instance.OnHorizontalMovement;
             @HorizontalMovement.performed -= instance.OnHorizontalMovement;
             @HorizontalMovement.canceled -= instance.OnHorizontalMovement;
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(IShipMovementActions instance)
@@ -266,6 +266,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnForwardMovement(InputAction.CallbackContext context);
         void OnHorizontalMovement(InputAction.CallbackContext context);
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
