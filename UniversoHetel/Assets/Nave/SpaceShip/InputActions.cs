@@ -53,6 +53,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""VerticalMovement"",
+                    ""type"": ""Button"",
+                    ""id"": ""08ade443-22a1-4d16-9fb3-bf3d4f7e59ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,39 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""HorizontalMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""40bded21-bdff-4760-838d-de2e23777296"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""273265c4-f8f5-492e-96cd-942dd03674c7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8820fa40-1a49-43ff-aa68-e9d0a7669118"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -143,6 +185,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_ShipMovement_ForwardMovement = m_ShipMovement.FindAction("ForwardMovement", throwIfNotFound: true);
         m_ShipMovement_HorizontalMovement = m_ShipMovement.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_ShipMovement_Shoot = m_ShipMovement.FindAction("Shoot", throwIfNotFound: true);
+        m_ShipMovement_VerticalMovement = m_ShipMovement.FindAction("VerticalMovement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +250,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_ShipMovement_ForwardMovement;
     private readonly InputAction m_ShipMovement_HorizontalMovement;
     private readonly InputAction m_ShipMovement_Shoot;
+    private readonly InputAction m_ShipMovement_VerticalMovement;
     public struct ShipMovementActions
     {
         private @InputActions m_Wrapper;
@@ -214,6 +258,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @ForwardMovement => m_Wrapper.m_ShipMovement_ForwardMovement;
         public InputAction @HorizontalMovement => m_Wrapper.m_ShipMovement_HorizontalMovement;
         public InputAction @Shoot => m_Wrapper.m_ShipMovement_Shoot;
+        public InputAction @VerticalMovement => m_Wrapper.m_ShipMovement_VerticalMovement;
         public InputActionMap Get() { return m_Wrapper.m_ShipMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +277,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @VerticalMovement.started += instance.OnVerticalMovement;
+            @VerticalMovement.performed += instance.OnVerticalMovement;
+            @VerticalMovement.canceled += instance.OnVerticalMovement;
         }
 
         private void UnregisterCallbacks(IShipMovementActions instance)
@@ -245,6 +293,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @VerticalMovement.started -= instance.OnVerticalMovement;
+            @VerticalMovement.performed -= instance.OnVerticalMovement;
+            @VerticalMovement.canceled -= instance.OnVerticalMovement;
         }
 
         public void RemoveCallbacks(IShipMovementActions instance)
@@ -267,5 +318,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnForwardMovement(InputAction.CallbackContext context);
         void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnVerticalMovement(InputAction.CallbackContext context);
     }
 }
