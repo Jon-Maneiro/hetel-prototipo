@@ -17,6 +17,7 @@ namespace Raul.scripts
             if (other.CompareTag("salida"))
             {
                 _activo = true;
+                GetComponent<ParticleSystem>().Play();
             }
         }
 

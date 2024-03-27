@@ -16,16 +16,18 @@ namespace Raul.scripts
         
         void Update()
         {
+            var position = salidaObject.transform.position;
             if (_entrada.GetActivo())
             {
-                salidaObject.transform.position = new Vector3(salidaObject.transform.position.x,
-                    salidaObject.transform.position.y, 0);
+                
+                position = new Vector3(position.x, position.y, 0);
+                salidaObject.transform.position = position;
                 GetComponent<Renderer>().material.color = Color.green;
             }
             else
             {
-                salidaObject.transform.position = new Vector3(salidaObject.transform.position.x,
-                    salidaObject.transform.position.y, -500);
+                position = new Vector3(position.x, position.y, -500);
+                salidaObject.transform.position = position;
                 GetComponent<Renderer>().material.color = Color.red;
             }
         }
