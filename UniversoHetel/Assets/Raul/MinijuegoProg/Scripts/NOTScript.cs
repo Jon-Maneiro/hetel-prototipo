@@ -8,23 +8,24 @@ namespace Raul.scripts
         [SerializeField] private GameObject salida;
 
         private PataScript _pata1;
-        // Start is called before the first frame update
         void Start()
         {
             _pata1 = pata1Object.GetComponent<PataScript>();
         }
 
-        // Update is called once per frame
         void Update()
         {
+            var position = salida.transform.position;
             if (!_pata1.GetActivo())
             {
-                salida.transform.position = new Vector3(salida.transform.position.x, salida.transform.position.y, 0);
+                position = new Vector3(position.x, position.y, 0);
+                salida.transform.position = position;
                 GetComponent<Renderer>().material.color = Color.green;
             }
             else
             {
-                salida.transform.position = new Vector3(salida.transform.position.x, salida.transform.position.y, -500);
+                position = new Vector3(position.x, position.y, -500);
+                salida.transform.position = position;
                 GetComponent<Renderer>().material.color = Color.red;
             }
         }
