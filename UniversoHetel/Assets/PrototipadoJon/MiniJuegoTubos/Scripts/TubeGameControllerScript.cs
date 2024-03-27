@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TubeGameControllerScript : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class TubeGameControllerScript : MonoBehaviour
     
     private int _correctTubes = 0;
     [SerializeField]  private int neededCorrectTubes = 0;
+    
+    [SerializeField] private Text text;
     
     
     // Start is called before the first frame update
@@ -35,7 +38,9 @@ public class TubeGameControllerScript : MonoBehaviour
         Debug.Log("Ese ahi esta bien " + _correctTubes);
         if (_correctTubes == neededCorrectTubes)
         {
-            Debug.Log("heeeeeey que bien, has ganado bro, sigue estudiando");
+            text.text = "Succes!";
+            text.gameObject.SetActive(true);
+            //Debug.Log("heeeeeey que bien, has ganado bro, sigue estudiando");
             EndGame();
         }
     }
