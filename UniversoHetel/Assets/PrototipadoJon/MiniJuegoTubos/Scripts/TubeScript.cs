@@ -10,6 +10,7 @@ public class TubeScript : MonoBehaviour
     private float[] rotations = { 0, 90, 180, 270};
     [SerializeField] private float[] correctRotation;
     [SerializeField] private bool isPlaced = false;
+    [SerializeField] private bool notRotate = false;
     private int _possibleRotation = 0;
 
     private TubeGameControllerScript _tubeGameControllerScript;
@@ -24,7 +25,7 @@ public class TubeScript : MonoBehaviour
     {
         _possibleRotation = correctRotation.Length;
         int rand = Random.Range(0, rotations.Length);
-        transform.eulerAngles = new Vector3(0,0,rotations[rand]);
+        if (!notRotate)  transform.eulerAngles = new Vector3(0,0,rotations[rand]); 
         CheckCorrectRotation();
         
     }
@@ -54,6 +55,7 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = true;
                     _tubeGameControllerScript.CorrectMove();    
+                    GetComponentInChildren<Renderer>().material.color = Color.green;
                 }
             }
             else
@@ -62,6 +64,7 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = false;
                     _tubeGameControllerScript.WrongMove();    
+                    GetComponentInChildren<Renderer>().material.color = Color.white;
                 }
             }
                 
@@ -73,7 +76,9 @@ public class TubeScript : MonoBehaviour
                 if (!isPlaced)
                 {
                     isPlaced = true;
-                    _tubeGameControllerScript.CorrectMove();    
+                    _tubeGameControllerScript.CorrectMove();
+                    GetComponentInChildren<Renderer>().material.color = Color.green;
+
                 }
             }
             else
@@ -82,6 +87,8 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = false;
                     _tubeGameControllerScript.WrongMove();    
+                    GetComponentInChildren<Renderer>().material.color = Color.white;
+
                 }
             }
         }
