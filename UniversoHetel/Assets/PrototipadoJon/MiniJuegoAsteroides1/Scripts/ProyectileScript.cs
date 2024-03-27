@@ -8,6 +8,8 @@ public class ProyectileScript : MonoBehaviour
 {
 
     [SerializeField] private float projectileSpeed;
+
+    public static event Action<GameObject> Hit;
     
     private Rigidbody _projectileBody;
     // Start is called before the first frame update
@@ -33,7 +35,7 @@ public class ProyectileScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            Hit?.Invoke(other.gameObject);
             Destroy(gameObject);
         }
     }

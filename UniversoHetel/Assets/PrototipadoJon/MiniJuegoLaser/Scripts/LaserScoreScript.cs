@@ -26,7 +26,7 @@ public class LaserScoreScript : MonoBehaviour
         _vida++;
         _goodPoints++;
         _textoResultado.text = "Succes!";
-        Time.timeScale = 0;
+        Invoke(nameof(StopTime), 0.5f);
     }
 
     private void Substract()
@@ -39,7 +39,12 @@ public class LaserScoreScript : MonoBehaviour
         {
             _textoResultado.text = "Failure!";
             _textoVida.text = "Vida: " + 0;
-            Time.timeScale = 0;
+            Invoke(nameof(StopTime), 0.5f);
         }
+    }
+
+    private void StopTime()
+    {
+        Time.timeScale = 0;
     }
 }

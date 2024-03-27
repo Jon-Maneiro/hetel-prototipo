@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5755993792699583872
+--- !u!1 &2473972258420030975
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6771772266343619616}
-  - component: {fileID: 3984454417355940106}
-  - component: {fileID: 1629684456191795791}
-  - component: {fileID: 714142528036855838}
-  - component: {fileID: 1021425856563205431}
-  - component: {fileID: 5964101918468999029}
-  m_Layer: 7
-  m_Name: Asteroid
-  m_TagString: Enemy
+  - component: {fileID: 4433950330397015584}
+  - component: {fileID: 6004140463758919264}
+  - component: {fileID: 4207912843063087165}
+  - component: {fileID: 8389509711292599049}
+  - component: {fileID: -5382100892847711045}
+  m_Layer: 10
+  m_Name: PowerUp
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6771772266343619616
+--- !u!4 &4433950330397015584
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755993792699583872}
+  m_GameObject: {fileID: 2473972258420030975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.0919862, y: -0.2699872, z: -6.767914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3984454417355940106
+--- !u!33 &6004140463758919264
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755993792699583872}
+  m_GameObject: {fileID: 2473972258420030975}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1629684456191795791
+--- !u!23 &4207912843063087165
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755993792699583872}
+  m_GameObject: {fileID: 2473972258420030975}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e5fd9c89b9cc3e4cbc4402d94522806, type: 2}
+  - {fileID: 2100000, guid: 72e196c31c680914b8d364ff67e60f2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,14 +85,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &714142528036855838
+--- !u!135 &8389509711292599049
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755993792699583872}
-  m_Material: {fileID: 13400000, guid: a30cf2710f91f2a4c80818fd79d27f58, type: 2}
+  m_GameObject: {fileID: 2473972258420030975}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -107,15 +106,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1021425856563205431
+--- !u!54 &-5382100892847711045
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755993792699583872}
+  m_GameObject: {fileID: 2473972258420030975}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -132,22 +131,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5964101918468999029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5755993792699583872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5907b28089dd86a4fbc0051f701ea509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasSmaller: 0
-  smallerMeteorite: {fileID: 0}
-  powerUp: {fileID: 2473972258420030975, guid: 729b3a9ca3fff9f41a3093453b68aa87, type: 3}
-  powerUpPercentile: 1
-  speed: 300
