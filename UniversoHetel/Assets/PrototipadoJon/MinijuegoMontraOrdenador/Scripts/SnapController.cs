@@ -19,6 +19,7 @@ public class SnapController : MonoBehaviour
     public Canvas canvasVictoria;
     public Canvas canvasDerrota;
     public float remainingTime = 120;
+    public bool alwaysTrue;
     [SerializeField] private TextMeshProUGUI temporizador; 
     
     // Start is called before the first frame update
@@ -28,18 +29,29 @@ public class SnapController : MonoBehaviour
         {
             draggable.dragEndedCallback = OnDragEnded;
         }
-        InvokeRepeating(nameof(TimerFunction), 0f, 0.03f);
+
+        StartCoroutine(nameof(TimerFunction));
     }
     
-    private void TimerFunction()
+    private IEnumerator TimerFunction()
     {
-        remainingTime -= Time.deltaTime;
-        temporizador.text = remainingTime.ToString();
-        if (remainingTime <= 0.0f)
+        
+        bool keepLoop = true;
+
+        while (keepLoop)
         {
-            CancelInvoke(nameof(TimerFunction));
-            canvasDerrota.enabled = true;
-            Invoke(nameof(changeScene),2f);
+            Debug.Log("AHUHAHAUAH");
+            remainingTime -= 1;
+            temporizador.text = remainingTime.ToString();
+            
+            yield return new WaitForSecondsRealtime(1f);
+            if (remainingTime <= 0.0f)
+            {
+                CancelInvoke(nameof(TimerFunction));
+                canvasDerrota.enabled = true;
+                Invoke(nameof(changeScene),2f);
+                keepLoop = false;
+            }    
         }
     }
     
@@ -73,17 +85,28 @@ public class SnapController : MonoBehaviour
 
     private void CheckCorrectPosition(DraggableObject draggableObject, Transform snapPoint)
     {
-        if (snapPoint.Equals(draggableObject.correctSnapPoint))
+        foreach (var testSnapPoint in draggableObject.correctSnapPoint)
         {
-            draggableObject.isCorrect = true;
+            if (testSnapPoint.Equals(snapPoint))
+            {
+                draggableObject.isCorrect = true;
+                break;
+            }
+            else
+            {
+                draggableObject.isCorrect = false;
+            }
         }
+        
 
         foreach (DraggableObject draggable in draggableObjects)
         {
             if (!draggable.isCorrect) return;
+            Debug.Log("Oh no! Hay alguno mal Nya");
         }
-
+        
         canvasVictoria.enabled = true;
+        StopCoroutine(nameof(TimerFunction));
         Invoke(nameof(changeScene), 2f);
     }
 
