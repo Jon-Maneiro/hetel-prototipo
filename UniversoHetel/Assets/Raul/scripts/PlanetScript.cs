@@ -78,7 +78,7 @@ namespace Raul
             if (!_seleccionado) return;
             if (_naveActiva) return;
             _naveActiva = true;
-            nave.SetActive(true);
+            //nave.SetActive(true);
             MoveNave?.Invoke(puntoNave);
         }
 

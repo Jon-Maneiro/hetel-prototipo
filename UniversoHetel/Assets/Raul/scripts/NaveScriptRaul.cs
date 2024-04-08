@@ -11,7 +11,7 @@ namespace Raul.scripts
         private void OnEnable()
         {
             _originalPos = transform.position;
-            PlanetScript.MoveNave += MoverNave;
+            //PlanetScript.MoveNave += MoverNave;
         }
 
         private void MoverNave(GameObject punto)
