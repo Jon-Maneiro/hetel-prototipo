@@ -22,7 +22,8 @@ public class PowerUp : MonoBehaviour
 
     private void GiveForce()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,-400,0));
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,-300,0));
+        Debug.Log("Aguacate");
     }
 
     private void OnCollisionEnter(Collision other)

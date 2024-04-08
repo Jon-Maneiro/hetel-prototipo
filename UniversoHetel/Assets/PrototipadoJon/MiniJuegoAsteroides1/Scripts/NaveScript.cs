@@ -40,14 +40,15 @@ public class NaveScript : MonoBehaviour
                 transform.position.z);
         }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (_shootTimer >= timeBetweenShots)
             {
+                _shootTimer = 0;
                 FireSelector(_selectedFireMode);    
             }
         }
-
+        /*QUITAR ESTO DEBUG DEBUG DEBUG DEBUG DEVELOPMENT*/
         if (Input.GetKeyDown((KeyCode.H)))
         {
             _selectedFireMode = GameControllerAster1.FireMode.DoubleFire;
@@ -57,6 +58,12 @@ public class NaveScript : MonoBehaviour
         {
             _selectedFireMode = GameControllerAster1.FireMode.SingleFire;
         }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            _selectedFireMode = GameControllerAster1.FireMode.FanFire;
+        }
+
     }
 
     private void FixedUpdate()
@@ -92,9 +99,9 @@ public class NaveScript : MonoBehaviour
             case GameControllerAster1.FireMode.FanFire:
                 FanFireMode();
                 break;
-            case GameControllerAster1.FireMode.Piercing:
-                PiercingFireMode();
-                break;
+            //case GameControllerAster1.FireMode.Piercing:
+                //PiercingFireMode();
+                //break;
         }
     }
 
@@ -120,17 +127,29 @@ public class NaveScript : MonoBehaviour
 
     private void DoubleFireMode()
     {
-        Instantiate(proyectile,
+        GameObject leftProyectile = Instantiate(proyectile,
             new Vector3(transform.position.x - 0.1f, transform.position.y + 0.75f, transform.position.z),
             Quaternion.identity);
-        Instantiate(proyectile,
+        GameObject rightProyectile = Instantiate(proyectile,
             new Vector3(transform.position.x + 0.1f, transform.position.y + 0.75f, transform.position.z),
             Quaternion.identity);
     }
 
     private void FanFireMode()
     {
-        
+        GameObject centerProyectile  = Instantiate(proyectile,
+            new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z),
+            Quaternion.identity);
+
+        GameObject leftProyectile = Instantiate(proyectile,
+            new Vector3(transform.position.x - 0.25f, transform.position.y + 0.75f, transform.position.z),
+            Quaternion.identity);;
+        leftProyectile.transform.eulerAngles = new Vector3(0, 0, 25f);
+
+        GameObject rightProyectile = Instantiate(proyectile,
+            new Vector3(transform.position.x + 0.25f, transform.position.y + 0.75f, transform.position.z),
+            Quaternion.identity);;
+        rightProyectile.transform.eulerAngles = new Vector3(0, 0, -25f);
     }
 
     private void PiercingFireMode()
