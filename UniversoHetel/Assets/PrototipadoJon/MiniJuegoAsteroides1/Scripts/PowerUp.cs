@@ -13,6 +13,8 @@ public class PowerUp : MonoBehaviour
     
     public static event Action<GameControllerAster1.FireMode> PowerUpTaken;
     
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +41,23 @@ public class PowerUp : MonoBehaviour
     {
         int value = (int)Random.Range(0,3);
         _powerUpType = (GameControllerAster1.FireMode)value;
+        changeColor(_powerUpType);
     }
 
-    private void changeColor()
+    private void changeColor(GameControllerAster1.FireMode type)
     {
-        //TODO - Actually implement function
+        var mat = gameObject.GetComponent<Renderer>();
+        switch (type)
+        {
+            case GameControllerAster1.FireMode.SingleFire:
+                mat.material.SetColor("_Color",Color.blue);
+                break;
+            case GameControllerAster1.FireMode.DoubleFire:
+                mat.material.SetColor("_Color",Color.yellow);
+                break;
+            case GameControllerAster1.FireMode.FanFire:
+                mat.material.SetColor("_Color",Color.magenta);
+                break;
+        }
     }
 }

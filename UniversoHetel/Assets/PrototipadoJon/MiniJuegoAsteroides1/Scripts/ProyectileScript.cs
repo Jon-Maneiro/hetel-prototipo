@@ -12,6 +12,8 @@ public class ProyectileScript : MonoBehaviour
     public static event Action<GameObject> Hit;
     
     private Rigidbody _projectileBody;
+
+    public bool isExplosive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,15 @@ public class ProyectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void OnDestroy()
+    {
+        if (isExplosive)
+        {
+            //Invoke Explosion    
+        }
         
     }
 
