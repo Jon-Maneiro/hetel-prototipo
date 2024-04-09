@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameControllerAster1 : MonoBehaviour
 {
@@ -10,8 +14,7 @@ public class GameControllerAster1 : MonoBehaviour
     {
         SingleFire,
         DoubleFire,
-        FanFire,
-        Piercing
+        FanFire
     }
     
     
@@ -29,10 +32,21 @@ public class GameControllerAster1 : MonoBehaviour
     private float spannedTime = 0f;
     
     [SerializeField] private GameObject[] asteroids;
+    private GameObject canvasJuego;
+    private GameObject hpContainer;
+    private Canvas canvasVictoria;
+    private Canvas canvasDerrota;
+
+    public static event Action<bool> GameStop;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        canvasVictoria = GameObject.Find("VictoryCanvas").GetComponent<Canvas>();
+        canvasDerrota = GameObject.Find("DefeatCanvas").GetComponent<Canvas>();
+        canvasJuego = GameObject.Find("GameCanvas");
+        hpContainer = canvasJuego.transform.Find("Hearts").gameObject;
+        
         NaveScript.DamageReceived += UpdateHealth;
         
         if (timed)
@@ -118,23 +132,66 @@ public class GameControllerAster1 : MonoBehaviour
 
     private void Victory()
     {
-        //TODO - Show Victory Canvas
+        canvasVictoria.enabled = true;
+        canvasJuego.GetComponent<Canvas>().enabled = false;
+        GameStop?.Invoke(true);
         Debug.Log("has ganado yay");
         Time.timeScale = 0;
+        //TODO scene change
     }
 
     private void Defeat()
     {
-        //TODO - Show Defeat Canvas
+        canvasDerrota.enabled = true;
+        canvasJuego.GetComponent<Canvas>().enabled = false;
+        GameStop?.Invoke(true);
         Debug.Log("has perdido yoy");
         Time.timeScale = 0;
+        //TODO scene change
     }
 
+    private void ChangeScene(string sceneName)
+    {
+        //SceneManager
+    }
 
     private void UpdateHealth(int health)
     {
-        if(health <= 0) Defeat();
-        //TODO - Add Canvas Health
+        List<GameObject> lista = HelperMethods.GetChildren(hpContainer);
+
+        switch (health)
+        {
+            case 3:
+                lista[0].gameObject.GetComponent<Image>().enabled = true;
+                lista[1].gameObject.GetComponent<Image>().enabled = true;
+                lista[2].gameObject.GetComponent<Image>().enabled = true;
+                break;
+            case 2:
+                lista[0].gameObject.GetComponent<Image>().enabled = false;
+                lista[1].gameObject.GetComponent<Image>().enabled = true;
+                lista[2].gameObject.GetComponent<Image>().enabled = true;
+                break;
+            case 1:
+                lista[0].gameObject.GetComponent<Image>().enabled = false;
+                lista[1].gameObject.GetComponent<Image>().enabled = false;
+                lista[2].gameObject.GetComponent<Image>().enabled = true;
+                break;
+            case 0:
+                lista[0].gameObject.GetComponent<Image>().enabled = false;
+                lista[1].gameObject.GetComponent<Image>().enabled = false;
+                lista[2].gameObject.GetComponent<Image>().enabled = false;
+                Defeat();
+                break;
+            default:
+                if (health > 3)
+                {
+                    lista[0].gameObject.GetComponent<Image>().enabled = true;
+                    lista[1].gameObject.GetComponent<Image>().enabled = true;
+                    lista[2].gameObject.GetComponent<Image>().enabled = true;
+                }
+                break;
+        }
+        
     }
 
 
