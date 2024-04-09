@@ -31,12 +31,9 @@ public class ShipMovement : MonoBehaviour
     private float mouseInputY;
     private float speed;
     private float deadZoneRadius = .07f;
-
     private float verticalMove;
-    private float roll;
-    private float pitch;
-    private float yaw;
 
+    [SerializeField] private float UpDownPower;
     private float responseModifier
     {
         get
@@ -67,6 +64,7 @@ public class ShipMovement : MonoBehaviour
         PlayerInput.HorizontalEvent += HorizontalMoveStart;
         PlayerInput.RotationEvent += RotationMove;
         PlayerInput.FireEvent += FireWeapon;
+        PlayerInput.UpDownEvent += UpDown;
         //PlayerInput.HorizontalEvent -= HorizontalMoveStop;
     }
 
@@ -85,6 +83,12 @@ public class ShipMovement : MonoBehaviour
     private void FireWeapon()
     {
         myWeapon.Fire(_rigidbody.velocity);
+    }
+
+    private void UpDown()
+    {
+        float inputUpDown = _control.ShipMovement.VerticalMovement.ReadValue<float>();
+        _rigidbody.velocity += transform.up * UpDownPower * inputUpDown * Time.fixedDeltaTime;
     }
 
     private void FixedUpdate()
