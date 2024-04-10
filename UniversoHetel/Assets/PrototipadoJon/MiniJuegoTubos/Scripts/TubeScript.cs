@@ -38,18 +38,26 @@ public class TubeScript : MonoBehaviour
 
     public void RotatePiece()
     {
-        transform.Rotate(new Vector3(0f,0f,-90f), Space.Self);
+        transform.Rotate(new Vector3(0f,0f,90f), Space.Self);
         CheckCorrectRotation();
     }
 
     private void CheckCorrectRotation()
     {
+        bool correct = false;
+
         if (_possibleRotation == 0) return;
         
         if (_possibleRotation > 1)
         {
-            if (Math.Abs(transform.eulerAngles.z - correctRotation[0]) < 1 ||
-                Math.Abs(transform.eulerAngles.z - correctRotation[1]) < 1)
+            foreach (var rotation in correctRotation)
+            {
+                if (Math.Abs(transform.eulerAngles.z - rotation) < 1)
+                {
+                    correct = true;
+                }
+            }
+            if (correct)
             {
                 if (!isPlaced)
                 {
