@@ -37,6 +37,9 @@ public class GameControllerAster1 : MonoBehaviour
     private Canvas canvasVictoria;
     private Canvas canvasDerrota;
 
+    [SerializeField] private string targetSceneVictory;
+    [SerializeField] private string targetSceneDefeat;
+    
     public static event Action<bool> GameStop;
     
     // Start is called before the first frame update
@@ -137,7 +140,7 @@ public class GameControllerAster1 : MonoBehaviour
         GameStop?.Invoke(true);
         Debug.Log("has ganado yay");
         Time.timeScale = 0;
-        //TODO scene change
+        ChangeScene(targetSceneVictory);
     }
 
     private void Defeat()
@@ -147,12 +150,13 @@ public class GameControllerAster1 : MonoBehaviour
         GameStop?.Invoke(true);
         Debug.Log("has perdido yoy");
         Time.timeScale = 0;
-        //TODO scene change
+        ChangeScene(targetSceneDefeat);
     }
 
-    private void ChangeScene(string sceneName)
+    private void ChangeScene(string targetScene)
     {
-        //SceneManager
+        LoadingData.sceneToLoad = targetScene;
+        SceneManager.LoadScene("LoadingScreen");
     }
 
     private void UpdateHealth(int health)
