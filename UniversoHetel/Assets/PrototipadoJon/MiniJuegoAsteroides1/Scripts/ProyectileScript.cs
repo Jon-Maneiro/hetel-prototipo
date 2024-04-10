@@ -12,6 +12,8 @@ public class ProyectileScript : MonoBehaviour
     public static event Action<GameObject> Hit;
     
     private Rigidbody _projectileBody;
+
+    public bool isExplosive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +27,18 @@ public class ProyectileScript : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        if (isExplosive)
+        {
+            //Invoke Explosion    
+        }
+        
+    }
+
     private void ApplyForce()
     {
-        Vector3 speed = new Vector3(0, projectileSpeed, 0);
-        _projectileBody.AddRelativeForce(speed);
+        _projectileBody.AddRelativeForce(gameObject.transform.up * projectileSpeed);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -36,7 +46,8 @@ public class ProyectileScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Hit?.Invoke(other.gameObject);
-            Destroy(gameObject);
         }
+        
+        Destroy(gameObject);
     }
 }

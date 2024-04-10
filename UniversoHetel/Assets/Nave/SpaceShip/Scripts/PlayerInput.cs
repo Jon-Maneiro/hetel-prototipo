@@ -21,6 +21,7 @@ public class PlayerInput : MonoBehaviour
     public static event Action HorizontalEvent;
     public static event Action RotationEvent;
     public static event Action FireEvent;
+    public static event Action UpDownEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ public class PlayerInput : MonoBehaviour
         _controls.ShipMovement.HorizontalMovement.performed += context => InvokeRepeating(nameof(HorizontalMovement), 0f, 0.01f);
         _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(HorizontalMovement));
         _controls.ShipMovement.Shoot.performed += context => Shoot();
+        _controls.ShipMovement.VerticalMovement.performed += context => InvokeRepeating(nameof(UpDown), 0f, 0.01f);
+        _controls.ShipMovement.VerticalMovement.canceled += context => CancelInvoke(nameof(UpDown));
         //     _controls.ShipMovement.HorizontalMovement.canceled += context => CancelInvoke(nameof(Movement));
         //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
         //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));
@@ -79,9 +82,14 @@ public class PlayerInput : MonoBehaviour
     }
 
 
-private void Shoot()
+    private void Shoot()
     { 
         FireEvent?.Invoke();
+    }
+
+    private void UpDown()
+    {
+        UpDownEvent?.Invoke();
     }
 
     private void GetMouseInput()

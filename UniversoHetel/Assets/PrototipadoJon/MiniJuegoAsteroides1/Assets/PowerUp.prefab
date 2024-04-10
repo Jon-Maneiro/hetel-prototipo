@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4207912843063087165}
   - component: {fileID: 8389509711292599049}
   - component: {fileID: -5382100892847711045}
-  m_Layer: 10
+  - component: {fileID: 2229394201406834773}
+  m_Layer: 11
   m_Name: PowerUp
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2229394201406834773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473972258420030975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c925028d37bbf74ea5e34091e7c153f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _powerUpType: 0
+  randomizePowerUp: 1

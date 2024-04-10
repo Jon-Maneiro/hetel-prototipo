@@ -33,6 +33,8 @@ public class Weapon : MonoBehaviour
             GameObject newProyectile = Instantiate(ordinancePrefab, weaponBarrel.transform.position, weaponBarrel.transform.rotation) as GameObject;
             Rigidbody projRb = newProyectile.GetComponent<Rigidbody>();
             projRb.velocity = newProyectile.transform.forward * muzzleVelocity;
+            Destroy(newProyectile, 5);
+            
         }
     }
 }
