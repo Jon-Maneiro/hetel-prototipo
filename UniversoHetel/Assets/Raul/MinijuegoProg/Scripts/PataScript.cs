@@ -29,6 +29,14 @@ namespace Raul.scripts
             }
         }
 
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("salida"))
+            {
+                _activo = true;
+            }
+        }
+
         public bool GetActivo()
         {
             return _activo;
