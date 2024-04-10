@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 714142528036855838}
   - component: {fileID: 1021425856563205431}
   - component: {fileID: 5964101918468999029}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Asteroid
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -149,5 +149,5 @@ MonoBehaviour:
   hasSmaller: 0
   smallerMeteorite: {fileID: 0}
   powerUp: {fileID: 2473972258420030975, guid: 729b3a9ca3fff9f41a3093453b68aa87, type: 3}
-  powerUpPercentile: 1
+  powerUpPercentile: 5
   speed: 300

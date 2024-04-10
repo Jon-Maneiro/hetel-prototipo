@@ -21,6 +21,7 @@ public class AsteroidScript : MonoBehaviour
     {
         ProyectileScript.Hit += checkHitReceived;
         float tempRand = Random.Range(0f, 100f);
+        
         if (tempRand <= powerUpPercentile)
         {
             _hasPowerUp = true;

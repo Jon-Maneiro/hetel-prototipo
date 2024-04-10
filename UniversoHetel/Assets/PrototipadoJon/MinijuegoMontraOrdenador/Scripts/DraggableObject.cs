@@ -14,11 +14,13 @@ public class DraggableObject : MonoBehaviour
         private Vector3 _mouseDragStartPosition;
         private Vector3 _objectDragStartPosition;
         private Vector3 _objectStartPosition;
+        public bool alwaysTrue;
 
-        public Transform correctSnapPoint;
+        public Transform[] correctSnapPoint;
         public bool isCorrect = false;
         private void Start()
         {
+                if (alwaysTrue) isCorrect = true;
                 _objectStartPosition = transform.localPosition;
         }
 
