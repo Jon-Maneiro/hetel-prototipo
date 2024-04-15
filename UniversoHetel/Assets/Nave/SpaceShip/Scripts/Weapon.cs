@@ -10,9 +10,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] private WeaponBarrel weaponBarrel;
     [SerializeField] private float CoolDownTimer = 0;
     [SerializeField] private float muzzleVelocity;
+
+    private AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         weaponBarrel = transform.GetComponentInChildren<WeaponBarrel>();
         muzzleVelocity = ordinancePrefab.GetComponent<Ordinance>().muzzleVelocity;
     }
@@ -26,7 +29,9 @@ public class Weapon : MonoBehaviour
     public void Fire(Vector3 parentVelocity)
     {
         float coolDownRate = 1 / shotsPerSeconds;
-
+        
+        _audioSource.Play();
+    
         if (coolDownRate <= Time.time)
         {
             CoolDownTimer = Time.time + coolDownRate;
