@@ -29,13 +29,13 @@ namespace Raul.scripts
             {
                 position = new Vector3(position.x, position.y, 0);
                 salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.green;
+                //GetComponent<Renderer>().material.color = Color.green;
             }
             else
             {
                 position = new Vector3(position.x, position.y, -500);
                 salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.red;
+                //GetComponent<Renderer>().material.color = Color.red;
             }
         }
     
