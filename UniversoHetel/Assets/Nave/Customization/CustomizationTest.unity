@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03668631, g: 0.05504418, b: 0.08082806, a: 1}
+  m_IndirectSpecularColor: {r: 0.00027784967, g: 0.00091361394, b: 0.0006990599, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2584,6 +2584,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478308325}
   m_CullTransparentMesh: 1
+--- !u!1 &528755515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2432675443633487629, guid: 64b195956f1ec5e4a8133a9ec8c3b1b3, type: 3}
+  m_PrefabInstance: {fileID: 1123620357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &528755524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528755515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbb1a30a437e194b82113b0aa31d322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 20
 --- !u!1 &562164866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4944156831534379804, guid: 99c774176c9a00b47b280c58cda873fc, type: 3}
@@ -2873,7 +2891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00033507438}
+  m_AnchoredPosition: {x: 0, y: 0.00067061925}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &583829954
@@ -3016,7 +3034,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2036982596}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999639
+  m_Size: 0.9999214
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3531,7 +3549,6 @@ GameObject:
   - component: {fileID: 919249555}
   - component: {fileID: 919249554}
   - component: {fileID: 919249553}
-  - component: {fileID: 919249552}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3539,40 +3556,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &919249552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919249551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!81 &919249553
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4213,11 +4196,16 @@ PrefabInstance:
       propertyPath: forwardThrustPower
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5025180892900831237, guid: 64b195956f1ec5e4a8133a9ec8c3b1b3, type: 3}
     m_RemovedGameObjects:
     - {fileID: 723666879866800762, guid: 64b195956f1ec5e4a8133a9ec8c3b1b3, type: 3}
+    - {fileID: 1223439404760945535, guid: 64b195956f1ec5e4a8133a9ec8c3b1b3, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2432675443633487629, guid: 64b195956f1ec5e4a8133a9ec8c3b1b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 528755524}
   m_SourcePrefab: {fileID: 100100000, guid: 64b195956f1ec5e4a8133a9ec8c3b1b3, type: 3}
 --- !u!1001 &1139288439
 PrefabInstance:
@@ -5832,7 +5820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00033507438}
+  m_AnchoredPosition: {x: 0, y: 0.00067061925}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1562769413
@@ -6371,7 +6359,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1200314251}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999639
+  m_Size: 0.9999214
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8136,11 +8124,11 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 919249555}
   - {fileID: 2058714588}
   - {fileID: 8420161679624373903}
   - {fileID: 1221656161}
   - {fileID: 297571423}
   - {fileID: 245625589}
   - {fileID: 1123620357}
-  - {fileID: 919249555}
   - {fileID: 1288662163}
