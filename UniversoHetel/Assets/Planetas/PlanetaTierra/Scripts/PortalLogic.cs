@@ -13,7 +13,8 @@ public class PortalLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Tell the game what the current Screen is
+        LoadingData.currentScreen = SceneManager.GetActiveScene().name;
     }
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -22,6 +23,7 @@ public class PlayerInput : MonoBehaviour
     public static event Action RotationEvent;
     public static event Action FireEvent;
     public static event Action UpDownEvent;
+    public static event Action OpenAstralMap;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,7 @@ public class PlayerInput : MonoBehaviour
         //     _controls.ShipMovement.PitchYaw.performed += context => InvokeRepeating(nameof(Movement), 0, 0.05f);
         //     _controls.ShipMovement.RotationMovement.canceled += context => CancelInvoke(nameof(Movement));
 
-
+        _controls.ShipMovement.OpenPlanetSelectionScreen.performed += context => InvokePlanetSelectionScene();
     }
 
     // Update is called once per frame
@@ -103,6 +105,11 @@ public class PlayerInput : MonoBehaviour
         //     if (yaw != 0) HorizontalEvent?.Invoke();
         // }
     }
-    
+
+    private void InvokePlanetSelectionScene()
+    {
+        OpenAstralMap?.Invoke();
+    }
+
 }
 

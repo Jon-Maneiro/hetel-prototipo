@@ -13,6 +13,9 @@ public class LoadingScreenLogic : MonoBehaviour
             --The variable to know what scene is next
             public string targetScene;
             
+            --on Start, if Scene is a Planet Scene (Not a Minigame or Continent)
+            LoadingData.currentScene = SceneManager.GetActiveScene().name ( Or the name of the current Scene )
+            
             --The two lines bellow go in another method
             
             LoadingData.sceneToLoad = targetScene;
