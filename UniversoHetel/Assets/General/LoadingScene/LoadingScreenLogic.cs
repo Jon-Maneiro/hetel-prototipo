@@ -8,14 +8,19 @@ public class LoadingScreenLogic : MonoBehaviour
 {
     /*To Use-----
      
-     1.-Create script in scene where another scene has to be loaded.
-            [SerializeField] private string targetScene;
+     1.-Create script in scene where another scene has to be loaded(i.e. a scene with a portal).
+            
+            --The variable to know what scene is next
+            public string targetScene;
+            
+            --The two lines bellow go in another method
+            
             LoadingData.sceneToLoad = targetScene;
             SceneManager.LoadScene("LoadingScreen");
     
      2.- Have that method activated when you need to load scene.
      
-     3.- It Should Work
+     3.- The code will launch the Loading Screen and change to the target Scene when fully loaded.
      
      */
     [SerializeField] private Image _progressBar;
