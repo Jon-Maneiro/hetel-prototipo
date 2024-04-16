@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Raul.scripts
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
     public class OrScript : MonoBehaviour
     {
@@ -8,7 +8,8 @@ namespace Raul.scripts
         [SerializeField] private GameObject pata1Object;
         [SerializeField] private GameObject pata2Object;
         [SerializeField] private GameObject salida;
-
+        //[SerializeField] private GameObject modelo;
+        
         private PataScript _pata1, _pata2;
         
         void Start()
@@ -24,13 +25,13 @@ namespace Raul.scripts
             {
                 position = new Vector3(position.x, position.y, 0);
                 salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.green;
+                //GetComponent<Renderer>().material.color = Color.green;
             }
             else
             {
                 position = new Vector3(position.x, position.y, -500);
                 salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.red;
+                //GetComponent<Renderer>().material.color = Color.red;
             }
         }
     }

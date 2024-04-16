@@ -1,22 +1,21 @@
-using System;
 using UnityEngine;
 
-namespace Raul.scripts
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
     public class PataScript : MonoBehaviour
     {
-        public bool _activo;
+        public bool activo;
 
         private void Start()
         {
-            _activo = false;
+            activo = false;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("salida"))
             {
-                _activo = true;
+                activo = true;
                 GetComponent<ParticleSystem>().Play();
             }
         }
@@ -25,7 +24,8 @@ namespace Raul.scripts
         {
             if (other.CompareTag("salida"))
             {
-                _activo = false;
+                activo = false;
+                GetComponent<ParticleSystem>().Stop();
             }
         }
 
@@ -33,13 +33,13 @@ namespace Raul.scripts
         {
             if (other.CompareTag("salida"))
             {
-                _activo = true;
+                activo = true;
             }
         }
 
         public bool GetActivo()
         {
-            return _activo;
+            return activo;
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Raul.scripts
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
     public class BotonScript : MonoBehaviour
     {
