@@ -5,22 +5,15 @@ using UnityEngine;
 
 public class CanvasContinenteScrip : MonoBehaviour
 {
-    [SerializeField] private Canvas canvas1;
-    [SerializeField] private Canvas canvas2;
-    [SerializeField] private Canvas canvas3;
+    [SerializeField] private Canvas canvas1; //Canvas del Lugar
+    [SerializeField] private Canvas canvas2; //Canvas del Persona
+    [SerializeField] private Canvas canvas3; //Canvas del Mision
     
-    // Start is called before the first frame update
     void Start()
     {
+        //Suscribirse al evento de ser activado
         Raycastcosa.ActivaCanvasContinente += OnActivaCanvasContinente;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
 
     private void OnActivaCanvasContinente(int tipo)
     {
@@ -38,8 +31,5 @@ public class CanvasContinenteScrip : MonoBehaviour
                 canvas3.gameObject.SetActive(true);
                 break;
         }
-
-        
-        
     }
 }

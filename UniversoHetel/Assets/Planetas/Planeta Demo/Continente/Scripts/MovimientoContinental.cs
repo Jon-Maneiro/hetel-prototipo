@@ -37,7 +37,7 @@ public class MovimientoContinental : MonoBehaviour
             cameraPosition.x += moveAmount * Time.deltaTime;
         }
         
-        //Moverse con los bordes
+        //Moverse con los bordes (EdgeScroll)
         float edgeSize = 40f;
 
         if (Input.GetKey(KeyCode.Space))
