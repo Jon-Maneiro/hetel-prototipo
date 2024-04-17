@@ -8,7 +8,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         [SerializeField] private GameObject pata1Object;
         [SerializeField] private GameObject pata2Object;
         [SerializeField] private GameObject salida;
-        //[SerializeField] private GameObject modelo;
+        [SerializeField] private GameObject modelo;
         
         private PataScript _pata1, _pata2;
         
@@ -25,13 +25,13 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
             {
                 position = new Vector3(position.x, position.y, 0);
                 salida.transform.position = position;
-                //GetComponent<Renderer>().material.color = Color.green;
+                modelo.GetComponent<Renderer>().materials[1].color = Color.green;
             }
             else
             {
                 position = new Vector3(position.x, position.y, -500);
                 salida.transform.position = position;
-                //modelo.GetComponent<Renderer>().material.color = Color.red;
+                modelo.GetComponent<Renderer>().materials[1].color = Color.red;
             }
         }
         

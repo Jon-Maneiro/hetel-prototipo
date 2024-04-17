@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pata1Object: {fileID: 1191075967238644546}
   salida: {fileID: 8053697386711733861}
+  modelo: {fileID: 7352810682411969093}
 --- !u!1 &8053697386711733861
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +275,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0e1861d2cd6f44591a6168f0f9d45d, type: 3}
+--- !u!1 &7352810682411969093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ef0e1861d2cd6f44591a6168f0f9d45d, type: 3}
+  m_PrefabInstance: {fileID: 7695252678616667924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7872783592817733887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef0e1861d2cd6f44591a6168f0f9d45d, type: 3}
