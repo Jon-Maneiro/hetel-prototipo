@@ -26,6 +26,8 @@ public class PortalOpenerScript : MonoBehaviour
 
     private void PlanetSelectionScene()
     {
-        SceneManager.LoadScene(LoadingData.planetSelection, LoadSceneMode.Additive);
+        LoadingData.shipPosition = gameObject.transform.position;
+        LoadingData.shipRotation = gameObject.transform.rotation;
+        SceneManager.LoadScene(LoadingData.PlanetSelection, LoadSceneMode.Additive);
     }
 }

@@ -36,7 +36,7 @@ public class LoadingScreenLogic : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         //Create async operation to load next scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(LoadingData.sceneToLoad);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(LoadingData.SceneToLoad);
         //Stop the next scene from activating
         operation.allowSceneActivation = false;
         

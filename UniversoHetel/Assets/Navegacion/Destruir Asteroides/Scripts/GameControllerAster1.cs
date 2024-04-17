@@ -155,7 +155,7 @@ public class GameControllerAster1 : MonoBehaviour
 
     private void ChangeScene(string targetScene)
     {
-        LoadingData.sceneToLoad = targetScene;
+        LoadingData.SceneToLoad = targetScene;
         SceneManager.LoadScene("LoadingScreen");
     }
 

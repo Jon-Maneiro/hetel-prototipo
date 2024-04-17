@@ -68,6 +68,14 @@ public class ShipMovement : MonoBehaviour
         //PlayerInput.HorizontalEvent -= HorizontalMoveStop;
     }
 
+    private void OnDestroy()
+    {
+        PlayerInput.HorizontalEvent -= HorizontalMoveStart;
+        PlayerInput.RotationEvent -= RotationMove;
+        PlayerInput.FireEvent -= FireWeapon;
+        PlayerInput.UpDownEvent -= UpDown;
+    }
+
     void Update()
     {
         _rigidbody.freezeRotation = true;

@@ -61,8 +61,16 @@ namespace Raul
         private void MandarActivo()
         {
             if (!_seleccionado) return;
-            SceneManager.LoadScene(escenaRelacionada);
+            //SceneManager.LoadScene(escenaRelacionada);
             PlanetaActivo?.Invoke(gameObject);
+            SceneChange();
+        }
+        
+        private void SceneChange()
+        {
+            LoadingData.NextPlanet = escenaRelacionada;
+            LoadingData.CreatePortal = true;
+            SceneManager.LoadScene("LoadingScreen");
         }
 
         private void RayHit(GameObject hitObject)
