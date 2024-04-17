@@ -1,12 +1,13 @@
 using UnityEngine;
 
-namespace Raul.scripts
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
     public class NotScript : MonoBehaviour
     {
         [SerializeField] private GameObject pata1Object;
         [SerializeField] private GameObject salida;
-
+        [SerializeField] private GameObject modelo;
+        
         private PataScript _pata1;
         void Start()
         {
@@ -20,13 +21,13 @@ namespace Raul.scripts
             {
                 position = new Vector3(position.x, position.y, 0);
                 salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.green;
+                modelo.GetComponent<Renderer>().materials[1].color = Color.green;
             }
             else
             {
                 position = new Vector3(position.x, position.y, -500);
                 salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.red;
+                modelo.GetComponent<Renderer>().materials[1].color = Color.red;
             }
         }
     }
