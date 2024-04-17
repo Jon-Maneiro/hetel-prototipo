@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 602c66a8bfdbb4c4085e5d21d647c9ce
+guid: 79c5d100a9f44604b87863a92c4b1170
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: PrototipeBoard
-    second: {fileID: 2100000, guid: 794ea2a82b0bc3e4ebd82e99f8108daa, type: 2}
+      name: Black
+    second: {fileID: 2100000, guid: a907202e90cf20b418525e641552822a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightRed
+    second: {fileID: 2100000, guid: e5dc3aee4f53e50438faab99e6e4d327, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightWhite
+    second: {fileID: 2100000, guid: 05ae657d15a0e3742b20206a0f04be32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: cf4953aa7d5499d46a5599061c48db2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red
+    second: {fileID: 2100000, guid: 33a8251cf1608424d93a365eeb994688, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,7 +60,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 50
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -95,7 +115,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 50
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
