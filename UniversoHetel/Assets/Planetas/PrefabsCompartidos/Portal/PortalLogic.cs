@@ -18,7 +18,7 @@ public class PortalLogic : MonoBehaviour
         LoadingData.CurrentScene = SceneManager.GetActiveScene().name;
         
         //What minigame to load
-        if (targetScene.Equals(null))
+        if (targetScene.Length == 0)
         {
             targetScene =
                 LoadingData.AsteroidMinigameList[Random.Range(0, (LoadingData.AsteroidMinigameList.Length - 1))];

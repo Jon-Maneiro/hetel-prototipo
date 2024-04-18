@@ -31,8 +31,10 @@ public class LoadingScreenLogic : MonoBehaviour
      ----- More Info -----
      
      For more complex Scene transition logic, see LoadingData.cs, there are variables usable to store scenes and
-     code more complex logics. Please, use this or more variables to transition between scenes, and keep them 
+     code more complex logic. Please, use this or more variables to transition between scenes, and keep them 
      in the LoadingData.cs Script.
+     
+     Si no sabeis inglés usad el Google Traductor
      
      */
     [SerializeField] private Image _progressBar;

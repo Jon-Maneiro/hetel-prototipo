@@ -14,7 +14,7 @@ namespace Raul
         public static event Action RestoreCamera;
         public static event Action<GameObject> MoveNave;
         
-        [SerializeField] private String escenaRelacionada;
+        [SerializeField] private LoadingData.Planets escenaRelacionada;
         [SerializeField] private GameObject outline;
         [SerializeField] private GameObject sol;
         [SerializeField] private int speed;
@@ -72,14 +72,13 @@ namespace Raul
         private void MandarActivo()
         {
             if (!_seleccionado) return;
-            //SceneManager.LoadScene(escenaRelacionada);
             PlanetaActivo?.Invoke(gameObject);
             SceneChange();
         }
         
         private void SceneChange()
         {
-            LoadingData.NextPlanet = escenaRelacionada;
+            LoadingData.NextPlanet = LoadingData.PlanetScenes[(int)escenaRelacionada];
             LoadingData.CreatePortal = true;
             SceneManager.LoadScene("LoadingScreen");
         }

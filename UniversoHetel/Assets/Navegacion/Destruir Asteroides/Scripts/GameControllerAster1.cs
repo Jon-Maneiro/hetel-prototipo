@@ -20,7 +20,7 @@ public class GameControllerAster1 : MonoBehaviour
     
     private float _minXSpawnCoords = -6.5f;
     private float _maxXSpawnCoords = 6.5f;
-    private float _YSpawnCoord = 7f;
+    private float _ySpawnCoord = 7f;
 
     public float asteroidSpeed = 400;
     public float initTimeBetweenEnemies = 1.5f;
@@ -37,8 +37,8 @@ public class GameControllerAster1 : MonoBehaviour
     private Canvas canvasVictoria;
     private Canvas canvasDerrota;
 
-    [SerializeField] private string targetSceneVictory;
-    [SerializeField] private string targetSceneDefeat;
+    /*[SerializeField] private string targetSceneVictory;
+    [SerializeField] private string targetSceneDefeat;*/
     
     public static event Action<bool> GameStop;
     
@@ -65,6 +65,10 @@ public class GameControllerAster1 : MonoBehaviour
         
     }
 
+    private void OnDestroy()
+    {
+        NaveScript.DamageReceived -= UpdateHealth;
+    }
 
     private IEnumerator SpawnEnemiesSurvive()
     {
@@ -78,7 +82,7 @@ public class GameControllerAster1 : MonoBehaviour
             timeBetweenEnemies = TimeReduction(timeBetweenEnemies,timeBetweenReductionFactor);
             Vector3 spawnPos = new Vector3(
                 Random.Range(_minXSpawnCoords,_maxXSpawnCoords),
-                _YSpawnCoord,
+                _ySpawnCoord,
                 0
             );
             GameObject newestAsteroid = Instantiate(SelectRandomAsteroid(), spawnPos, Quaternion.identity);
@@ -99,7 +103,7 @@ public class GameControllerAster1 : MonoBehaviour
             timeBetweenEnemies = TimeReduction(timeBetweenEnemies,timeBetweenReductionFactor);
             Vector3 spawnPos = new Vector3(
                 Random.Range(_minXSpawnCoords,_maxXSpawnCoords),
-                _YSpawnCoord,
+                _ySpawnCoord,
                 0
             );
             GameObject newestAsteroid = Instantiate(SelectRandomAsteroid(), spawnPos, Quaternion.identity);
@@ -140,7 +144,8 @@ public class GameControllerAster1 : MonoBehaviour
         GameStop?.Invoke(true);
         Debug.Log("has ganado yay");
         Time.timeScale = 0;
-        ChangeScene(targetSceneVictory);
+        LoadingData.MinigameWon = true;
+        ChangeScene(LoadingData.NextPlanet);
     }
 
     private void Defeat()
@@ -150,7 +155,8 @@ public class GameControllerAster1 : MonoBehaviour
         GameStop?.Invoke(true);
         Debug.Log("has perdido yoy");
         Time.timeScale = 0;
-        ChangeScene(targetSceneDefeat);
+        LoadingData.MinigameWon = false;
+        ChangeScene(LoadingData.CurrentScene);
     }
 
     private void ChangeScene(string targetScene)
