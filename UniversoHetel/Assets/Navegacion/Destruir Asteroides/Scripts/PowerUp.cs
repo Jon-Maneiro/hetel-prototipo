@@ -36,7 +36,7 @@ public class PowerUp : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+1   
     private void randomizePowerUpType()
     {
         int value = (int)Random.Range(0,3);

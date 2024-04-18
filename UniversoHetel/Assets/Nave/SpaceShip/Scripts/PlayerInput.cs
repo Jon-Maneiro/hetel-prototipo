@@ -46,6 +46,11 @@ public class PlayerInput : MonoBehaviour
         _controls.ShipMovement.OpenPlanetSelectionScreen.performed += context => InvokePlanetSelectionScene();
     }
 
+    private void OnDestroy()
+    {
+        _controls.Disable();
+    }
+
     // Update is called once per frame
     void Update()
     {

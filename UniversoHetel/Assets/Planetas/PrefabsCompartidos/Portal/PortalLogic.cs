@@ -29,7 +29,10 @@ public class PortalLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        LoadingData.SceneToLoad = targetScene;
-        SceneManager.LoadScene("LoadingScreen");
+        if (other.CompareTag("Player"))
+        {
+            LoadingData.SceneToLoad = targetScene;
+            SceneManager.LoadScene("LoadingScreen");    
+        }
     }
 }

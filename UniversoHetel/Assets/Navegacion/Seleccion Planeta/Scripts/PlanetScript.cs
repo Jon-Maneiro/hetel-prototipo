@@ -51,6 +51,17 @@ namespace Raul
             InvokeRepeating(nameof(Rotate), 0f, 0.01f);
         }
 
+        private void OnDestroy()
+        {
+            CanvasManager.PulsadoNo -= DesactivarSeleccionado;
+            CanvasManager.PulsadoYes -= MandarActivo;
+            PointScript.RayHit -= RayHit;
+            PointScript.CamaraCerca -= Activo;
+            PointScript.CamaraLejos -= Desactivo;
+            PointScript.ActivaNave -= ActivaNave;
+            DesactivaTodos -= DesactivarSeleccionado;
+        }
+
         private void Update()
         {
             GameObject o;

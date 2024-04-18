@@ -27,6 +27,12 @@ namespace Raul
             _enPlaneta = false;
         }
 
+        private void OnDestroy()
+        {
+            PlanetScript.MoveCamera -= MoveCamera;
+            PlanetScript.RestoreCamera -= Restore;
+        }
+
         void Update()
         {
             if (Input.GetMouseButtonDown(0))

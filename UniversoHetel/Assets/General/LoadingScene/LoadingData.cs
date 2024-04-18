@@ -14,10 +14,9 @@ public class LoadingData
     public static bool CreatePortal = false;//Whether the planet scene should create a portal- This should only happen if a planet has been selected
     
     //Return from Planet Selection Scene
-    public static Transform LocationOfShip;
-    public static Vector3 shipPosition = Vector3.zero;
-    public static Quaternion shipRotation = Quaternion.identity;
-    public static Vector3 shipScale;
+    public static Vector3 shipPosition = Vector3.zero; //Ship's position in last Scene
+    public static Quaternion shipRotation = Quaternion.identity;//Ship's rotation in last Scene
+    public static Vector3 shipScale;//Currently Unused - Ship's scale in last Scene
     
     
     
@@ -26,4 +25,7 @@ public class LoadingData
     {
         "MinijuegoAsteroides1"
     };
+    
+    
+    //PlanetEnumeration
 }
