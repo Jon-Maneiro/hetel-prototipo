@@ -7,7 +7,6 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
      * Detecta si su "Pata" está activa
      * En caso de que esté activada, dseactiva la salida
      * En caso de que esté desactivada, activa la salida
-     * TODO: Cambiar la comprobación de un "InvokeRepeating" a eventos
      */
     public class NotScript : MonoBehaviour
     {
@@ -15,21 +14,37 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         [SerializeField] private GameObject salida;
         [SerializeField] private GameObject modelo;
         
-        private PataScript _pata1;
+        private bool _pata;
         private Renderer _renderer;
         
         void Start()
         {
-            _pata1 = pata1Object.GetComponent<PataScript>();
             _renderer = modelo.GetComponent<Renderer>();
             
-            InvokeRepeating(nameof(CheckPatas), 0f, 0.1f);
+            PataScript.Activo += PataActivo;
+            PataScript.Desactivo += PataDesactivo;
+            
+            CheckPatas();
+        }
+        
+        private void PataActivo(GameObject pata)
+        {
+            if (!pata.Equals(pata1Object)) return;
+            _pata = true;
+            CheckPatas();
+        }
+        
+        private void PataDesactivo(GameObject pata)
+        {
+            if (!pata.Equals(pata1Object)) return;
+            _pata = false;
+            CheckPatas();
         }
 
         private void CheckPatas()
         {
             var position = salida.transform.position;
-            if (!_pata1.GetActivo())
+            if (!_pata)
             {
                 MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{1});
             }

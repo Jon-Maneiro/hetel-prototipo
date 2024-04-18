@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
@@ -9,36 +10,27 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
      */
     public class PataScript : MonoBehaviour
     {
-        private bool _activo;
-
-        private void Start()
-        {
-            _activo = false;
-        }
+        public static event Action<GameObject> Activo;
+        public static event Action<GameObject> Desactivo;
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("salida")) return;
-            _activo = true;
+            Activo?.Invoke(gameObject);
             GetComponent<ParticleSystem>().Play();
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (!other.CompareTag("salida")) return;
-            _activo = false;
+            Desactivo?.Invoke(gameObject);
             GetComponent<ParticleSystem>().Stop();
         }
 
         private void OnTriggerStay(Collider other)
         {
             if (!other.CompareTag("salida")) return;
-            _activo = true;
-        }
-
-        public bool GetActivo()
-        {
-            return _activo;
+            Activo?.Invoke(gameObject);
         }
     }
 }

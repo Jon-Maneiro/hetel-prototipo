@@ -18,8 +18,8 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         
         void Start()
         {
-            salida.SetActive(true);
             _renderer = modelo.GetComponent<Renderer>();
+            
             CameraScript.RayHit += AlternarBoton;
         }
 

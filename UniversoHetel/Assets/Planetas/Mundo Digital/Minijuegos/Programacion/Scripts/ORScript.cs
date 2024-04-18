@@ -7,7 +7,6 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
      * Detecta si alguna de sus dos "Patas" están activas
      * En caso de que alguna o ambas estén activas, activa la salida
      * En caso de que no tenga ninguna activa, desactiva la salida
-     * TODO: Cambiar la comprobación de un "InvokeRepeating" a eventos
      */
     public class OrScript : MonoBehaviour
     {
@@ -16,21 +15,49 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         [SerializeField] private GameObject salida;
         [SerializeField] private GameObject modelo;
         
-        private PataScript _pata1, _pata2;
+        private bool _pata1, _pata2;
         private Renderer _renderer;
         
         void Start()
         {
-            _pata1 = pata1Object.GetComponent<PataScript>();
-            _pata2 = pata2Object.GetComponent<PataScript>();
             _renderer = modelo.GetComponent<Renderer>();
-            InvokeRepeating(nameof(CheckPatas), 0f, 0.1f);
+            
+            PataScript.Activo += PataActivo;
+            PataScript.Desactivo += PataDesactivo;
+            
+            CheckPatas();
+        }
+        
+        private void PataActivo(GameObject pata)
+        {
+            if (pata.Equals(pata1Object))
+            {
+                _pata1 = true;
+            }
+            if (pata.Equals(pata2Object))
+            {
+                _pata2 = true;
+            }
+            CheckPatas();
+        }
+        
+        private void PataDesactivo(GameObject pata)
+        {
+            if (pata.Equals(pata1Object))
+            {
+                _pata1 = false;
+            }
+            if (pata.Equals(pata2Object))
+            {
+                _pata2 = false;
+            }
+            CheckPatas();
         }
 
         private void CheckPatas()
         {
             var position = salida.transform.position;
-            if (_pata1.GetActivo() || _pata2.GetActivo())
+            if (_pata1 || _pata2)
             {
                 MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{1});
             }
