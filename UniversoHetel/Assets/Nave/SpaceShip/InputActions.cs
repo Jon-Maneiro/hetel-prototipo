@@ -62,6 +62,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenPlanetSelectionScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""a150d99b-63cc-4011-95e9-8e0d408436be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""VerticalMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9abd93df-965a-402b-9ee9-a86c0b282930"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenPlanetSelectionScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +206,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_ShipMovement_HorizontalMovement = m_ShipMovement.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_ShipMovement_Shoot = m_ShipMovement.FindAction("Shoot", throwIfNotFound: true);
         m_ShipMovement_VerticalMovement = m_ShipMovement.FindAction("VerticalMovement", throwIfNotFound: true);
+        m_ShipMovement_OpenPlanetSelectionScreen = m_ShipMovement.FindAction("OpenPlanetSelectionScreen", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +272,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_ShipMovement_HorizontalMovement;
     private readonly InputAction m_ShipMovement_Shoot;
     private readonly InputAction m_ShipMovement_VerticalMovement;
+    private readonly InputAction m_ShipMovement_OpenPlanetSelectionScreen;
     public struct ShipMovementActions
     {
         private @InputActions m_Wrapper;
@@ -259,6 +281,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @HorizontalMovement => m_Wrapper.m_ShipMovement_HorizontalMovement;
         public InputAction @Shoot => m_Wrapper.m_ShipMovement_Shoot;
         public InputAction @VerticalMovement => m_Wrapper.m_ShipMovement_VerticalMovement;
+        public InputAction @OpenPlanetSelectionScreen => m_Wrapper.m_ShipMovement_OpenPlanetSelectionScreen;
         public InputActionMap Get() { return m_Wrapper.m_ShipMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -280,6 +303,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @VerticalMovement.started += instance.OnVerticalMovement;
             @VerticalMovement.performed += instance.OnVerticalMovement;
             @VerticalMovement.canceled += instance.OnVerticalMovement;
+            @OpenPlanetSelectionScreen.started += instance.OnOpenPlanetSelectionScreen;
+            @OpenPlanetSelectionScreen.performed += instance.OnOpenPlanetSelectionScreen;
+            @OpenPlanetSelectionScreen.canceled += instance.OnOpenPlanetSelectionScreen;
         }
 
         private void UnregisterCallbacks(IShipMovementActions instance)
@@ -296,6 +322,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @VerticalMovement.started -= instance.OnVerticalMovement;
             @VerticalMovement.performed -= instance.OnVerticalMovement;
             @VerticalMovement.canceled -= instance.OnVerticalMovement;
+            @OpenPlanetSelectionScreen.started -= instance.OnOpenPlanetSelectionScreen;
+            @OpenPlanetSelectionScreen.performed -= instance.OnOpenPlanetSelectionScreen;
+            @OpenPlanetSelectionScreen.canceled -= instance.OnOpenPlanetSelectionScreen;
         }
 
         public void RemoveCallbacks(IShipMovementActions instance)
@@ -319,5 +348,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnVerticalMovement(InputAction.CallbackContext context);
+        void OnOpenPlanetSelectionScreen(InputAction.CallbackContext context);
     }
 }

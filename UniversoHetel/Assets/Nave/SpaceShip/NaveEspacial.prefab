@@ -357,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_Name
-      value: fighter01
+      value: NaveEspacial
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       propertyPath: m_TagString
@@ -378,9 +378,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1036949437493930060}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1269210096165039896}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       insertIndex: -1
@@ -394,70 +391,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5563997300878663745}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442294991554347291}
   m_SourcePrefab: {fileID: 100100000, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
 --- !u!1 &7233374994341116429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5fbde043f6dcc4b8489a65bfb6b7e9, type: 3}
   m_PrefabInstance: {fileID: 7539999850589849436}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1036949437493930060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7233374994341116429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0297a867-91ef-4a23-a492-280b23eebb6d
-    m_ActionName: ShipMovement/Movement[/Keyboard/w,/Keyboard/s]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: ShipMovement
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!54 &1269210096165039896
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -559,6 +501,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10805ab53a0e11c44875aa9d62e77ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1442294991554347291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233374994341116429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0329e486281264d4e874277cd82860bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &8010158361743286455 stripped
@@ -727,6 +681,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6436047524716127431, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495875258555907552, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

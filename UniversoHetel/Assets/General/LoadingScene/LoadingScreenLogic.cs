@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,17 @@ using UnityEngine.UI;
 
 public class LoadingScreenLogic : MonoBehaviour
 {
-    /*To Use-----
+    /*
+     
+     ----- How To Use -----
      
      1.-Create script in scene where another scene has to be loaded(i.e. a scene with a portal).
             
             --The variable to know what scene is next
             public string targetScene;
+            
+            --on Start, if Scene is a Planet Scene (Not a Minigame or Continent)
+            LoadingData.currentScene = SceneManager.GetActiveScene().name ( Or the name of the current Scene )
             
             --The two lines bellow go in another method
             
@@ -21,6 +27,14 @@ public class LoadingScreenLogic : MonoBehaviour
      2.- Have that method activated when you need to load scene.
      
      3.- The code will launch the Loading Screen and change to the target Scene when fully loaded.
+     
+     ----- More Info -----
+     
+     For more complex Scene transition logic, see LoadingData.cs, there are variables usable to store scenes and
+     code more complex logic. Please, use this or more variables to transition between scenes, and keep them 
+     in the LoadingData.cs Script.
+     
+     Si no sabeis inglés usad el Google Traductor
      
      */
     [SerializeField] private Image _progressBar;
@@ -33,7 +47,7 @@ public class LoadingScreenLogic : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         //Create async operation to load next scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(LoadingData.sceneToLoad);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(LoadingData.SceneToLoad);
         //Stop the next scene from activating
         operation.allowSceneActivation = false;
         
@@ -48,5 +62,15 @@ public class LoadingScreenLogic : MonoBehaviour
 
             yield return null;
         }
+    }
+    
+    private void showLoadingTips()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void changeLoadingBackgroundImage()
+    {
+        throw new NotImplementedException();
     }
 }

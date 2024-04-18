@@ -14,7 +14,7 @@ namespace Raul
         public static event Action RestoreCamera;
         public static event Action<GameObject> MoveNave;
         
-        [SerializeField] private String escenaRelacionada;
+        [SerializeField] private LoadingData.Planets escenaRelacionada;
         [SerializeField] private GameObject outline;
         [SerializeField] private GameObject sol;
         [SerializeField] private int speed;
@@ -51,6 +51,17 @@ namespace Raul
             InvokeRepeating(nameof(Rotate), 0f, 0.01f);
         }
 
+        private void OnDestroy()
+        {
+            CanvasManager.PulsadoNo -= DesactivarSeleccionado;
+            CanvasManager.PulsadoYes -= MandarActivo;
+            PointScript.RayHit -= RayHit;
+            PointScript.CamaraCerca -= Activo;
+            PointScript.CamaraLejos -= Desactivo;
+            PointScript.ActivaNave -= ActivaNave;
+            DesactivaTodos -= DesactivarSeleccionado;
+        }
+
         private void Update()
         {
             GameObject o;
@@ -61,8 +72,15 @@ namespace Raul
         private void MandarActivo()
         {
             if (!_seleccionado) return;
-            SceneManager.LoadScene(escenaRelacionada);
             PlanetaActivo?.Invoke(gameObject);
+            SceneChange();
+        }
+        
+        private void SceneChange()
+        {
+            LoadingData.NextPlanet = LoadingData.PlanetScenes[(int)escenaRelacionada];
+            LoadingData.CreatePortal = true;
+            SceneManager.LoadScene("LoadingScreen");
         }
 
         private void RayHit(GameObject hitObject)

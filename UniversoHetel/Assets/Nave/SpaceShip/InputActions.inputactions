@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenPlanetSelectionScreen",
+                    "type": "Button",
+                    "id": "a150d99b-63cc-4011-95e9-8e0d408436be",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -152,6 +161,17 @@
                     "action": "VerticalMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9abd93df-965a-402b-9ee9-a86c0b282930",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenPlanetSelectionScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: cameraPrincipal
       value: 
       objectReference: {fileID: 1920535711}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: escenaRelacionada
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 81460879360
@@ -315,6 +319,10 @@ PrefabInstance:
       propertyPath: cameraPrincipal
       value: 
       objectReference: {fileID: 1920535711}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: escenaRelacionada
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 56496381952
@@ -396,6 +404,10 @@ PrefabInstance:
       propertyPath: cameraPrincipal
       value: 
       objectReference: {fileID: 1920535711}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: escenaRelacionada
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 100087783424
@@ -477,6 +489,10 @@ PrefabInstance:
       propertyPath: cameraPrincipal
       value: 
       objectReference: {fileID: 1920535711}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: escenaRelacionada
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 113387921408
@@ -604,6 +620,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aab49ca289c6c474dab07257c811f885, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1925361101}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aab49ca289c6c474dab07257c811f885, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1925361102}
   m_SourcePrefab: {fileID: 100100000, guid: aab49ca289c6c474dab07257c811f885, type: 3}
 --- !u!1001 &1450550179
 PrefabInstance:
@@ -633,6 +652,10 @@ PrefabInstance:
       propertyPath: cameraPrincipal
       value: 
       objectReference: {fileID: 1920535711}
+    - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
+      propertyPath: escenaRelacionada
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 43783446528
@@ -1047,6 +1070,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1fdfea6de1eed4a967e809c33478af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1925361102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925361096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074310e3e25cc3b4085ebf54505f78bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1007569084231240955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1077,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 1920535711}
     - target: {fileID: 918629953146594854, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: escenaRelacionada
-      value: PlanetaVegetta
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4284235348149502030, guid: 08197c79231bf0d458669eef55c706a5, type: 3}
       propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.size
