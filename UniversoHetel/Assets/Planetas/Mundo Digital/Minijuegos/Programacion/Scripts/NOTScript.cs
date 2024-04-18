@@ -1,32 +1,56 @@
 using UnityEngine;
 
-namespace Raul.scripts
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
+    /*
+     * Script del prefab "NOT" (!)
+     * Detecta si su "Pata" está activa
+     * En caso de que esté activada, dseactiva la salida
+     * En caso de que esté desactivada, activa la salida
+     */
     public class NotScript : MonoBehaviour
     {
         [SerializeField] private GameObject pata1Object;
         [SerializeField] private GameObject salida;
-
-        private PataScript _pata1;
+        [SerializeField] private GameObject modelo;
+        
+        private bool _pata;
+        private Renderer _renderer;
+        
         void Start()
         {
-            _pata1 = pata1Object.GetComponent<PataScript>();
+            _renderer = modelo.GetComponent<Renderer>();
+            
+            PataScript.Activo += PataActivo;
+            PataScript.Desactivo += PataDesactivo;
+            
+            CheckPatas();
+        }
+        
+        private void PataActivo(GameObject pata)
+        {
+            if (!pata.Equals(pata1Object)) return;
+            _pata = true;
+            CheckPatas();
+        }
+        
+        private void PataDesactivo(GameObject pata)
+        {
+            if (!pata.Equals(pata1Object)) return;
+            _pata = false;
+            CheckPatas();
         }
 
-        void Update()
+        private void CheckPatas()
         {
             var position = salida.transform.position;
-            if (!_pata1.GetActivo())
+            if (!_pata)
             {
-                position = new Vector3(position.x, position.y, 0);
-                salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.green;
+                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{1});
             }
             else
             {
-                position = new Vector3(position.x, position.y, -500);
-                salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.red;
+                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{1});
             }
         }
     }

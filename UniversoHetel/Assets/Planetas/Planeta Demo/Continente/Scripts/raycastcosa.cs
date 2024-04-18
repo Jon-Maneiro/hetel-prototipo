@@ -6,25 +6,19 @@ using UnityEngine;
 
 public class Raycastcosa : MonoBehaviour
 {
-    public int tipo;
+    public int tipo; //1=lugar, 2=persona, 3=mision
     private bool _seleccionado;
     
+    //Crear evento de activar canvas
     public static event Action<int> ActivaCanvasContinente;
-    //public static event Action ActivaCanvasContinente;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
+        //Suscribirse al evento de ser clickado
         PointScript.RayHit += RayHit;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
-    private void RayHit(GameObject hitObject)
+    private void RayHit(GameObject hitObject) //Cuando es recive el evento de ser clickado lanzar el evento de activar canvas
     {
         if (!hitObject.Equals(gameObject)) return;
         ActivaCanvasContinente?.Invoke(tipo);

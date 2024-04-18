@@ -1,36 +1,69 @@
 using UnityEngine;
 
-namespace Raul.scripts
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
+    /*
+     * Script del prefab "OR" (||)
+     * Detecta si alguna de sus dos "Patas" están activas
+     * En caso de que alguna o ambas estén activas, activa la salida
+     * En caso de que no tenga ninguna activa, desactiva la salida
+     */
     public class OrScript : MonoBehaviour
     {
-        
         [SerializeField] private GameObject pata1Object;
         [SerializeField] private GameObject pata2Object;
         [SerializeField] private GameObject salida;
-
-        private PataScript _pata1, _pata2;
+        [SerializeField] private GameObject modelo;
+        
+        private bool _pata1, _pata2;
+        private Renderer _renderer;
         
         void Start()
         {
-            _pata1 = pata1Object.GetComponent<PataScript>();
-            _pata2 = pata2Object.GetComponent<PataScript>();
+            _renderer = modelo.GetComponent<Renderer>();
+            
+            PataScript.Activo += PataActivo;
+            PataScript.Desactivo += PataDesactivo;
+            
+            CheckPatas();
         }
         
-        void Update()
+        private void PataActivo(GameObject pata)
+        {
+            if (pata.Equals(pata1Object))
+            {
+                _pata1 = true;
+            }
+            if (pata.Equals(pata2Object))
+            {
+                _pata2 = true;
+            }
+            CheckPatas();
+        }
+        
+        private void PataDesactivo(GameObject pata)
+        {
+            if (pata.Equals(pata1Object))
+            {
+                _pata1 = false;
+            }
+            if (pata.Equals(pata2Object))
+            {
+                _pata2 = false;
+            }
+            CheckPatas();
+        }
+
+        private void CheckPatas()
         {
             var position = salida.transform.position;
-            if (_pata1.GetActivo() || _pata2.GetActivo())
+            if (_pata1 || _pata2)
             {
-                position = new Vector3(position.x, position.y, 0);
-                salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.green;
+                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{1});
             }
             else
             {
-                position = new Vector3(position.x, position.y, -500);
-                salida.transform.position = position;
-                GetComponent<Renderer>().material.color = Color.red;
+                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{1});
             }
         }
     }

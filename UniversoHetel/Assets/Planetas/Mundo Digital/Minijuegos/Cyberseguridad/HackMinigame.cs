@@ -8,26 +8,26 @@ using UnityEngine.UI;
 
 public class HackMinigame : MonoBehaviour
 {
-    [SerializeField] private String[] ipMix;
-    [SerializeField] private String[] solution;
+    [SerializeField] private String[] ipMix; //El churro de ips random
+    [SerializeField] private String[] solution; //La secuencia correcta
 
-    [SerializeField] private Text text1;
-    [SerializeField] private Text text2;
-    [SerializeField] private Text text3;
-    [SerializeField] private Text text4;
+    [SerializeField] private Text text1; //Mostar solucion
+    [SerializeField] private Text text3; //Timer
+    [SerializeField] private Text text4; //Mensaje final
     
-    [SerializeField] private Button[] butons;
-    [SerializeField] private float moveRate;
-    [SerializeField] private float time;
+    [SerializeField] private Button[] butons; //Los bottones tablero central
+    [SerializeField] private float moveRate; //Cada cuantos segundos se mueven el tablero
+    [SerializeField] private float time; //El tiempo del minijuego
     
     // Start is called before the first frame update
     void Start()
     {
-        text4.gameObject.SetActive(false);
-        MostrarTexto(solution, text1);
-        MostrarBoton();
+        text4.gameObject.SetActive(false); //Ocultar el mensaje final
+        MostrarTexto(solution, text1); //Enseñar la solucion
+        MostrarTablero();
         
         
+        //Que el tablero se mueva
         InvokeRepeating("MoverValores", 0.0f, moveRate);
         InvokeRepeating("MostrarBoton", 0.0f, moveRate);
         InvokeRepeating("resetButtons", 0.0f, moveRate);
@@ -36,13 +36,13 @@ public class HackMinigame : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (time > 0)
+        if (time > 0) //Tiempo
         {
             time -= Time.deltaTime;
             text3.text = time.ToString();
         }
         else
-        {
+        { //Game over
             text3.text = "Time over";
             allButtonsRed();
             endScreen("Failure!");
@@ -50,7 +50,7 @@ public class HackMinigame : MonoBehaviour
         }
     }
 
-    private void MostrarTexto(string[] strings, Text textArea)
+    private void MostrarTexto(string[] strings, Text textArea) //Te muestra un array de strings en eel text area
     {
         
         String textoAmostrar = null;
@@ -63,37 +63,38 @@ public class HackMinigame : MonoBehaviour
         
     }
 
-    private void MoverValores()
+    private void MoverValores() //Mueve las ips del tablero
     {
-        String primeraIp = ipMix[0];
+        String primeraIp = ipMix[0];//Se guarda la primera
 
-        for (int i = 0; i < ipMix.Length; i++)
+        for (int i = 0; i < ipMix.Length; i++) 
         {
             if (i == ipMix.Length-1)
             {
-                ipMix[ipMix.Length-1] = primeraIp;
+                ipMix[ipMix.Length-1] = primeraIp; //Poner la que habiamos guardado en la ultima posicion
             }
             else
             {
-                ipMix[i] = ipMix[i + 1];  
+                ipMix[i] = ipMix[i + 1];  //Pone cada una en la siguiente posicion  
             }
         }
     }
     
-    private void MostrarBoton()
+    private void MostrarTablero()//Mostrar el tablero
     {
 
         for (int i = 0; i < butons.Length; i++)
         {
-            butons[i].GetComponentInChildren<Text>().text = ipMix[i].ToString();
+            butons[i].GetComponentInChildren<Text>().text = ipMix[i].ToString(); //Que cada boton tenga la ip que le corresponda
         }
     }
 
-    public void Seleccion(Button bottonSeleccionado)
+    public void Seleccion(Button bottonSeleccionado)//El usuario a seleccionado un boton(bottonSeleccionado) y queremos guardarlo en una sequencia de 9 botones (los 4 previos, el seleccionado y 4 posteriores)
     {
         bool isCorrect = false;
         int selectedButtonId = 0;
 
+        //Recoger el ID del boton que ha sido seleccionado
         for (int i = 0; i < butons.Length; i++)
         {
             if (butons[i] == bottonSeleccionado)
@@ -102,6 +103,7 @@ public class HackMinigame : MonoBehaviour
             }
         }
         
+        //Resetar los botones de la sequencia
         Button button0 = null;
         Button button1 = null;
         Button button2 = null;
@@ -113,6 +115,8 @@ public class HackMinigame : MonoBehaviour
         Button button8 = null;
         
         
+        //Si se selecciona el ultimo boton del tablero que los 4 botones posteriores sean los 4 primeros y si selecciona el primer boton que los previos sean los ultimos del tablero
+        
         
         //Checkear el limite superior
         int limiteInferior = 0 - selectedButtonId;
@@ -121,9 +125,9 @@ public class HackMinigame : MonoBehaviour
         //Checkear el limite inferior
         int limiteSuperior = butons.Length - selectedButtonId;
         Debug.Log("superior"+limiteSuperior);
-
         
-        //Si hay valores inferiores al limite, ponerlos
+        
+        //Si hay valores inferiores al limite, pasar al limite superior
         if (limiteInferior >= -3)
         {
             button0 = butons[butons.Length - 1];
@@ -175,7 +179,7 @@ public class HackMinigame : MonoBehaviour
         
         
         
-        //Si hay valores superiores al limite, ponerlos
+        //Si hay valores superiores al limite, pasar al limite inferior
         if (limiteSuperior <= 4)
         {
             button8 = butons[0];
@@ -221,7 +225,7 @@ public class HackMinigame : MonoBehaviour
             button8 = butons[selectedButtonId+4];
         }
         
-        
+        //La sequencia de botones seleccionados
         Button[] selectedButtonSequence =
         {
             button0,
@@ -236,15 +240,17 @@ public class HackMinigame : MonoBehaviour
         };
         
         //Mostrar resultados
+        
+        
         string selectedStrings = null;
-        for (int i = 0; i < selectedButtonSequence.Length; i++)
+        for (int i = 0; i < selectedButtonSequence.Length; i++)//Pasar a strings los botones seleccionados
         {
             selectedStrings = selectedStrings + selectedButtonSequence[i].GetComponentInChildren<Text>().text;
         }    
 
-        if (selectedStrings.Equals(text1.text))
+        if (selectedStrings.Equals(text1.text)) //Comparar con la solucion
         {
-            isCorrect = true;
+            isCorrect = true;//Si es correcto
             for (int i = 0; i < selectedButtonSequence.Length; i++)
             {
                 selectedButtonSequence[i].GetComponent<Image>().color = Color.white;
@@ -252,7 +258,7 @@ public class HackMinigame : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-        else
+        else// Si no es correcto
         {
             for (int i = 0; i < selectedButtonSequence.Length; i++)
             {
@@ -263,6 +269,7 @@ public class HackMinigame : MonoBehaviour
         Debug.Log(selectedStrings + "|" + isCorrect);
     }
 
+    //Quitarle el color a los botones
     private void resetButtons()
     {
         for (int i = 0; i < butons.Length; i++)
@@ -272,6 +279,7 @@ public class HackMinigame : MonoBehaviour
         
     }
     
+    //Poner los botones en rojo
     private void allButtonsRed()
     {
         for (int i = 0; i < butons.Length; i++)
@@ -281,13 +289,15 @@ public class HackMinigame : MonoBehaviour
         
     }
 
+    //Mensaje final
     private void endScreen(String message)
     {
-        for (int i = 0; i < butons.Length; i++)
+        for (int i = 0; i < butons.Length; i++) //Quitar los botones
         {
             butons[i].gameObject.SetActive(false);
         }
 
+        //Mostrar el mensaje
         text4.text = message;
         text4.gameObject.SetActive(true);
     }

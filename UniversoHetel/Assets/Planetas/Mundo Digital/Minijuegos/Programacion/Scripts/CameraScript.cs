@@ -1,29 +1,32 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour
+namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
-    public static event Action<GameObject> RayHit;
-    [SerializeField] private LayerMask mask;
-    private Camera _cam;
-    // Start is called before the first frame update
-    void Start()
+    /*
+     * Script de la camara
+     * Cuando se hace click lanza un raycast en la posición del ratón
+     * En caso de chocar con un objeto del layer "Boton" lanza el evento "RayHit"
+     * TODO: quitar el update y utilizar el sistema de InputAction
+     */
+    public class CameraScript : MonoBehaviour
     {
-        _cam = GetComponent<Camera>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        public static event Action<GameObject> RayHit;
+        [SerializeField] private LayerMask mask;
+        private Camera _cam;
+        
+        void Start()
         {
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+            _cam = GetComponent<Camera>();
+        }
+        
+        void Update()
+        {
+            if (!Input.GetMouseButtonDown(0)) return;
+            var ray = _cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
             {
-                Debug.Log(hit.transform.gameObject.name);
                 RayHit?.Invoke(hit.transform.gameObject);
             }
         }
