@@ -2,43 +2,42 @@ using UnityEngine;
 
 namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
+    /*
+     * Script del prefab "Boton"
+     * Recibe el evento "RayHit" de la camara
+     * En caso de activarse el botón, mueve el objeto "salida" a z:0
+     * En caso de desactivarse el botón, devuelve el objeto "salida" a z:-500
+     */
     public class BotonScript : MonoBehaviour
     {
-        
         [SerializeField] private GameObject salida;
+        [SerializeField] private GameObject modelo;
+        
         private bool _activo;
-    
+        private Renderer _renderer;
+        
         void Start()
         {
             salida.SetActive(true);
+            _renderer = modelo.GetComponent<Renderer>();
             CameraScript.RayHit += AlternarBoton;
         }
 
         private void AlternarBoton(GameObject yo)
         {
-            if (yo.Equals(gameObject))
-            {
-                _activo = !_activo;
-            }
-        }
-    
-        void Update()
-        {
+            if (!yo.Equals(gameObject)) return;
+            _activo = !_activo;
             var position = salida.transform.position;
             if (_activo)
             {
-                position = new Vector3(position.x, position.y, 0);
-                salida.transform.position = position;
-                //GetComponent<Renderer>().material.color = Color.green;
+                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{0,2});
             }
             else
             {
-                position = new Vector3(position.x, position.y, -500);
-                salida.transform.position = position;
-                //GetComponent<Renderer>().material.color = Color.red;
+                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{0,2});
             }
-        }
-    
 
+
+        }
     }
 }
