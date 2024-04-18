@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salida: {fileID: 7012063286887569366}
+  modelo: {fileID: 3388548247645899403}
 --- !u!1001 &2578279435173754842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,5 +223,10 @@ PrefabInstance:
 --- !u!4 &2615845919308156977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f358129581b8b5645a0531fb0b306191, type: 3}
+  m_PrefabInstance: {fileID: 2578279435173754842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3388548247645899403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f358129581b8b5645a0531fb0b306191, type: 3}
   m_PrefabInstance: {fileID: 2578279435173754842}
   m_PrefabAsset: {fileID: 0}

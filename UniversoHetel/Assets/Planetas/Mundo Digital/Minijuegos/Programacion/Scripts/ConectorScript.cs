@@ -2,41 +2,57 @@ using UnityEngine;
 
 namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
+    /*
+     * Script de los prefabs "Conector", "Conector Fin", "Conector Ini" y "ConectorL"
+     * Detecta si la "Pata" de entrada está activa
+     * En caso de que esté activa, activa la salida
+     * En casto de que esté desactivada, desactiva la salida
+     */
     public class ConectorScript : MonoBehaviour
     {
-    
-        [SerializeField] private GameObject entradaObject;
-        [SerializeField] private GameObject salidaObject;
+        [SerializeField] private GameObject entrada;
+        [SerializeField] private GameObject salida;
         [SerializeField] private Renderer modelo;
         
-        private PataScript _entrada;
+        private bool _entrada;
+        private Renderer _renderer;
         
         void Start()
         { 
-            _entrada = entradaObject.GetComponent<PataScript>();
+            _renderer = modelo.GetComponent<Renderer>();
+            
+            PataScript.Activo += PataActivo;
+            PataScript.Desactivo += PataDesactivo;
+            
+            CheckPatas();
         }
         
-        void Update()
+        private void PataActivo(GameObject pata)
         {
-            var position = salidaObject.transform.position;
-            if (_entrada.GetActivo())
+            if (!pata.Equals(entrada)) return;
+            _entrada = true;
+            CheckPatas();
+        }
+        
+        private void PataDesactivo(GameObject pata)
+        {
+            if (!pata.Equals(entrada)) return;
+            _entrada = false;
+            CheckPatas();
+        }
+        
+        private void CheckPatas()
+        {
+            var position = salida.transform.position;
+            if (_entrada)
             {
-                position = new Vector3(position.x, position.y, 0);
-                salidaObject.transform.position = position;
-                foreach (var material in modelo.materials)
-                {
-                    material.color = Color.green;
-                }
-                
+                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer,
+                    _renderer.materials.Length == 1 ? new[] { 0 } : new[] { 0, 1 });
             }
             else
             {
-                position = new Vector3(position.x, position.y, -500);
-                salidaObject.transform.position = position;
-                foreach (var material in modelo.materials)
-                {
-                    material.color = Color.red;
-                }
+                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer,
+                    _renderer.materials.Length == 1 ? new[] { 0 } : new[] { 0, 1 });
             }
         }
     }
