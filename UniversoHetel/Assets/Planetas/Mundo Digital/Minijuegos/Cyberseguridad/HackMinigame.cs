@@ -29,7 +29,7 @@ public class HackMinigame : MonoBehaviour
         
         //Que el tablero se mueva
         InvokeRepeating("MoverValores", 0.0f, moveRate);
-        InvokeRepeating("MostrarBoton", 0.0f, moveRate);
+        InvokeRepeating("MostrarTablero", 0.0f, moveRate);
         InvokeRepeating("resetButtons", 0.0f, moveRate);
 
     }
