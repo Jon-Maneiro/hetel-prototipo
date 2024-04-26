@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1765667269087772223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.099999994, z: -2.176}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9ef5a6be18fce468bc5489a5827b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gorros: 01010101000000
+  gorros1: 010000000000
+  gorros2: 000001000000
+  gorros3: 000000000000
+  gorros1ocupied: 0
+  gorros2ocupied: 0
+  gorros3ocupied: 0
   stickers: 0101010101
