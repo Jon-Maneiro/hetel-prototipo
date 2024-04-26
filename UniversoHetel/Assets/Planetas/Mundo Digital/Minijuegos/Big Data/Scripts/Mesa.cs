@@ -12,7 +12,9 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
         public int height = 8;
         public float spacingX;
         public float spacingY;
-        
+
+        private bool _isSelected;
+        public bool gameStarted;
         public GameObject[] potionPrefabs;
         private Node[,] _potionBoard;
 
@@ -29,6 +31,11 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
     
         [SerializeField] private LayerMask mask;
         [SerializeField] private Camera cam;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip @short;
+        [SerializeField] private AudioClip @long;
+        [SerializeField] private AudioClip @super;
+        
 
         private void Awake()
         {
@@ -42,14 +49,31 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
 
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
-            var ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (!Physics.Raycast(ray, out hit, Mathf.Infinity, mask)) return;
-            if (hit.collider is null || !hit.collider.gameObject.GetComponent<Potion>()) return;
-            if (isProcessingMove) return;
-            var potion = hit.collider.gameObject.GetComponent<Potion>();
-            SelectPotion(potion);
+            if (Input.GetMouseButtonDown(0))
+            {
+                var ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (!Physics.Raycast(ray, out hit, Mathf.Infinity, mask)) return;
+                if (hit.collider is null || !hit.collider.gameObject.GetComponent<Potion>()) return;
+                if (isProcessingMove) return;
+                var potion = hit.collider.gameObject.GetComponent<Potion>();
+                SelectPotion(potion);
+            }
+
+            if (Input.GetMouseButtonUp(0) && _isSelected)
+            {
+                var ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (!Physics.Raycast(ray, out hit, Mathf.Infinity, mask)) return;
+                if (hit.collider is null || !hit.collider.gameObject.GetComponent<Potion>()) return;
+                if (isProcessingMove) return;
+                var potion = hit.collider.gameObject.GetComponent<Potion>();
+                SelectPotion(potion);
+            }
+            
+            if (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonUp(0)) return;
+            
+
         }
 
         private void InitializeBoard()
@@ -82,6 +106,10 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             {
                 InitializeBoard();
             }
+            else
+            {
+                gameStarted = true;
+            }
         }
 
         private void DestroyPotions()
@@ -89,7 +117,8 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             if (potionsToDestroy is null) return;
             foreach (GameObject potion in potionsToDestroy)
             {
-                Destroy(potion);
+                potion.GetComponent<Potion>().Destruir(gameStarted);
+                //Destroy(potion);
             }
             potionsToDestroy.Clear();
         }
@@ -142,6 +171,19 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
                 potionToRemove.isMatched = false;
             }
 
+            switch (potionsToRemove.Count)
+            {
+                case > 4:
+                    AudioSource.PlayClipAtPoint(@super, cam.transform.position);
+                    break;
+                case 4:
+                    AudioSource.PlayClipAtPoint(@long, cam.transform.position);
+                    break;
+                default:
+                    AudioSource.PlayClipAtPoint(@short, cam.transform.position);
+                    break;
+            }
+            
             RemoveAndRefill(potionsToRemove);
             GameManager.Instance.ProcessTurn(potionsToRemove.Count, substractMoves);
             yield return new WaitForSeconds(0.4f);
@@ -160,7 +202,8 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
                 var xIndex = potion.xIndex;
                 var yIndex = potion.yIndex;
                 
-                Destroy(potion.gameObject);
+                potion.GetComponent<Potion>().Destruir(gameStarted);
+                //Destroy(potion.gameObject);
                 
                 //_potionBoard[xIndex, yIndex] = new Node(true, null);
                 _potionBoard[xIndex, yIndex] = potionParent.AddComponent<Node>();
@@ -370,15 +413,18 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             if (selectedPotion is null)
             {
                 selectedPotion = potion;
+                _isSelected = true;
             }
             else if (selectedPotion == potion)
             {
                 selectedPotion = null;
+                _isSelected = false;
             }
             else if (selectedPotion != potion)
             {
                 SwapPotion(selectedPotion, potion);
                 selectedPotion = null;
+                _isSelected = false;
             }
         }
 

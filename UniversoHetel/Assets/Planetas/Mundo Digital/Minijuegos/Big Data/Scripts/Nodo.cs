@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour
+namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
 {
-    //to determine whether the space can be filled with potions or not.
-    public bool isUsable;
-
-    public GameObject potion;
-
-    public Node(bool isUsable, GameObject potion)
+    public class Node : MonoBehaviour
     {
-        this.isUsable = isUsable;
-        this.potion = potion;
+        public bool isUsable;
+        public GameObject potion;
+
+        public Node(bool isUsable, GameObject potion)
+        {
+            this.isUsable = isUsable;
+            this.potion = potion;
+        }
     }
 }

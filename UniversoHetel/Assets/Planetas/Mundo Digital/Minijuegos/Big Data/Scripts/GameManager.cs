@@ -7,7 +7,8 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
-
+        [SerializeField] private GameObject cam;
+        
         public GameObject backgroundPanel;
         public GameObject victoryPanel;
         public GameObject losePanel;
@@ -21,10 +22,12 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
         public TMP_Text pointsTxt;
         public TMP_Text movesTxt;
         public TMP_Text goalTxt;
-
+        
         private void Awake()
         {
             Instance = this;
+            ChangeTexts();
+            cam.GetComponent<CameraMusic>().Bgm();
         }
 
         public void Initialize(int moveAmount, int goalPoints)
@@ -50,31 +53,42 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             
             if (points >= goal)
             {
-                //you've won the game
-                isGameEnded = true;
-                //Display a victory screen
-                backgroundPanel.SetActive(true);
-                victoryPanel.SetActive(true);
-                PotionBoard.Instance.potionParent.SetActive(false);
+                EndGame(true);
                 return;
             }
 
             if (moves != 0) return;
-            //lose the game
-            isGameEnded = true;
-            backgroundPanel.SetActive(true);
-            losePanel.SetActive(true);
-            PotionBoard.Instance.potionParent.SetActive(false);
+            EndGame(false);
         }
 
-        //attached to a button to change scene when winning
+        private void EndGame(bool won)
+        {
+            isGameEnded = true;
+            backgroundPanel.SetActive(false);
+            PotionBoard.Instance.potionParent.SetActive(false);
+            if (won)
+            {
+                victoryPanel.SetActive(true);
+                cam.GetComponent<CameraMusic>().Win();
+            }
+            else
+            {
+                losePanel.SetActive(true);
+                cam.GetComponent<CameraMusic>().Lose();
+            }
+        }
+        
         public void WinGame()
         {
             SceneManager.LoadScene(0);
         }
-
-        //attached to a button to change scene when losing
+        
         public void LoseGame()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public void RestartGame()
         {
             SceneManager.LoadScene(0);
         }
