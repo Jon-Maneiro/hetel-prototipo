@@ -13,6 +13,7 @@ public class LoadingData
     public static readonly string PlanetSelection = "SeleccionPlanetas";//The Planet Selection Screen
     public static bool CreatePortal = false;//Whether the planet scene should create a portal- This should only happen if a planet has been selected
     public static bool MinigameWon = true;
+    public static string NextContinent;//Continent to which travel is planned;
     
     // -- Return from Planet Selection Scene -- 
     public static Vector3 ShipPosition = Vector3.zero; //Ship's position in last Scene
