@@ -12,7 +12,9 @@ public class GameControllerAster2 : MonoBehaviour
     public float initTimeBetweenEnemies = 1.5f;
 
     [SerializeField] private int numberOfEnemies;
+    [SerializeField] private int spawnHeight;
     [SerializeField] private int timeToWin;
+    [SerializeField] private float timeBetweenReductionFactor;
     [SerializeField] private bool timed;
 
     private float spannedTime = 0f;
@@ -64,9 +66,11 @@ public class GameControllerAster2 : MonoBehaviour
         for (var i = 0; i < numberOfEnemies; i++)
         {
             yield return new WaitForSeconds(timeBetweenEnemies);
-            Vector3 spawnPos = new Vector3(0,25,0);
+            timeBetweenEnemies = TimeReduction(timeBetweenEnemies,timeBetweenReductionFactor);
+            Vector3 spawnPos = new Vector3(0,spawnHeight,0);
             GameObject newestAsteroid = Instantiate(SelectRandomAsteroid(), spawnPos, Quaternion.identity);
             newestAsteroid.GetComponent<Rigidbody>().AddForce(speed);
+            numberOfEnemies--;
         }
         Victory();
     }
@@ -79,7 +83,8 @@ public class GameControllerAster2 : MonoBehaviour
         while (timeToWin > 0)
         {
             yield return new WaitForSeconds(timeBetweenEnemies);
-            Vector3 spawnPos = new Vector3(0,25,0);
+            timeBetweenEnemies = TimeReduction(timeBetweenEnemies,timeBetweenReductionFactor);
+            Vector3 spawnPos = new Vector3(0,spawnHeight,0);
             GameObject newestAsteroid = Instantiate(SelectRandomAsteroid(), spawnPos, Quaternion.identity);
             newestAsteroid.GetComponent<Rigidbody>().AddForce(speed);
         }
