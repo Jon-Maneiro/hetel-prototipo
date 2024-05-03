@@ -18,7 +18,7 @@ public class GoodCubeScript : MonoBehaviour
     {
         if (!hitObject.Equals(gameObject)) return;
         SumarPunto?.Invoke();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void OnDestroy()
