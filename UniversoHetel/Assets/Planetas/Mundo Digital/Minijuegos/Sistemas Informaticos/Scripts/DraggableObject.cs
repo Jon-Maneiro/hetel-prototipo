@@ -7,8 +7,10 @@ public class DraggableObject : MonoBehaviour
 {
 
         public delegate void DragEndedDelegate(DraggableObject dragableObject);
-
+        
         public DragEndedDelegate dragEndedCallback;
+        
+        
         
         private bool _isDragged = false;
         private Vector3 _mouseDragStartPosition;
@@ -16,19 +18,29 @@ public class DraggableObject : MonoBehaviour
         private Vector3 _objectStartPosition;
         public bool alwaysTrue;
 
+        private Quaternion _objectDragStartRotation;
+        private ParticleSystem _particles;
+        
+        private Camera _camara;
         public Transform[] correctSnapPoint;
         public bool isCorrect = false;
         private void Start()
         {
                 if (alwaysTrue) isCorrect = true;
                 _objectStartPosition = transform.localPosition;
+                _camara = GameObject.Find("Main Camera").GetComponent<Camera>();
+                _particles = GetComponent<ParticleSystem>();
         }
 
         private void OnMouseDown()
         {
                 _isDragged = true;
-                _mouseDragStartPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _mouseDragStartPosition = _camara.ScreenToWorldPoint(Input.mousePosition);
                 _objectDragStartPosition = transform.localPosition;
+                _objectDragStartRotation = transform.rotation;
+                Rotate();
+                StopParticles();
+                CancelInvoke(nameof(StopParticles));
         }
 
         private void OnMouseDrag()
@@ -36,7 +48,7 @@ public class DraggableObject : MonoBehaviour
                 if (_isDragged)
                 {
                         transform.localPosition = _objectDragStartPosition +
-                                                  (Camera.main.ScreenToWorldPoint(Input.mousePosition) -
+                                                  (_camara.ScreenToWorldPoint(Input.mousePosition) -
                                                    _mouseDragStartPosition);
                 }
         }
@@ -50,5 +62,29 @@ public class DraggableObject : MonoBehaviour
         public void ReturnToOrigin()
         {
                 transform.localPosition = _objectStartPosition;
+                ReturnOriginalRotation();
         }
+
+        private void Rotate()
+        {
+                //transform.Rotate(new Vector3(-90,0,90));
+        }
+
+        private void ReturnOriginalRotation()
+        {
+                transform.rotation = _objectDragStartRotation;
+        }
+
+        public void StartParticles()
+        { 
+                _particles.Play();
+                Invoke(nameof(StopParticles),5f);
+        }
+
+        public void StopParticles()
+        { 
+                _particles.Stop();
+        }
+
+
 }
