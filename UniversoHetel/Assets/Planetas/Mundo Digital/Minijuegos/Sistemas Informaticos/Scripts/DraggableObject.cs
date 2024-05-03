@@ -19,7 +19,8 @@ public class DraggableObject : MonoBehaviour
         public bool alwaysTrue;
 
         private Quaternion _objectDragStartRotation;
-
+        private ParticleSystem _particles;
+        
         private Camera _camara;
         public Transform[] correctSnapPoint;
         public bool isCorrect = false;
@@ -28,6 +29,7 @@ public class DraggableObject : MonoBehaviour
                 if (alwaysTrue) isCorrect = true;
                 _objectStartPosition = transform.localPosition;
                 _camara = GameObject.Find("Main Camera").GetComponent<Camera>();
+                _particles = GetComponent<ParticleSystem>();
         }
 
         private void OnMouseDown()
@@ -37,6 +39,8 @@ public class DraggableObject : MonoBehaviour
                 _objectDragStartPosition = transform.localPosition;
                 _objectDragStartRotation = transform.rotation;
                 Rotate();
+                StopParticles();
+                CancelInvoke(nameof(StopParticles));
         }
 
         private void OnMouseDrag()
@@ -71,7 +75,16 @@ public class DraggableObject : MonoBehaviour
                 transform.rotation = _objectDragStartRotation;
         }
 
+        public void StartParticles()
+        { 
+                _particles.Play();
+                Invoke(nameof(StopParticles),5f);
+        }
 
+        public void StopParticles()
+        { 
+                _particles.Stop();
+        }
 
 
 }

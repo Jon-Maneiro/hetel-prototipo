@@ -73,6 +73,7 @@ public class SnapController : MonoBehaviour
 
         if (closestSnapPoint != null && closestDistance <= snapRange)
         {
+            draggableObject.StartParticles();
             draggableObject.transform.localPosition = closestSnapPoint.localPosition;
             CheckCorrectPosition(draggableObject,closestSnapPoint);
         }
