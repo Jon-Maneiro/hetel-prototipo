@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: e44843eeaad323d4f95058e510b4d785
+guid: deb09ac7ce451214b861078e980271c0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GunPod.002
+    second: {fileID: 2100000, guid: 352f2c1835e84dd4491ca5a61a891988, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LaserDiode.001
+    second: {fileID: 2100000, guid: bd9c82f7852574f4b99eecddcb0e5909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.007
+    second: {fileID: 2100000, guid: e25261b11ef1db64ea27772990003e7d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
