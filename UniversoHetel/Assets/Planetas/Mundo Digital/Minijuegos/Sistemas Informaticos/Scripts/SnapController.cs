@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SnapController : MonoBehaviour
@@ -40,7 +41,6 @@ public class SnapController : MonoBehaviour
 
         while (keepLoop)
         {
-            Debug.Log("AHUHAHAUAH");
             remainingTime -= 1;
             temporizador.text = remainingTime.ToString();
             
@@ -49,8 +49,8 @@ public class SnapController : MonoBehaviour
             {
                 CancelInvoke(nameof(TimerFunction));
                 canvasDerrota.enabled = true;
-                Invoke(nameof(changeScene),2f);
                 keepLoop = false;
+                ChangeScene(false);
             }    
         }
     }
@@ -73,6 +73,7 @@ public class SnapController : MonoBehaviour
 
         if (closestSnapPoint != null && closestDistance <= snapRange)
         {
+            draggableObject.StartParticles();
             draggableObject.transform.localPosition = closestSnapPoint.localPosition;
             CheckCorrectPosition(draggableObject,closestSnapPoint);
         }
@@ -107,12 +108,26 @@ public class SnapController : MonoBehaviour
         
         canvasVictoria.enabled = true;
         StopCoroutine(nameof(TimerFunction));
-        Invoke(nameof(changeScene), 2f);
+        ChangeScene(true);
     }
 
-    private void changeScene()
+    private void ChangeScene(bool victoria)
     {
-        //Irse de esta escena a la anterior
+        if (victoria)
+        {
+            LoadingData.SceneToLoad = LoadingData.NextContinent;
+        }
+        else
+        {
+            LoadingData.SceneToLoad = LoadingData.CurrentScene;
+        }
+        Invoke(nameof(CallLoadingScreen), 2f);
+
+    }
+
+    private void CallLoadingScreen()
+    {
+        SceneManager.LoadScene("LoadingScreen");
     }
 
 }
