@@ -14,7 +14,8 @@ public class GameControllerAster1 : MonoBehaviour
     {
         SingleFire,
         DoubleFire,
-        FanFire
+        FanFire,
+        Rocket
     }
     
     
