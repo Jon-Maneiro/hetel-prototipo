@@ -201,4 +201,5 @@ public class CosmeticosSingleton : MonoBehaviour
         } 
         UpdateCosmetics?.Invoke(true);
     }
+    
 }
