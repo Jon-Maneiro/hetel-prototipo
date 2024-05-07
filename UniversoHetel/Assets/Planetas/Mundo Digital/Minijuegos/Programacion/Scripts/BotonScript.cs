@@ -27,14 +27,15 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         {
             if (!yo.Equals(gameObject)) return;
             _activo = !_activo;
-            var position = salida.transform.position;
+            var salidaPosition = salida.transform.position;
+            var position = new Vector3(salidaPosition.x,salidaPosition.y, transform.position.z);
             if (_activo)
             {
-                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{0,2});
+                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{0,2}, Color.green);
             }
             else
             {
-                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{0,2});
+                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{0,2}, Color.red);
             }
 
 

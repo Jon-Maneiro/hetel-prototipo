@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
@@ -56,14 +57,15 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 
         private void CheckPatas()
         {
-            var position = salida.transform.position;
+            var salidaPosition = salida.transform.position;
+            var position = new Vector3(salidaPosition.x,salidaPosition.y, transform.position.z);
             if (_pata1 || _pata2)
             {
-                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{1});
+                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{1}, Color.green);
             }
             else
             {
-                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{1});
+                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{1}, Color.red);
             }
         }
     }
