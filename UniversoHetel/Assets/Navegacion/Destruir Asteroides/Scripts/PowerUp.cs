@@ -39,7 +39,7 @@ public class PowerUp : MonoBehaviour
 
     private void randomizePowerUpType()
     {
-        int value = (int)Random.Range(0,3);
+        int value = (int)Random.Range(1,4);
         _powerUpType = (GameControllerAster1.FireMode)value;
         changeColor(_powerUpType);
     }
@@ -49,8 +49,8 @@ public class PowerUp : MonoBehaviour
         var mat = gameObject.GetComponent<Renderer>();
         switch (type)
         {
-            case GameControllerAster1.FireMode.SingleFire:
-                mat.material.SetColor("_Color",Color.blue);
+            case GameControllerAster1.FireMode.Rocket:
+                mat.material.SetColor("_Color",Color.red);
                 break;
             case GameControllerAster1.FireMode.DoubleFire:
                 mat.material.SetColor("_Color",Color.yellow);
