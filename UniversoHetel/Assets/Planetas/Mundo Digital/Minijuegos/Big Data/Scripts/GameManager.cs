@@ -38,9 +38,9 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
 
         private void ChangeTexts()
         {
-            pointsTxt.text = "Points: " + points.ToString();
-            movesTxt.text = "Moves: " + moves.ToString();
-            goalTxt.text = "Goal: " + goal.ToString();
+            pointsTxt.text = points.ToString();
+            movesTxt.text = moves.ToString();
+            goalTxt.text = goal.ToString();
         }
 
         public void ProcessTurn(int pointsToGain, bool subtractMoves)
@@ -90,7 +90,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
 
         public void RestartGame()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("CCrush");
         }
     }
 }
