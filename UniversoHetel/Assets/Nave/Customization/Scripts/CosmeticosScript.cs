@@ -11,8 +11,6 @@ public class CosmeticosScript : MonoBehaviour
 
 
     [SerializeField] GameObject[] stickers;
-    
-
 
     
     // Start is called before the first frame update
@@ -53,6 +51,5 @@ public class CosmeticosScript : MonoBehaviour
             gorros3[j].SetActive(CosmeticosSingleton.Instance.gorros3[j]);
            
         }
-        
     }
 }
