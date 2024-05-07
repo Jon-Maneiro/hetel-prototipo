@@ -24,6 +24,8 @@ public class DraggableObject : MonoBehaviour
         private Camera _camara;
         public Transform[] correctSnapPoint;
         public bool isCorrect = false;
+        public bool isSnapped = false;
+        public Transform snappedIntoPoint;
         private void Start()
         {
                 if (alwaysTrue) isCorrect = true;
@@ -38,7 +40,8 @@ public class DraggableObject : MonoBehaviour
                 _mouseDragStartPosition = _camara.ScreenToWorldPoint(Input.mousePosition);
                 _objectDragStartPosition = transform.localPosition;
                 _objectDragStartRotation = transform.rotation;
-                Rotate();
+                isSnapped = false;
+                snappedIntoPoint = null;
                 StopParticles();
                 CancelInvoke(nameof(StopParticles));
         }
@@ -63,11 +66,6 @@ public class DraggableObject : MonoBehaviour
         {
                 transform.localPosition = _objectStartPosition;
                 ReturnOriginalRotation();
-        }
-
-        private void Rotate()
-        {
-                //transform.Rotate(new Vector3(-90,0,90));
         }
 
         private void ReturnOriginalRotation()
