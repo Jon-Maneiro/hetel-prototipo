@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -21,7 +22,8 @@ public class SnapController : MonoBehaviour
     public Canvas canvasDerrota;
     public float remainingTime = 120;
     public bool alwaysTrue;
-    [SerializeField] private TextMeshProUGUI temporizador; 
+    [SerializeField] private TextMeshProUGUI temporizador;
+    public GameObject Equis;
     
     // Start is called before the first frame update
     void Start()
@@ -75,6 +77,8 @@ public class SnapController : MonoBehaviour
         {
             draggableObject.StartParticles();
             draggableObject.transform.localPosition = closestSnapPoint.localPosition;
+            draggableObject.isSnapped = true;
+            draggableObject.snappedIntoPoint = closestSnapPoint.transform;
             CheckCorrectPosition(draggableObject,closestSnapPoint);
         }
         else
@@ -105,10 +109,45 @@ public class SnapController : MonoBehaviour
             if (!draggable.isCorrect) return;
             Debug.Log("Oh no! Hay alguno mal Nya");
         }
-        
-        canvasVictoria.enabled = true;
-        StopCoroutine(nameof(TimerFunction));
-        ChangeScene(true);
+
+    }
+
+    public void Check()
+    {
+
+        bool allCorrect = true;
+        foreach (var dragObj in draggableObjects)
+        {
+            if (!dragObj.isCorrect)
+            {
+                allCorrect = false;
+            }
+        }
+
+        if (!allCorrect)
+        {
+            Invoke(nameof(showEquis),0f );
+        }
+        else
+        {
+                    
+            canvasVictoria.enabled = true;
+            StopCoroutine(nameof(TimerFunction));
+            ChangeScene(true);
+        }
+
+    }
+
+
+    private void showEquis()
+    {
+        Equis.SetActive(true);
+        Invoke(nameof(hideEquis),1f);
+    }
+
+    private void hideEquis()
+    {
+        Equis.SetActive(false);
     }
 
     private void ChangeScene(bool victoria)
