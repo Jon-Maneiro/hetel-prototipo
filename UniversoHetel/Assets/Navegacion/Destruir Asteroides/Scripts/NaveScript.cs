@@ -172,7 +172,7 @@ public class NaveScript : MonoBehaviour
     private void RocketFireMode()
     {
         Instantiate(misil,
-            new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z),
+            new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z),
             Quaternion.identity);
     }
 

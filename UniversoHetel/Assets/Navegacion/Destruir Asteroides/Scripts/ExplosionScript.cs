@@ -10,13 +10,15 @@ public class ExplosionScript : MonoBehaviour
     private float _duracion = 1;
 
     private float _valorInicial = 0.25f;
-    private float _valorFinal = 1.25f;
+    private float _valorFinal = 2f;
     private float _valor;
+    [SerializeField] private float cantidadAumento = 0.35f;
     
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(Explode),0f,0.2f);
+        _valor = _valorInicial;
+        InvokeRepeating(nameof(Explode),0f,0.15f);
     }
 
     // Update is called once per frame
@@ -32,10 +34,9 @@ public class ExplosionScript : MonoBehaviour
 
     private void Explode()
     {
-        if (_tiempoExplosion < _duracion)
+        if (_valor < _valorFinal)
         {
-            _valor = Mathf.Lerp(_valorInicial, _valorFinal, _tiempoExplosion);
-            _tiempoExplosion += Time.deltaTime;
+            _valor += cantidadAumento;
         }
         else
         {
