@@ -43,16 +43,17 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         
         private void CheckPatas()
         {
-            var position = salida.transform.position;
+            var salidaPosition = salida.transform.position;
+            var position = new Vector3(salidaPosition.x,salidaPosition.y, transform.position.z);
             if (_entrada)
             {
                 MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer,
-                    _renderer.materials.Length == 1 ? new[] { 0 } : new[] { 0, 1 });
+                    _renderer.materials.Length == 1 ? new[] { 0 } : new[] { 0, 1 }, Color.green);
             }
             else
             {
                 MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer,
-                    _renderer.materials.Length == 1 ? new[] { 0 } : new[] { 0, 1 });
+                    _renderer.materials.Length == 1 ? new[] { 0 } : new[] { 0, 1 }, Color.red);
             }
         }
     }

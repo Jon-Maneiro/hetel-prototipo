@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
