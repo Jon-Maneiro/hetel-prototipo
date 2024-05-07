@@ -7,6 +7,7 @@ public class NaveScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject proyectile;
+    [SerializeField] private GameObject misil;
     [SerializeField] private int health;
     [SerializeField] private float timeBetweenShots = 0.25f;
     private bool blockMovement = false;
@@ -60,7 +61,7 @@ public class NaveScript : MonoBehaviour
 
             if (Input.GetKeyDown((KeyCode.J)))
             {
-                _selectedFireMode = GameControllerAster1.FireMode.SingleFire;
+                _selectedFireMode = GameControllerAster1.FireMode.Rocket;
             }
 
             if (Input.GetKeyDown(KeyCode.K))
@@ -115,9 +116,9 @@ public class NaveScript : MonoBehaviour
             case GameControllerAster1.FireMode.FanFire:
                 FanFireMode();
                 break;
-            //case GameControllerAster1.FireMode.Piercing:
-                //PiercingFireMode();
-                //break;
+            case GameControllerAster1.FireMode.Rocket: 
+                RocketFireMode();
+                break;
         }
     }
 
@@ -167,7 +168,14 @@ public class NaveScript : MonoBehaviour
             Quaternion.identity);;
         rightProyectile.transform.eulerAngles = new Vector3(0, 0, -25f);
     }
-    
+
+    private void RocketFireMode()
+    {
+        Instantiate(misil,
+            new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z),
+            Quaternion.identity);
+    }
+
 
 
 }
