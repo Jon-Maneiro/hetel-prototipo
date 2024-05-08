@@ -9,7 +9,11 @@ public class AsteroidScript : MonoBehaviour
 
     [SerializeField] private bool hasSmaller = true;
     [SerializeField] private GameObject smallerMeteorite;
-    [SerializeField] private GameObject powerUp;
+    [SerializeField] private GameObject DoubleShotPower;
+    [SerializeField] private GameObject FanShotPower;
+    [SerializeField] private GameObject RocketShotPower;
+    
+    public GameControllerAster1.FireMode _powerUpType;
     
     public float powerUpPercentile = 100f;
     public float speed = 400;
@@ -75,9 +79,29 @@ public class AsteroidScript : MonoBehaviour
 
     private void instantiatePowerUp()
     {
+        randomizePowerUpType();
         float x = transform.position.x;
         float y = transform.position.y;  
         Vector3 spawnPos = new Vector3(x , y, 0);
-        Instantiate(powerUp, spawnPos, Quaternion.identity);
+        switch (_powerUpType)
+        {
+            case GameControllerAster1.FireMode.FanFire:
+                Instantiate(FanShotPower, spawnPos, Quaternion.identity);
+                break;
+            case GameControllerAster1.FireMode.DoubleFire:
+                Instantiate(DoubleShotPower, spawnPos, Quaternion.identity);
+                break;
+            case GameControllerAster1.FireMode.Rocket:
+                Instantiate(RocketShotPower, spawnPos, Quaternion.identity);
+                break;
+        }
+        
+    }
+    
+    private void randomizePowerUpType()
+    {
+        int value = (int)Random.Range(1,4);
+        _powerUpType = (GameControllerAster1.FireMode)value;
+        //changeColor(_powerUpType);
     }
 }

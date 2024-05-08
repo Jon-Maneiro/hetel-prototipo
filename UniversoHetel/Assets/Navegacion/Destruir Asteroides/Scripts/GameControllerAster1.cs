@@ -30,13 +30,14 @@ public class GameControllerAster1 : MonoBehaviour
     [SerializeField] private int timeToWin;
     [SerializeField] private bool timed;
 
-    private float spannedTime = 0f;
+    private float _spannedTime = 0f;
     
     [SerializeField] private GameObject[] asteroids;
-    private GameObject canvasJuego;
-    private GameObject hpContainer;
-    private Canvas canvasVictoria;
-    private Canvas canvasDerrota;
+    private GameObject _canvasJuego;
+    private GameObject _hpContainer;
+    private Canvas _canvasVictoria;
+    private Canvas _canvasDerrota;
+    private Canvas _canvasTutorial;
 
     /*[SerializeField] private string targetSceneVictory;
     [SerializeField] private string targetSceneDefeat;*/
@@ -46,12 +47,14 @@ public class GameControllerAster1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvasVictoria = GameObject.Find("VictoryCanvas").GetComponent<Canvas>();
-        canvasDerrota = GameObject.Find("DefeatCanvas").GetComponent<Canvas>();
-        canvasJuego = GameObject.Find("GameCanvas");
-        hpContainer = canvasJuego.transform.Find("Hearts").gameObject;
+        _canvasVictoria = GameObject.Find("VictoryCanvas").GetComponent<Canvas>();
+        _canvasDerrota = GameObject.Find("DefeatCanvas").GetComponent<Canvas>();
+        _canvasJuego = GameObject.Find("GameCanvas");
+        _canvasTutorial = GameObject.Find("TutorialCanvas").GetComponent<Canvas>();
+        _hpContainer = _canvasJuego.transform.Find("Hearts").gameObject;
         
         NaveScript.DamageReceived += UpdateHealth;
+        GameStop?.Invoke(true);
         
         if (timed)
         {
@@ -63,7 +66,14 @@ public class GameControllerAster1 : MonoBehaviour
             StartCoroutine(nameof(SpawnEnemiesSurvive));
         }
 
-        
+        Time.timeScale = 0;
+    }
+
+    public void ConfirmTutorial()
+    {
+        _canvasTutorial.gameObject.SetActive(false);
+        GameStop?.Invoke(false);
+        Time.timeScale = 1;
     }
 
     private void OnDestroy()
@@ -115,7 +125,7 @@ public class GameControllerAster1 : MonoBehaviour
 
     private void SetTimer()
     {
-        spannedTime += Time.deltaTime;
+        _spannedTime += Time.deltaTime;
         //TODO - Add Change to Canvas Timer
     }
 
@@ -140,8 +150,8 @@ public class GameControllerAster1 : MonoBehaviour
 
     private void Victory()
     {
-        canvasVictoria.enabled = true;
-        canvasJuego.GetComponent<Canvas>().enabled = false;
+        _canvasVictoria.enabled = true;
+        _canvasJuego.GetComponent<Canvas>().enabled = false;
         GameStop?.Invoke(true);
         Debug.Log("has ganado yay");
         Time.timeScale = 0;
@@ -151,8 +161,8 @@ public class GameControllerAster1 : MonoBehaviour
 
     private void Defeat()
     {
-        canvasDerrota.enabled = true;
-        canvasJuego.GetComponent<Canvas>().enabled = false;
+        _canvasDerrota.enabled = true;
+        _canvasJuego.GetComponent<Canvas>().enabled = false;
         GameStop?.Invoke(true);
         Debug.Log("has perdido yoy");
         Time.timeScale = 0;
@@ -168,7 +178,7 @@ public class GameControllerAster1 : MonoBehaviour
 
     private void UpdateHealth(int health)
     {
-        List<GameObject> lista = HelperMethods.GetChildren(hpContainer);
+        List<GameObject> lista = HelperMethods.GetChildren(_hpContainer);
 
         switch (health)
         {
