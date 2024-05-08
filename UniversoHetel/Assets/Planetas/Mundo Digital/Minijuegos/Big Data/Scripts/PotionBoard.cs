@@ -84,7 +84,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             {
                 for (int x = 0; x < width; x++)
                 {
-                    Vector2 position = new Vector2(x - spacingX, y - spacingY);
+                    Vector3 position = new Vector3(x - spacingX, y - spacingY, transform.position.z);
                     int randomIndex = Random.Range(0, potionPrefabs.Length);
 
                     GameObject potion = Instantiate(potionPrefabs[randomIndex], position, Quaternion.identity);
