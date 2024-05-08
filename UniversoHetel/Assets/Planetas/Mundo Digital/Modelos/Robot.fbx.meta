@@ -3,7 +3,57 @@ guid: 98c28c65a4af7b14ab8588365fb39094
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialBrazos
+    second: {fileID: 2100000, guid: 08785847e0c564146a625070d2fb2414, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialCuello
+    second: {fileID: 2100000, guid: a50c6e26584e57a458a7fc39093765f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialCuerpo
+    second: {fileID: 2100000, guid: adc64b33d9c21524197a866abf6db99f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialRuedas
+    second: {fileID: 2100000, guid: 1315e269aad720144b5d18f87b16cb12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialScreenface
+    second: {fileID: 2100000, guid: d569ba49574facc47a27a6f2e317100d, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturaBrazos
+    second: {fileID: 2800000, guid: dc3d2394b5e3226408093b9f880ba33d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturaCuello
+    second: {fileID: 2800000, guid: 34ade6cde2328fd44b03f1201319ed70, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturaCuerpo
+    second: {fileID: 2800000, guid: 8e796b14cb5fed643a2452d044b5e9a0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturaRuedas
+    second: {fileID: 2800000, guid: 1620c6f3f709833469714fb170d99fd2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TextureFace
+    second: {fileID: 2800000, guid: a5e316750db528f4fad6e4ab7b61cd19, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
