@@ -1593,6 +1593,10 @@ PrefabInstance:
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
       value: GUID:a99ef66a49c12c4488a64fa36a7782c3
       objectReference: {fileID: 0}
+    - target: {fileID: 4745454371802197936, guid: 7756f5a6bfeffe94a95114cfe8081276, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5400482519063923422, guid: 7756f5a6bfeffe94a95114cfe8081276, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2956,8 +2960,8 @@ MonoBehaviour:
   backgroundPanel: {fileID: 115184435}
   victoryPanel: {fileID: 830449570}
   losePanel: {fileID: 1774155042}
-  goal: 50
-  moves: 10
+  goal: 150
+  moves: 40
   points: 0
   isGameEnded: 0
   pointsTxt: {fileID: 1298227036}
