@@ -112,8 +112,8 @@ public class ShipMovement : MonoBehaviour
         mouseDistance.y = (lookInput.y - screenCenter.y) / screenCenter.y;
         if (Mathf.Abs(mouseDistance.x) < deadZoneRadius) mouseDistance.x = 0;
         if (Mathf.Abs(mouseDistance.y) < deadZoneRadius) mouseDistance.y = 0;
+        //transform.Rotate(-mouseDistance.y * lookSpeed * Time.deltaTime, mouseDistance.x * lookSpeed * Time.deltaTime, 0f, Space.Self);
         transform.Rotate(-mouseDistance.y * lookSpeed * Time.deltaTime, mouseDistance.x * lookSpeed * Time.deltaTime, 0f, Space.Self);
-        
         
     }
     
