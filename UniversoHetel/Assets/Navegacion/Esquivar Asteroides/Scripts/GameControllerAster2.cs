@@ -16,10 +16,12 @@ public class GameControllerAster2 : MonoBehaviour
     [SerializeField] private int timeToWin;
     [SerializeField] private float timeBetweenReductionFactor;
     [SerializeField] private bool timed;
-
+    
     private float spannedTime = 0f;
     
     [SerializeField] private GameObject[] asteroids;
+
+    [SerializeField] private GameObject tutorialCanvas;
     private GameObject canvasJuego;
     private GameObject hpContainer;
     private Canvas canvasVictoria;
@@ -50,7 +52,7 @@ public class GameControllerAster2 : MonoBehaviour
             StartCoroutine(nameof(SpawnEnemiesSurvive));
         }
 
-        
+        Time.timeScale = 0;
     }
 
     private void OnDestroy()
@@ -181,6 +183,12 @@ public class GameControllerAster2 : MonoBehaviour
                 break;
         }
         
+    }
+
+    public void ExitTutorial()
+    {
+        tutorialCanvas.SetActive(false);
+        Time.timeScale = 1;
     }
 
 
