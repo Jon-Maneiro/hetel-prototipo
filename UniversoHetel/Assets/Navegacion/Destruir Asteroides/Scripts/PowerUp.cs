@@ -18,7 +18,8 @@ public class PowerUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        randomizePowerUpType();
+        //randomizePowerUpType();
+        gameObject.transform.Rotate(new Vector3(-90,0,0));
         Invoke(nameof(GiveForce), 0.2f);
     }
 
@@ -41,7 +42,7 @@ public class PowerUp : MonoBehaviour
     {
         int value = (int)Random.Range(1,4);
         _powerUpType = (GameControllerAster1.FireMode)value;
-        changeColor(_powerUpType);
+        //changeColor(_powerUpType);
     }
 
     private void changeColor(GameControllerAster1.FireMode type)

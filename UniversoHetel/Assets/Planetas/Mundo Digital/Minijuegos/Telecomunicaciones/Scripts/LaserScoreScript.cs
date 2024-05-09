@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LaserScoreScript : MonoBehaviour
@@ -26,7 +27,36 @@ public class LaserScoreScript : MonoBehaviour
         _vida++;
         _goodPoints++;
         _textoResultado.text = "Succes!";
-        Invoke(nameof(StopTime), 0.5f);
+        //Invoke(nameof(StopTime), 0.5f);
+        string nombreEscena = SceneManager.GetActiveScene().name;
+        switch (nombreEscena)
+        {
+            case "MinijuegoLaser":
+                LoadingData.SceneToLoad = "MinijuegoLaser 1";
+                SceneManager.LoadScene("LoadingScreen");
+                break;
+            case "MinijuegoLaser 1":
+                LoadingData.SceneToLoad = "MinijuegoLaser 2";
+                SceneManager.LoadScene("LoadingScreen");
+                break;
+            case "MinijuegoLaser 2":
+                LoadingData.SceneToLoad = "MinijuegoLaser 3";
+                SceneManager.LoadScene("LoadingScreen");
+                break;
+            case "MinijuegoLaser 3":
+                LoadingData.SceneToLoad = "MinijuegoLaser 4";
+                SceneManager.LoadScene("LoadingScreen");
+                break;
+            case "MinijuegoLaser 4":
+                LoadingData.SceneToLoad = "SeleccionPlanetas";
+                SceneManager.LoadScene("LoadingScreen");
+                break;
+            default:
+                break;
+            
+        }
+        
+        
     }
 
     private void Substract()
@@ -39,7 +69,9 @@ public class LaserScoreScript : MonoBehaviour
         {
             _textoResultado.text = "Failure!";
             _textoVida.text = "Vida: " + 0;
-            Invoke(nameof(StopTime), 0.5f);
+            LoadingData.SceneToLoad = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene("LoadingScreen");
+            //Invoke(nameof(StopTime), 0.5f);
         }
     }
 
