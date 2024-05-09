@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MinijuegoTelecomunicaciones_en-GB
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en-GB
+  m_SharedData: {fileID: 11400000, guid: c45f46c06eccb4844a6b5c099fe07cf4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 107299385344
+    m_Localized: The game's objective is to reflect the laser in the mirrors, avoiding
+      hitting the red capacitors, until the laser reaches the antenna.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 602822848512
+    m_Localized: The laser pointer is the start place. Press [Spacebar] to turn on/off.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041249251328
+    m_Localized: Mirrors reflect lasers. Click on them to rotate them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1342534496256
+    m_Localized: Capacitors explode if the laser hits them, and they deal one point
+      of damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814242701312
+    m_Localized: If the antenna is hit by the laser for a couple of seconds, the
+      level is completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4471451725824
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
