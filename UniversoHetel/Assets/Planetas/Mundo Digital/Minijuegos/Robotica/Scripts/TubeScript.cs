@@ -63,7 +63,7 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = true;
                     _tubeGameControllerScript.CorrectMove();    
-                    GetComponentInChildren<Renderer>().material.color = Color.green;
+                    //GetComponentInChildren<Renderer>().material.color = Color.green;
                 }
             }
             else
@@ -72,7 +72,7 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = false;
                     _tubeGameControllerScript.WrongMove();    
-                    GetComponentInChildren<Renderer>().material.color = Color.white;
+                    //GetComponentInChildren<Renderer>().material.color = Color.white;
                 }
             }
                 
@@ -85,7 +85,7 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = true;
                     _tubeGameControllerScript.CorrectMove();
-                    GetComponentInChildren<Renderer>().material.color = Color.green;
+                    //GetComponentInChildren<Renderer>().material.color = Color.green;
 
                 }
             }
@@ -95,7 +95,7 @@ public class TubeScript : MonoBehaviour
                 {
                     isPlaced = false;
                     _tubeGameControllerScript.WrongMove();    
-                    GetComponentInChildren<Renderer>().material.color = Color.white;
+                    //GetComponentInChildren<Renderer>().material.color = Color.white;
 
                 }
             }
