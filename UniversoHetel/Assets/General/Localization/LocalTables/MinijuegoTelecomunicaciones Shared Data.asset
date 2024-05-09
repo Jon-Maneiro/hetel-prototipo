@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MinijuegoTelecomunicaciones Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: MinijuegoTelecomunicaciones
+  m_TableCollectionNameGuidString: c45f46c06eccb4844a6b5c099fe07cf4
+  m_Entries:
+  - m_Id: 107299385344
+    m_Key: "Tutorial B\xE1sico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 602822848512
+    m_Key: TutoriaLaser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041249251328
+    m_Key: TutorialEspejo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1342534496256
+    m_Key: TutorialCapacitador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814242701312
+    m_Key: TutorialAntena
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4471451725824
+    m_Key: BTNContinuar
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3195734054284034050
+  references:
+    version: 2
+    RefIds:
+    - rid: 3195734054284034050
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1715236068142
