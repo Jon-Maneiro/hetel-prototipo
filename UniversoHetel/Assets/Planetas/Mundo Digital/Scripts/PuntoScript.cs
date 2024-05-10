@@ -28,12 +28,12 @@ namespace Planetas.Mundo_Digital.Scripts
             }
         }
         
-        private void OnTriggerStay(Collider other)
+        /*private void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Robot"))
             {
                 OtroPunto?.Invoke(other.gameObject);
             }
-        }
+        }*/
     }
 }

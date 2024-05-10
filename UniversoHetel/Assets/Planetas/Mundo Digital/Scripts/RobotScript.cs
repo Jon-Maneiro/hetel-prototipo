@@ -9,6 +9,7 @@ namespace Planetas.Mundo_Digital.Scripts
     {
         private List<Vector3> puntos;
         private NavMeshAgent agent;
+        private Vector3 lastPos;
         
         void Start()
         {
@@ -17,6 +18,7 @@ namespace Planetas.Mundo_Digital.Scripts
             
             puntos = new List<Vector3>();
             agent = GetComponent<NavMeshAgent>();
+            lastPos = new Vector3(0, 0, 0);
 
             StartCoroutine(nameof(EsperarAPunto));
         }
@@ -34,10 +36,10 @@ namespace Planetas.Mundo_Digital.Scripts
 
         private void IrAOtroPunto(GameObject robot)
         {
-            if (robot.Equals(gameObject))
-            {
+            if (!robot.Equals(gameObject)) return;
+            do { 
                 agent.SetDestination(puntos[Random.Range(0, puntos.Count)]);
-            }
+            } while (Vector3.Distance(transform.position, agent.destination) < 1);
         }
     }
 }
