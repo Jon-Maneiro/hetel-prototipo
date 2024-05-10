@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CosmeticosScript : MonoBehaviour
+public class CosmeticsScript : MonoBehaviour
 {
     
     [SerializeField] GameObject[] gorros1;
@@ -17,6 +17,7 @@ public class CosmeticosScript : MonoBehaviour
     void Start()
     {
         CosmeticosSingleton.UpdateCosmetics += updateCosmetics;
+        updateCosmetics(true);
     }
     
 
@@ -27,7 +28,6 @@ public class CosmeticosScript : MonoBehaviour
     
     public void updateCosmetics(bool booleano)
     {
-
         for (int i = 0; i < stickers.Length; i++)
         {
             stickers[i].SetActive(CosmeticosSingleton.Instance.stickers[i]);
