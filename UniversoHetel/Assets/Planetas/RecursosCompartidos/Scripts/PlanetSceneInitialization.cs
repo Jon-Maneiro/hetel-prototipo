@@ -22,9 +22,11 @@ public class PlanetSceneInitialization : MonoBehaviour
      */
 
     [SerializeField] private GameObject portalObject;
-
+    [SerializeField] private GameObject planetObject;
     [SerializeField] private GameObject playerShipPrefab;
+    [SerializeField] private GameObject arrowPrefab;
     private GameObject _playerShipInstance;
+    private GameObject _arrowInstance;
     private Vector3 _shipPosition = new Vector3(2000,2000,2000);
     private bool _returningFromMenu = false;
     
@@ -74,5 +76,26 @@ public class PlanetSceneInitialization : MonoBehaviour
         LoadingData.ShipPosition = Vector3.zero;
         LoadingData.ShipRotation = Quaternion.identity;
         LoadingData.ShipScale = Vector3.one;
+    }
+
+    private void InstantiateArrow()
+    {
+        _arrowInstance = Instantiate(arrowPrefab, _playerShipInstance.transform.Find("PosicionFlecha").position , Quaternion.identity);
+
+        _arrowInstance.transform.SetParent(_playerShipInstance.transform,false);
+        StartCoroutine(ArrowPointsPlanet);
+
+    }
+
+    private IEnumerator ArrowPointsPlanet()
+    {
+        _arrowInstance.transform.LookAt(planetObject.transform);
+
+        yield return new WaitForSeconds(0.05f);
+    }
+
+    private IEnumerator ArrowPointsPortal()
+    {
+        yield return new WaitForSeconds(0.05f);
     }
 }
