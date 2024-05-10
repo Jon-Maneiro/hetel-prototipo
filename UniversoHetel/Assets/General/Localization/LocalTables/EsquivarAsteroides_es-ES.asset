@@ -10,16 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: MinijuegoRobotica_eu-ES
+  m_Name: EsquivarAsteroides_es-ES
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: eu-ES
-  m_SharedData: {fileID: 11400000, guid: 1e33f40836e96a8419e9fd815122f6b5, type: 2}
+    m_Code: es-ES
+  m_SharedData: {fileID: 11400000, guid: 491d005185f46d74db712796e7729850, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 30300352512
-    m_Localized: Egiaztatu
+  - m_Id: 238740484096
+    m_Localized: El objetivo del juego es esquivar los asteroides que se acercan
+      a la nave. Se gana al esquivar cierta cantidad de asteroides.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1219599446016
+    m_Localized: Para controlar la nave utiliza [W,A,S,D]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2718375260160
+    m_Localized: Continuar
     m_Metadata:
       m_Items: []
   references:

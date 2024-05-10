@@ -33,9 +33,20 @@ public class SnapController : MonoBehaviour
             draggable.dragEndedCallback = OnDragEnded;
         }
 
+        TutorialController.GameStop += StartTimer;
+
+    }
+
+    private void OnDestroy()
+    {
+        TutorialController.GameStop -= StartTimer;
+    }
+
+    private void StartTimer(bool check)
+    {
         StartCoroutine(nameof(TimerFunction));
     }
-    
+
     private IEnumerator TimerFunction()
     {
         
