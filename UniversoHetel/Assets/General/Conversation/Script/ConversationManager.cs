@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class ConversationManager : MonoBehaviour
 {
 
-    [SerializeField] private String[] conversation;
-    [SerializeField] private Text text;
+    [SerializeField] private GameObject[] conversation;
     private int current =0;
     
     
@@ -23,7 +22,8 @@ public class ConversationManager : MonoBehaviour
         if ((current-1) >= 0)
         {
             current--;
-            text.text = conversation[current];
+            HideAll();
+            conversation[current].SetActive(true);
         }
     }
     
@@ -32,19 +32,23 @@ public class ConversationManager : MonoBehaviour
         if ((current+1) < conversation.Length)
         {
             current++;
-            text.text = conversation[current];
+            HideAll();
+            conversation[current].SetActive(true);
         }
     }
     
     public void Restart()
     {
         current = 0;
-        text.text = conversation[current];
+        HideAll();
+        conversation[current].SetActive(true);
+    }
+
+    public void HideAll()
+    {
+        for (int i = 0; i < conversation.Length; i++)
+        {
+            conversation[i].SetActive(false);
+        }
     }
 }
-
-//Industria Manufacturera: En empresas que producen una amplia gama de productos, como automóviles, productos electrónicos, productos químicos, alimentos, entre otros.
-
-//Especialista en Automatización Industrial: Diseña y desarrolla sistemas de automatización industrial, lidera proyectos y garantiza la eficiencia operativa.
-
-//Hola! Somos del grado de eolica para reparar este aereogenerador necestitamos que nos traigas una tuerca del 15.8º puedes encontrarla en el planeta ingenieria.
