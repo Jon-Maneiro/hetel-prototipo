@@ -27,5 +27,16 @@ public class EarthSateliteRotate : MonoBehaviour
         earth.transform.Rotate( _arriba * planetRotateSpeed * Time.deltaTime);
         
         moon.transform.RotateAround(Vector3.zero, Vector3.up, orbitSpeed * Time.deltaTime);
+
+        OrbitSatelites();
+    }
+
+
+    private void OrbitSatelites()
+    {
+        foreach (GameObject satelite in satelites)
+        {
+            satelite.transform.RotateAround(Vector3.zero, Vector3.down, orbitSpeed * Time.deltaTime);
+        }
     }
 }
