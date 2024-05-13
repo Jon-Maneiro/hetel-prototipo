@@ -25,7 +25,8 @@ public class LoadingData
     // -- SpaceMinigameList --
     public static readonly string[] AsteroidMinigameList =
     {
-        "MinijuegoAsteroides1"
+        "MinijuegoAsteroides1",
+        "MinijuegoAsteroide2",
     };
     
     
