@@ -13,8 +13,6 @@ public class PlanetSceneInitialization : MonoBehaviour
      READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ
      For this script to work there needs to be certain prefabs in scene
      -MainCamera (Nave)
-     -VirtualCamera (Nave)
-     -PlayerInput(Nave)
      -Portal(CommonAssets)
      
      And certain variables NEED to be assigned
