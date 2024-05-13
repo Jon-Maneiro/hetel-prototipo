@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -29,6 +30,7 @@ public class PlanetSceneInitialization : MonoBehaviour
     private GameObject _arrowInstance;
     private Vector3 _shipPosition = new Vector3(2000,2000,2000);
     private bool _returningFromMenu = false;
+    private bool _portalCreated = false;
     
     // Start is called before the first frame update
     void Start()
@@ -50,15 +52,23 @@ public class PlanetSceneInitialization : MonoBehaviour
             _returningFromMenu = true;
         }
         
-        //InstantiateShip();
-
+        InstantiateShip();
+        
         if (LoadingData.CreatePortal)
         {
             portalObject.SetActive(true);
             LoadingData.CreatePortal = false;
+            _portalCreated = true;
         }
+        
+        InstantiateArrow();
     }
-    
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
     private void InstantiateShip()
     {
         _playerShipInstance = Instantiate(playerShipPrefab, _shipPosition, Quaternion.identity);
@@ -68,7 +78,8 @@ public class PlanetSceneInitialization : MonoBehaviour
             _playerShipInstance.transform.rotation = LoadingData.ShipRotation;
         }
         //GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>().Follow = _playerShipInstance.transform;
-        GameObject.Find("PlayerInput").GetComponent<PlayerInput>().shipMovement = _playerShipInstance.GetComponent<ShipMovement>();
+        //GameObject.Find("PlayerInput").GetComponent<PlayerInput>().shipMovement = _playerShipInstance.GetComponent<ShipMovement>();
+        resetData();
     }
 
     private void resetData()
@@ -80,22 +91,41 @@ public class PlanetSceneInitialization : MonoBehaviour
 
     private void InstantiateArrow()
     {
-        _arrowInstance = Instantiate(arrowPrefab, _playerShipInstance.transform.Find("PosicionFlecha").position , Quaternion.identity);
+        _arrowInstance = Instantiate(arrowPrefab, Vector3.zero , Quaternion.identity);
+        _arrowInstance.transform.position = _playerShipInstance.transform.Find("PosicionFlecha").transform.position;
+        Debug.Log(_playerShipInstance.transform.position);
+        Debug.Log(_arrowInstance.transform.position);
+        _arrowInstance.transform.SetParent(_playerShipInstance.transform,true);
+        if (_portalCreated)
+        {
+            StartCoroutine(ArrowPointsPortal());
+        }
+        else
+        {
+            StartCoroutine(ArrowPointsPlanet());
+        }
 
-        _arrowInstance.transform.SetParent(_playerShipInstance.transform,false);
-        StartCoroutine(ArrowPointsPlanet);
+        
 
     }
 
     private IEnumerator ArrowPointsPlanet()
     {
-        _arrowInstance.transform.LookAt(planetObject.transform);
-
-        yield return new WaitForSeconds(0.05f);
+        while (true)
+        {
+            _arrowInstance.transform.LookAt(planetObject.transform.position);
+            _arrowInstance.transform.Rotate(Vector3.up * 90);
+            yield return new WaitForSeconds(0.05f);    
+        }
     }
 
     private IEnumerator ArrowPointsPortal()
     {
-        yield return new WaitForSeconds(0.05f);
+        while (true)
+        {
+            _arrowInstance.transform.LookAt(portalObject.transform.position);
+            _arrowInstance.transform.Rotate(Vector3.up * 90);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }
