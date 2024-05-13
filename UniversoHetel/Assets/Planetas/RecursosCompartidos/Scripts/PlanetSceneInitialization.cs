@@ -48,7 +48,7 @@ public class PlanetSceneInitialization : MonoBehaviour
             _returningFromMenu = true;
         }
         
-        InstantiateShip();
+        //InstantiateShip();
 
         if (LoadingData.CreatePortal)
         {
@@ -65,7 +65,7 @@ public class PlanetSceneInitialization : MonoBehaviour
             _returningFromMenu = false;
             _playerShipInstance.transform.rotation = LoadingData.ShipRotation;
         }
-        GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>().Follow = _playerShipInstance.transform;
+        //GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>().Follow = _playerShipInstance.transform;
         GameObject.Find("PlayerInput").GetComponent<PlayerInput>().shipMovement = _playerShipInstance.GetComponent<ShipMovement>();
     }
 
