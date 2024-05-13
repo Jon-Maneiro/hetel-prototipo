@@ -45,7 +45,6 @@ public class CosmeticosSingleton : MonoBehaviour
                 gorros3ocupied = true;
             }
         }
-        
         UpdateCosmetics?.Invoke(true);
         
     }
@@ -61,6 +60,7 @@ public class CosmeticosSingleton : MonoBehaviour
         { 
             Instance = this; 
         } 
+        UpdateCosmetics?.Invoke(true);
     }
     
     public void changeHat(int id)
