@@ -8,19 +8,28 @@ public class MouseRaycastTube : MonoBehaviour
     private Camera _cam;
     private Vector3 mousePos;
     [SerializeField] private LayerMask mask;
-    
+    private bool activo;
     
     // Start is called before the first frame update
     void Start()
     {
+        TubeGameControllerScript.Win += DescativarRayo;
+        activo = true;
         _cam = Camera.main;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-        LaunchRay();
-        
+        if (activo)
+        {
+            LaunchRay();
+        }
+    }
+    
+    private void DescativarRayo()
+    {
+        activo = false;
     }
 
     private void LaunchRay()
@@ -38,6 +47,7 @@ public class MouseRaycastTube : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
+                if(hit.transform.gameObject.GetComponent<TubeScript>() is not null)
                 hit.transform.gameObject.GetComponent<TubeScript>().RotatePiece();
             }
         }

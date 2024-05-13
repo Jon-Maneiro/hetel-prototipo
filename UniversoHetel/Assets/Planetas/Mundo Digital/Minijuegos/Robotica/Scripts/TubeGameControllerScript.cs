@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +18,14 @@ public class TubeGameControllerScript : MonoBehaviour
     [SerializeField]  private int neededCorrectTubes = 0;
     
     [SerializeField] private Text text;
-    
+
+    public static Action Win;
     
     // Start is called before the first frame update
     void Start()
     {
+        CamionScript.ActivarVictoria += CanvasWin;
+        
         tubeContainer = GameObject.Find("TubeContainer");
         totalTubes = tubeContainer.transform.childCount;
 
@@ -32,15 +37,18 @@ public class TubeGameControllerScript : MonoBehaviour
         }
     }
 
+    private void CanvasWin()
+    {
+        text.text = "Success!";
+        text.gameObject.SetActive(true);
+    }
+
     public void CorrectMove()
     {
         _correctTubes += 1;
-        Debug.Log("Ese ahi esta bien " + _correctTubes);
         if (_correctTubes == neededCorrectTubes)
         {
-            text.text = "Succes!";
-            text.gameObject.SetActive(true);
-            //Debug.Log("heeeeeey que bien, has ganado bro, sigue estudiando");
+            Win?.Invoke();
             EndGame();
         }
     }

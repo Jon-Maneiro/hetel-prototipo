@@ -90,7 +90,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
 
         public void RestartGame()
         {
-            SceneManager.LoadScene("CCrush");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
