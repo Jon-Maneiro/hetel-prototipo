@@ -23,10 +23,9 @@ public class CamionScript : MonoBehaviour
     
     private IEnumerator Rotate()
     {
-        Debug.Log("ROTANDO");
         _rotated = false;
         CancelInvoke(nameof(TurnAround));
-        InvokeRepeating(nameof(TurnAround),0f, 0.01f);
+        InvokeRepeating(nameof(TurnAround),0f, 0.005f);
         yield return new WaitUntil(() => _rotated);
         CancelInvoke(nameof(TurnAround));
         _puntoActual++;
@@ -77,7 +76,7 @@ public class CamionScript : MonoBehaviour
 
     private void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, objetivo, 0.03f);
+        transform.position = Vector3.MoveTowards(transform.position, objetivo, 0.04f);
         if (Vector3.Distance(transform.position, objetivo) <= 0f)
         {
             _llegado = true;
