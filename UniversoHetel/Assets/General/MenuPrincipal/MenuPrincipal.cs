@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MenuPrincipal : MonoBehaviour
 {
+    [SerializeField] private GameObject pic;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void VolverEmpezar()
     {
-        LoadingData.SceneToLoad = "SeleccionPlanetas";
+        LoadingData.SceneToLoad = "EarthScene";
         SceneManager.LoadScene("LoadingScreen");
     }
 
@@ -36,7 +37,13 @@ public class MenuPrincipal : MonoBehaviour
 
     public void Idiomas()
     {
-        LoadingData.SceneToLoad = "MinijuegoLaser 1";
-        SceneManager.LoadScene("LoadingScreen");
+        if (pic.activeInHierarchy == false)
+        {
+            pic.SetActive(true);
+        }
+        else
+        {
+            pic.SetActive(false);
+        }
     }
 }
