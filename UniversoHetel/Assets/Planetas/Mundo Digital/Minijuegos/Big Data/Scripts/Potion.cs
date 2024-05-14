@@ -34,7 +34,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             yIndex = y;
         }
         
-        public void MoveToTarget(Vector2 targetPosition)
+        public void MoveToTarget(Vector3 targetPosition)
         {
             try
             {
@@ -48,18 +48,18 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             
         }
 
-        private IEnumerator MoveCoroutine(Vector2 targetPosition)
+        private IEnumerator MoveCoroutine(Vector3 targetPosition)
         {
             isMoving = true;
             var duration = 0.2f;
 
-            Vector2 startPosition = transform.position;
+            Vector3 startPosition = transform.position;
             var elaspedTime = 0f;
 
             while (elaspedTime < duration)
             {
                 float t = elaspedTime / duration;
-                transform.position = Vector2.Lerp(startPosition, targetPosition, t);
+                transform.position = Vector3.Lerp(startPosition, targetPosition, t);
                 elaspedTime += Time.deltaTime;
                 yield return null;
             }
