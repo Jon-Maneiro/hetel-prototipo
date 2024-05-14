@@ -80,12 +80,14 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
         
         public void WinGame()
         {
-            SceneManager.LoadScene(0);
+            LoadingData.SceneToLoad = LoadingData.NextContinent;
+            SceneManager.LoadScene("LoadingScreen");
         }
         
         public void LoseGame()
         {
-            SceneManager.LoadScene(0);
+            LoadingData.SceneToLoad = LoadingData.CurrentScene;
+            SceneManager.LoadScene("LoadingScreen");
         }
 
         public void RestartGame()
