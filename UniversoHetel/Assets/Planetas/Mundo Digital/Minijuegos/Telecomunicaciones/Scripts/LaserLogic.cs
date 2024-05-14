@@ -45,7 +45,6 @@ public class LaserLogic : MonoBehaviour
     private void ActivateLaser()
     {
         _toggleLaser = !_toggleLaser;
-        Debug.Log("jaja");
         if (_toggleLaser)
         {
             laserRenderer.enabled = true;
