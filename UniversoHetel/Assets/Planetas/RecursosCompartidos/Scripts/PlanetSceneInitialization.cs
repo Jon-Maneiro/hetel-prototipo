@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -12,8 +13,6 @@ public class PlanetSceneInitialization : MonoBehaviour
      READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ READ
      For this script to work there needs to be certain prefabs in scene
      -MainCamera (Nave)
-     -VirtualCamera (Nave)
-     -PlayerInput(Nave)
      -Portal(CommonAssets)
      
      And certain variables NEED to be assigned
@@ -22,11 +21,14 @@ public class PlanetSceneInitialization : MonoBehaviour
      */
 
     [SerializeField] private GameObject portalObject;
-
+    [SerializeField] private GameObject planetObject;
     [SerializeField] private GameObject playerShipPrefab;
+    [SerializeField] private GameObject arrowPrefab;
     private GameObject _playerShipInstance;
+    private GameObject _arrowInstance;
     private Vector3 _shipPosition = new Vector3(2000,2000,2000);
     private bool _returningFromMenu = false;
+    private bool _portalCreated = false;
     
     // Start is called before the first frame update
     void Start()
@@ -48,15 +50,23 @@ public class PlanetSceneInitialization : MonoBehaviour
             _returningFromMenu = true;
         }
         
-        //InstantiateShip();
-
+        InstantiateShip();
+        
         if (LoadingData.CreatePortal)
         {
             portalObject.SetActive(true);
             LoadingData.CreatePortal = false;
+            _portalCreated = true;
         }
+        
+        InstantiateArrow();
     }
-    
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
     private void InstantiateShip()
     {
         _playerShipInstance = Instantiate(playerShipPrefab, _shipPosition, Quaternion.identity);
@@ -66,7 +76,8 @@ public class PlanetSceneInitialization : MonoBehaviour
             _playerShipInstance.transform.rotation = LoadingData.ShipRotation;
         }
         //GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>().Follow = _playerShipInstance.transform;
-        GameObject.Find("PlayerInput").GetComponent<PlayerInput>().shipMovement = _playerShipInstance.GetComponent<ShipMovement>();
+        //GameObject.Find("PlayerInput").GetComponent<PlayerInput>().shipMovement = _playerShipInstance.GetComponent<ShipMovement>();
+        resetData();
     }
 
     private void resetData()
@@ -74,5 +85,45 @@ public class PlanetSceneInitialization : MonoBehaviour
         LoadingData.ShipPosition = Vector3.zero;
         LoadingData.ShipRotation = Quaternion.identity;
         LoadingData.ShipScale = Vector3.one;
+    }
+
+    private void InstantiateArrow()
+    {
+        _arrowInstance = Instantiate(arrowPrefab, Vector3.zero , Quaternion.identity);
+        _arrowInstance.transform.position = _playerShipInstance.transform.Find("PosicionFlecha").transform.position;
+        Debug.Log(_playerShipInstance.transform.position);
+        Debug.Log(_arrowInstance.transform.position);
+        _arrowInstance.transform.SetParent(_playerShipInstance.transform,true);
+        if (_portalCreated)
+        {
+            StartCoroutine(ArrowPointsPortal());
+        }
+        else
+        {
+            StartCoroutine(ArrowPointsPlanet());
+        }
+
+        
+
+    }
+
+    private IEnumerator ArrowPointsPlanet()
+    {
+        while (true)
+        {
+            _arrowInstance.transform.LookAt(planetObject.transform.position);
+            _arrowInstance.transform.Rotate(Vector3.up * 90);
+            yield return new WaitForSeconds(0.05f);    
+        }
+    }
+
+    private IEnumerator ArrowPointsPortal()
+    {
+        while (true)
+        {
+            _arrowInstance.transform.LookAt(portalObject.transform.position);
+            _arrowInstance.transform.Rotate(Vector3.up * 90);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 }
