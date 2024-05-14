@@ -250,7 +250,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             var index = FindIndexOfLowestNull(x);
             var locationToMoveTo = 8 - index;
             var randomIndex = Random.Range(0, potionPrefabs.Length);
-            var newPotion = Instantiate(potionPrefabs[randomIndex], new Vector2(x - spacingX, height - spacingY), Quaternion.identity);
+            var newPotion = Instantiate(potionPrefabs[randomIndex], new Vector3(x - spacingX, height - spacingY, transform.position.z), Quaternion.identity);
             
             newPotion.transform.SetParent(potionParent.transform);
             newPotion.GetComponent<Potion>().SetIndices(x, index);
