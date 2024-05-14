@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HackMinigame : MonoBehaviour
@@ -46,6 +47,7 @@ public class HackMinigame : MonoBehaviour
             text3.text = "Time over";
             allButtonsRed();
             endScreen("Failure!");
+            Invoke(nameof(Failure),2f);
             Time.timeScale = 0;
         }
     }
@@ -254,7 +256,8 @@ public class HackMinigame : MonoBehaviour
             for (int i = 0; i < selectedButtonSequence.Length; i++)
             {
                 selectedButtonSequence[i].GetComponent<Image>().color = Color.white;
-                endScreen("Succes!");
+                endScreen("Success!");
+                Invoke(nameof(Success),2f);//Salir al Continente
                 Time.timeScale = 0;
             }
         }
@@ -301,5 +304,17 @@ public class HackMinigame : MonoBehaviour
         text4.text = message;
         text4.gameObject.SetActive(true);
     }
-    
+
+    private void Failure()
+    {
+        LoadingData.SceneToLoad = LoadingData.CurrentScene;
+        SceneManager.LoadScene("LoadingScreen");
+    }
+
+    private void Success()
+    {
+        LoadingData.SceneToLoad = LoadingData.NextContinent;
+        SceneManager.LoadScene("LoadingScreen");
+    }
+
 }
