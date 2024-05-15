@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class Raycastcosa : MonoBehaviour
 {
+    //[SerializeField] private GameObject canvas;
     public int tipo; //1=lugar, 2=persona, 3=mision
     private bool _seleccionado;
+
     
     //Crear evento de activar canvas
     public static event Action<int> ActivaCanvasContinente;
@@ -22,5 +24,6 @@ public class Raycastcosa : MonoBehaviour
     {
         if (!hitObject.Equals(gameObject)) return;
         ActivaCanvasContinente?.Invoke(tipo);
+        //canvas.gameObject.SetActive(true); 
     }
 }

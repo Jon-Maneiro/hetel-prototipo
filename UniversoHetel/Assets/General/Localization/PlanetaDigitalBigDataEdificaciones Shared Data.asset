@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PlanetaDigitalBigDataEdificaciones Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PlanetaDigitalBigDataEdificaciones
+  m_TableCollectionNameGuidString: 8d2e514b00a3faa48a46839cb2c88987
+  m_Entries:
+  - m_Id: 174975938560
+    m_Key: "Cient\xEDfico-a de datos\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 184136298496
+    m_Key: Analista de Big Data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189844746240
+    m_Key: Ingeniero-a de Datos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 193061777408
+    m_Key: Desarrollador-a de aplicaciones IoT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 197524516864
+    m_Key: Arquitecto-a de soluciones IoT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 204977795072
+    m_Key: Especialista en seguridad de datos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 209541197824
+    m_Key: Ingeniero-a de Machine Learning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 212821143552
+    m_Key: Business Analytics
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8391426868528545794
+  references:
+    version: 2
+    RefIds:
+    - rid: 8391426868528545794
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1715598989611
