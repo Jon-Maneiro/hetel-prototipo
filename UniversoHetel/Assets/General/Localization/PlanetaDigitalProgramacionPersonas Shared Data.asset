@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PlanetaDigitalProgramacionPersonas Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PlanetaDigitalProgramacionPersonas
+  m_TableCollectionNameGuidString: a655dac16181fc440840b51b2c9014c5
+  m_Entries:
+  - m_Id: 8424321024
+    m_Key: Desarrollador-a de Software
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12585070592
+    m_Key: "Ingeniero-a de Seguridad Inform\xE1tica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15600775168
+    m_Key: "Cient\xEDfico-a de Datos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18524205056
+    m_Key: Ingeniero-a de Redes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22215192576
+    m_Key: Desarrollador Web
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123482468352
+    m_Key: Especialista en Inteligencia Artificial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 127177650176
+    m_Key: Analista de Sistemas
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8391426887140245512
+  references:
+    version: 2
+    RefIds:
+    - rid: 8391426887140245512
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1715673208299

@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PlanetaDigitalBigDataEdificios Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PlanetaDigitalBigDataEdificios
+  m_TableCollectionNameGuidString: e3553980a8fcfc1488bada3f9fbe81e2
+  m_Entries:
+  - m_Id: 10194317312
+    m_Key: "Tecnolog\xEDa de la Informaci\xF3n (TI)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13906276352
+    m_Key: 'Salud
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17093947392
+    m_Key: "Energ\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26023620608
+    m_Key: Manufactura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 809616076800
+    m_Key: Finanzas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 815588765696
+    m_Key: Telecomunicaciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1167109189632
+    m_Key: "Educaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1169659326464
+    m_Key: "Transporte y Log\xEDstica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1606806466560
+    m_Key: Gobierno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1838164275200
+    m_Key: Medios y Entretenimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1978786705408
+    m_Key: "Investigaci\xF3n Cient\xEDfica"
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8391426867994558466
+  references:
+    version: 2
+    RefIds:
+    - rid: 8391426867994558466
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1715596733106

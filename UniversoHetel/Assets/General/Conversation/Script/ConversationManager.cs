@@ -29,6 +29,7 @@ public class ConversationManager : MonoBehaviour
     
     public void Next()
     {
+        Debug.Log("dasfasdf");
         if ((current+1) < conversation.Length)
         {
             current++;

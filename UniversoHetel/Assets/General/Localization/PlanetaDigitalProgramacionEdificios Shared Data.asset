@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PlanetaDigitalProgramacionEdificios Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PlanetaDigitalProgramacionEdificios
+  m_TableCollectionNameGuidString: 30429b3ef489e434cafcb1aa787a1346
+  m_Entries:
+  - m_Id: 36773621760
+    m_Key: "Empresas de Tecnolog\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61729730560
+    m_Key: Industria del Software
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85347856384
+    m_Key: Sector Financiero
+    m_Metadata:
+      m_Items: []
+  - m_Id: 116926771200
+    m_Key: "Educaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142864347136
+    m_Key: Gobierno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 176922095616
+    m_Key: "Consultor\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 215341920256
+    m_Key: Startups
+    m_Metadata:
+      m_Items: []
+  - m_Id: 243359870976
+    m_Key: "Investigaci\xF3n Acad\xE9mica"
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8391426887140245511
+  references:
+    version: 2
+    RefIds:
+    - rid: 8391426887140245511
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1715671131136
