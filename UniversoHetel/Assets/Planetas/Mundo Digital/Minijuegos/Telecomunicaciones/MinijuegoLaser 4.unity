@@ -1672,6 +1672,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScriptPausa
       objectReference: {fileID: 0}
+    - target: {fileID: 1892439460848491779, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+      propertyPath: pic
+      value: 
+      objectReference: {fileID: 1132205133}
+    - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+      propertyPath: pic2
+      value: 
+      objectReference: {fileID: 2101452713}
     - target: {fileID: 5846153819291531019, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1050.3124
@@ -1989,6 +2001,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e441ee633d3be41ae64c53112b3f67, type: 3}
+--- !u!1 &1132205133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 245633825474170669, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+  m_PrefabInstance: {fileID: 361620670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1135802635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3216,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620c77f8a9ebba84aa15fbe9eec7cd42, type: 3}
+--- !u!1 &2101452713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 884568352761196007, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+  m_PrefabInstance: {fileID: 361620670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1156330549231544747
 PrefabInstance:
   m_ObjectHideFlags: 0
