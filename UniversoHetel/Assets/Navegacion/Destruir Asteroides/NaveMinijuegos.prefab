@@ -280,9 +280,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -773807203102856492, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_RotationAtRest.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -773807203102856492, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_TranslationAtRest.x
+      value: -0.18959834
+      objectReference: {fileID: 0}
+    - target: {fileID: -773807203102856492, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_TranslationAtRest.y
+      value: -0.83650374
+      objectReference: {fileID: 0}
+    - target: {fileID: -773807203102856492, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_TranslationAtRest.z
+      value: 6.666221
+      objectReference: {fileID: 0}
+    - target: {fileID: 51138429559142047, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 594137854391897609, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368530152249606098, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1584757085657827172, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_LocalScale.x
@@ -386,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2976500464441885629, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_Name
-      value: PrefabNave Variant
+      value: NaveMinijuegos
       objectReference: {fileID: 0}
     - target: {fileID: 3020121013384370893, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_IsActive
@@ -436,8 +460,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6235427094182084258, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6436047524716127431, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166839353789119318, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483244612071188831, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
