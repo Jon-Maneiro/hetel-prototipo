@@ -26,7 +26,7 @@ public class LoadingData
     public static readonly string[] AsteroidMinigameList =
     {
         "MinijuegoAsteroides1",
-        "MinijuegoAsteroide2",
+        "MinijuegoAsteroides2",
     };
     
     
