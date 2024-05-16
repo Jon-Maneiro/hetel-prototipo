@@ -154,9 +154,9 @@ public class GameControllerAster1 : MonoBehaviour
         _canvasJuego.GetComponent<Canvas>().enabled = false;
         GameStop?.Invoke(true);
         Debug.Log("has ganado yay");
-        Time.timeScale = 0;
         LoadingData.MinigameWon = true;
-        Invoke(nameof(ProxyChangeScene), 2f);
+        StartCoroutine(nameof(ProxyChangeScene));
+        Time.timeScale = 0;
     }
 
     private void Defeat()
@@ -165,14 +165,25 @@ public class GameControllerAster1 : MonoBehaviour
         _canvasJuego.GetComponent<Canvas>().enabled = false;
         GameStop?.Invoke(true);
         Debug.Log("has perdido yoy");
-        Time.timeScale = 0;
         LoadingData.MinigameWon = false;
-        Invoke(nameof(ProxyChangeScene), 2f);
+        StartCoroutine(nameof(ProxyChangeScene));
+        Time.timeScale = 0;
+
     }
 
-    private void ProxyChangeScene()
+    private IEnumerator ProxyChangeScene()
     {
-        ChangeScene(LoadingData.NextPlanet);
+        yield return new WaitForSecondsRealtime(2f);
+        if (LoadingData.MinigameWon)
+        {
+            ChangeScene(LoadingData.NextPlanet);
+        }
+        else
+        {
+            ChangeScene(LoadingData.CurrentScene);
+        }
+
+
     }
 
     private void ChangeScene(string targetScene)

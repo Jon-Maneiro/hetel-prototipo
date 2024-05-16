@@ -15,7 +15,12 @@ public class NaveScript : MonoBehaviour
 
     private GameControllerAster1.FireMode _selectedFireMode = GameControllerAster1.FireMode.SingleFire;
     private float _shootTimer = 0;
-    
+
+    private void Awake()
+    {
+        Application.targetFrameRate = -1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +28,8 @@ public class NaveScript : MonoBehaviour
         GameControllerAster1.GameStop += StopMovement;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
         if (!blockMovement)
         {
             //Esto habra que hacerlo con InputManager,de momento queda asi guarrete
@@ -54,6 +57,7 @@ public class NaveScript : MonoBehaviour
             }
 
             /*QUITAR ESTO DEBUG DEBUG DEBUG DEBUG DEVELOPMENT*/
+            /*
             if (Input.GetKeyDown((KeyCode.H)))
             {
                 _selectedFireMode = GameControllerAster1.FireMode.DoubleFire;
@@ -68,8 +72,8 @@ public class NaveScript : MonoBehaviour
             {
                 _selectedFireMode = GameControllerAster1.FireMode.FanFire;
             }
+            */
         }
-
     }
 
     private void OnDestroy()
@@ -80,6 +84,7 @@ public class NaveScript : MonoBehaviour
     private void FixedUpdate()
     {
         _shootTimer += Time.deltaTime;
+
     }
 
     private void StopMovement(bool stop)
