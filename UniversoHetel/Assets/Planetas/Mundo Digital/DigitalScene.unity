@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19528377, g: 0.097322635, b: 0.1191001, a: 1}
+  m_IndirectSpecularColor: {r: 0.19521803, g: 0.09740447, b: 0.118993826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2498,11 +2498,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4428319172845763269, guid: 0d90959a635abfa458a55e66a3c930ac, type: 3}
   m_PrefabInstance: {fileID: 1753848757}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1000789714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 245633825474170669, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
-  m_PrefabInstance: {fileID: 1392483380}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1032658845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,10 +3325,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScriptPausa
       objectReference: {fileID: 0}
+    - target: {fileID: 1892439460848491779, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: pic
       value: 
-      objectReference: {fileID: 1000789714}
+      objectReference: {fileID: 0}
     - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: pic2
       value: 
@@ -3822,6 +3821,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1522844688}
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeLocale
+      objectReference: {fileID: 0}
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorIdiomas, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 884568352761196007, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
       propertyPath: m_Name
       value: MenuPausa
@@ -3905,6 +3928,54 @@ PrefabInstance:
     - target: {fileID: 2703960571354149796, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478995979097878248, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478995979097878248, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478995979097878248, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1522844688}
+    - target: {fileID: 6478995979097878248, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeLocale
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478995979097878248, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorIdiomas, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479416055739694382, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1522844688}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeLocale
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorIdiomas, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4401,6 +4472,17 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1522844688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891806871753101997, guid: c8e441ee633d3be41ae64c53112b3f67, type: 3}
+  m_PrefabInstance: {fileID: 583454997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab39243f2f206b47b1ca959e9b70081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1554999269
 GameObject:
   m_ObjectHideFlags: 0
