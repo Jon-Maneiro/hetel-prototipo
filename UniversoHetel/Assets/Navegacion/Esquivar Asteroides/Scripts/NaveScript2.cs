@@ -13,16 +13,19 @@ public class NaveScript2 : MonoBehaviour
     private GameControllerAster1.FireMode _selectedFireMode = GameControllerAster1.FireMode.SingleFire;
     private float _shootTimer = 0;
     
+    
+    private void Awake()
+    {
+        Application.targetFrameRate = -1;
+    }
     // Start is called before the first frame update
     void Start()
     {
         GameControllerAster1.GameStop += StopMovement;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
         if (!blockMovement)
         {
             //Esto habra que hacerlo con InputManager,de momento queda asi guarrete
@@ -59,7 +62,6 @@ public class NaveScript2 : MonoBehaviour
             }
             
         }
-
     }
 
     private void OnDestroy()
@@ -70,6 +72,7 @@ public class NaveScript2 : MonoBehaviour
     private void FixedUpdate()
     {
         _shootTimer += Time.deltaTime;
+
     }
 
     private void StopMovement(bool stop)

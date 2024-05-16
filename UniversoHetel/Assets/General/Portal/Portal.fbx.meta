@@ -3,7 +3,17 @@ guid: 04e02cd290eedff4787d1c9b0a8c24ae
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aro
+    second: {fileID: 2100000, guid: 77ef88d29f320ef4295ec1f2608a0d19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 751d5efe26093d74db4680efb77d7c96, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
