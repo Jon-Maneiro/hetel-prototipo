@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5696431974767665001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: Continuar
         m_Mode: 1
@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 447559607456859427}
   - component: {fileID: 7816497835308527014}
   - component: {fileID: 3117693401675117431}
-  - component: {fileID: 5696431974767665001}
   - component: {fileID: 2798909564395551559}
   m_Layer: 5
   m_Name: MenuPausa
@@ -166,13 +165,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7058664302897990302}
   - {fileID: 6843884691715101521}
   - {fileID: 346662341303258767}
   - {fileID: 351520542971503076}
   - {fileID: 471079047801058081}
   - {fileID: 6396025686042228435}
   - {fileID: 5646225150385757548}
-  - {fileID: 7058664302897990302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -243,18 +242,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5696431974767665001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884568352761196007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559eed5d329a18e458f613a95b298257, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2798909564395551559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,9 +375,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5696431974767665001}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: Continuar
+        m_MethodName: MenuPrincipal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -551,7 +538,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:13d969a4a728ba643b707498952b0e15
     m_TableEntryReference:
-      m_KeyId: 1670641868800
+      m_KeyId: 80033507172352
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -933,7 +920,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:13d969a4a728ba643b707498952b0e15
     m_TableEntryReference:
-      m_KeyId: 1276666699776
+      m_KeyId: 80075584430080
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -1232,6 +1219,7 @@ GameObject:
   - component: {fileID: 5646225150385757548}
   - component: {fileID: 440956511726633333}
   - component: {fileID: 7479416055739694382}
+  - component: {fileID: 1794913130386343104}
   m_Layer: 5
   m_Name: TXTPausa
   m_TagString: Untagged
@@ -1355,3 +1343,43 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1794913130386343104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904443839546585226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:13d969a4a728ba643b707498952b0e15
+    m_TableEntryReference:
+      m_KeyId: 80054164119552
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7479416055739694382}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []

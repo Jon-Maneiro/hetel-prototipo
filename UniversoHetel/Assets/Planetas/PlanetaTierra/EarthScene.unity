@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18869194, g: 0.23018667, b: 0.19746283, a: 1}
+  m_IndirectSpecularColor: {r: 0.18866083, g: 0.23022556, b: 0.19747028, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2547,11 +2547,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc9e775aefd998478185164ecb273e8, type: 3}
---- !u!1 &1181092217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 245633825474170669, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
-  m_PrefabInstance: {fileID: 1295108369}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1204071004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2627,6 +2622,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1518801687}
+    - target: {fileID: 84506011745657906, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeLocale
+      objectReference: {fileID: 0}
     - target: {fileID: 884568352761196007, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
       propertyPath: m_Name
       value: MenuPausa
@@ -2715,6 +2718,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4141533014946619806, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2122894762}
+    - target: {fileID: 4141533014946619806, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuPrincipal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696431974767665001, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: canvasPausa
+      value: 
+      objectReference: {fileID: 2114411187}
+    - target: {fileID: 7816497835308527014, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7816497835308527014, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7816497835308527014, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1518801687}
+    - target: {fileID: 9022157490841702819, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeLocale
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078633852206688994, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2122894762}
+    - target: {fileID: 9078633852206688994, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Continuar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2749,9 +2792,13 @@ PrefabInstance:
     - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: pic
       value: 
-      objectReference: {fileID: 1181092217}
+      objectReference: {fileID: 0}
     - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: pic2
+      value: 
+      objectReference: {fileID: 2114411187}
+    - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+      propertyPath: canvasPausa
       value: 
       objectReference: {fileID: 2114411187}
     - target: {fileID: 5846153819291531019, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
@@ -2866,6 +2913,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2404912918643955097, guid: 7bc9e775aefd998478185164ecb273e8, type: 3}
   m_PrefabInstance: {fileID: 690323169}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1518801687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7891806871753101997, guid: c8e441ee633d3be41ae64c53112b3f67, type: 3}
+  m_PrefabInstance: {fileID: 1561368559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab39243f2f206b47b1ca959e9b70081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1519536913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2404912918643955097, guid: 7bc9e775aefd998478185164ecb273e8, type: 3}
@@ -4596,6 +4654,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc9e775aefd998478185164ecb273e8, type: 3}
+--- !u!114 &2122894762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+  m_PrefabInstance: {fileID: 1370657291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559eed5d329a18e458f613a95b298257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2070958326427325076
 PrefabInstance:
   m_ObjectHideFlags: 0

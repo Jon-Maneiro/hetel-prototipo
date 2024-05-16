@@ -9555,6 +9555,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hetel
       objectReference: {fileID: 0}
+    - target: {fileID: 3082491609127335196, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1622342410}
+    - target: {fileID: 3082491609127335196, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Salir
+      objectReference: {fileID: 0}
     - target: {fileID: 3192624882115338281, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -9895,6 +9903,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.46226418
       objectReference: {fileID: 0}
+    - target: {fileID: 6435051392688470645, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1622342410}
+    - target: {fileID: 6435051392688470645, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolverEmpezar
+      objectReference: {fileID: 0}
     - target: {fileID: 6485639348041783901, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -9958,6 +9974,14 @@ PrefabInstance:
     - target: {fileID: 6916403646840005721, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ControladorIdiomas, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313325433249089666, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1622342410}
+    - target: {fileID: 7313325433249089666, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Customizacion
       objectReference: {fileID: 0}
     - target: {fileID: 7938470405483406968, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
@@ -26197,6 +26221,17 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -75.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1622342410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8035630016929653688, guid: 546179ac55f4bbb41ad30acd977ea078, type: 3}
+  m_PrefabInstance: {fileID: 516226289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80f2146c9f6aa64bb775694a38b7eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627180367
 GameObject:
   m_ObjectHideFlags: 0

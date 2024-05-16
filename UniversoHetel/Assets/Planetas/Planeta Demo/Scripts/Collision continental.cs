@@ -21,7 +21,7 @@ public class Collisioncontinental : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("cHOQUE! "+ other.gameObject.name);
+        //Debug.Log("cHOQUE! "+ other.gameObject.name);
         //if (other.CompareTag("Player")) {}
     }
 }

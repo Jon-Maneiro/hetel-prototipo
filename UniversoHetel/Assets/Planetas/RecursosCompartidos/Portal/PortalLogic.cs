@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -31,7 +32,11 @@ public class PortalLogic : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.LookAt(nave.transform);
+        if (transform.gameObject is not null && nave is not null)
+        {
+            transform.LookAt(nave.transform);
+        }
+        
     }
 
 

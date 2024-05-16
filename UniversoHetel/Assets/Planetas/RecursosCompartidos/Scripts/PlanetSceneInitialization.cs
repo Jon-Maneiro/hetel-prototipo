@@ -91,8 +91,8 @@ public class PlanetSceneInitialization : MonoBehaviour
     {
         _arrowInstance = Instantiate(arrowPrefab, Vector3.zero , Quaternion.identity);
         _arrowInstance.transform.position = _playerShipInstance.transform.Find("PosicionFlecha").transform.position;
-        Debug.Log(_playerShipInstance.transform.position);
-        Debug.Log(_arrowInstance.transform.position);
+//        Debug.Log(_playerShipInstance.transform.position);
+//        Debug.Log(_arrowInstance.transform.position);
         _arrowInstance.transform.SetParent(_playerShipInstance.transform,true);
         if (_portalCreated)
         {

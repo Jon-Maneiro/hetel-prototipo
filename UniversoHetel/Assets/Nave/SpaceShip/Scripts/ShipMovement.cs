@@ -145,7 +145,7 @@ public class ShipMovement : MonoBehaviour
     {
         float inputHorizontal = _control.ShipMovement.HorizontalMovement.ReadValue<float>();
         //_rigidbody.AddTorque(_rigidbody.transform.TransformDirection(Vector3.up) * - inputHorizontal * horizontalThrustPower * responseModifier * Time.deltaTime);
-        Debug.Log("inputHorizontal: " + inputHorizontal);
+        //Debug.Log("inputHorizontal: " + inputHorizontal);
         //_rigidbody.AddForce(_rigidbody.transform.TransformDirection(Vector3.right) * inputHorizontal * horizontalThrustPower * speedMult * Time.fixedDeltaTime, ForceMode.Force);
         _rigidbody.AddTorque(transform.forward * speedMultAngle * speedRollAngle * inputHorizontal * Time.fixedDeltaTime, ForceMode.VelocityChange);
     }   

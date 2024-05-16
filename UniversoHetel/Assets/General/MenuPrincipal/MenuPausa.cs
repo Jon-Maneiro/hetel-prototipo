@@ -5,33 +5,46 @@ using UnityEngine;
 
 public class MenuPausa : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject canvasPausa;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale == 1)
+            {
+                ActivarCanvas();
+            }
+            else
             {
                 Continuar();
             }
+            
         }
     }
     
-    public void Continuar()
+    public void ActivarCanvas()
     {
-        Time.timeScale = 1;
-        transform.gameObject.SetActive(false);
+        Time.timeScale = 0;
+        canvasPausa.SetActive(true);
     }
 
     public void Customizacion()
     {
+        Time.timeScale = 1;
         LoadingData.SceneToLoad = "CustomizationScene";
         SceneManager.LoadScene("LoadingScreen");
     }
 
     public void MenuPrincipal()
     {
-        LoadingData.SceneToLoad = "Menu Principal";
+        Time.timeScale = 1;
+        LoadingData.SceneToLoad = "Menu";
         SceneManager.LoadScene("LoadingScreen");
+    }
+
+    public void Continuar()
+    {
+        Time.timeScale = 1;
+        canvasPausa.SetActive(false);
     }
 }

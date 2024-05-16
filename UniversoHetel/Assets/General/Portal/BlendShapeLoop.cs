@@ -16,13 +16,14 @@ public class BlendShapeLoop : MonoBehaviour
         _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         _skinnedMesh = GetComponent<SkinnedMeshRenderer>().sharedMesh;
         blendShapeCount = _skinnedMesh.blendShapeCount;
+        Debug.Log(blendShapeCount);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (playIndex > 0) _skinnedMeshRenderer.SetBlendShapeWeight(playIndex-1, 0f);
-        if (playIndex == 0) _skinnedMeshRenderer.SetBlendShapeWeight(blendShapeCount, 0f);
+        if (playIndex == 0) _skinnedMeshRenderer.SetBlendShapeWeight(blendShapeCount - 1, 0f);
         _skinnedMeshRenderer.SetBlendShapeWeight(playIndex, 100f);
         playIndex++;
         if (playIndex > blendShapeCount - 1) playIndex = 0;
