@@ -5,9 +5,8 @@ using UnityEngine;
 namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
 {
     /*
-     * Script del prefab "OR" (||)
-     * Detecta si alguna de sus dos "Patas" están activas
-     * En caso de que alguna o ambas estén activas, activa la LED
+     * Script del prefab "LedDiodeGreenPowered" (||)
+     * Detecta si alguna o sus dos "Patas" están activas
      * En caso de que no tenga ninguna activa, desactiva la LED
      * Tiene la condición para ganar, si la LED esta activada durante 3 segundos, se gana la partida
      */
@@ -17,6 +16,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         [SerializeField] private GameObject pata2Object;
         [SerializeField] private GameObject salida;
         [SerializeField] private GameObject modelo;
+        [SerializeField] private bool and;
         
         public static event Action WinGame;
         
@@ -63,16 +63,33 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         {
             var salidaPosition = salida.transform.position;
             var position = new Vector3(salidaPosition.x,salidaPosition.y, transform.position.z);
-            if (_pata1 || _pata2)
+            if (and)
             {
-                MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{0,1,2}, Color.yellow);
-                StartCoroutine(nameof(CheckGame));
+                if (_pata1 && _pata2)
+                {
+                    MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{0,1,2}, Color.yellow);
+                    StartCoroutine(nameof(CheckGame));
+                }
+                else
+                {
+                    MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{0,1,2}, Color.gray);
+                    StopCoroutine(nameof(CheckGame));
+                }
             }
             else
             {
-                MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{0,1,2}, Color.gray);
-                StopCoroutine(nameof(CheckGame));
+                if (_pata1 || _pata2)
+                {
+                    MinijuegoProgGeneral.ActivarSalida(salida, position, _renderer, new []{0,1,2}, Color.yellow);
+                    StartCoroutine(nameof(CheckGame));
+                }
+                else
+                {
+                    MinijuegoProgGeneral.DesactivarSalida(salida, position, _renderer, new []{0,1,2}, Color.gray);
+                    StopCoroutine(nameof(CheckGame));
+                }
             }
+            
         }
 
         private IEnumerator CheckGame()

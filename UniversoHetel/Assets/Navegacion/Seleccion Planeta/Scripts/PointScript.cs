@@ -41,7 +41,11 @@ namespace Raul
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 1000, mask))
                 {
-                    RayHit?.Invoke(hit.transform.gameObject);
+                    if (hit.collider is not null)
+                    {
+                        RayHit?.Invoke(hit.transform.gameObject);
+                    }
+                    
                 }
             }
         }
