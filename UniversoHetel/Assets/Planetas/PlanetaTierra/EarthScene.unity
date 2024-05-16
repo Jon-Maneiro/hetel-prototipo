@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 884568352761196007, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2703960571354149796, guid: 22f1800ea9b99784bae998ec7bcd6ecc, type: 3}
       propertyPath: m_Pivot.x
@@ -1477,6 +1477,10 @@ PrefabInstance:
     - target: {fileID: 1892439460848491779, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: m_Name
       value: ScriptPausa
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892439460848491779, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2680835866869254628, guid: 748e4fb0a431de247959f4f2e1775bc1, type: 3}
       propertyPath: pic
