@@ -77,7 +77,7 @@ public class EntrarContinente : MonoBehaviour
     public void AceptEnter()
     {
         Time.timeScale = 1;
-        string selectedMinigame = minigameToGo[Random.Range(0, minigameToGo.Length - 1)];
+        string selectedMinigame = minigameToGo[Random.Range(0, minigameToGo.Length)];
         LoadingData.SceneToLoad = selectedMinigame;
         SceneManager.LoadScene("LoadingScreen");   
     }

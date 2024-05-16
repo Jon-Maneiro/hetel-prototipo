@@ -21,7 +21,7 @@ public class PortalLogic : MonoBehaviour
         if (targetScene.Length == 0)
         {
             targetScene =
-                LoadingData.AsteroidMinigameList[Random.Range(0, (LoadingData.AsteroidMinigameList.Length - 1))];
+                LoadingData.AsteroidMinigameList[Random.Range(0, (LoadingData.AsteroidMinigameList.Length))];
         }
 
     }
