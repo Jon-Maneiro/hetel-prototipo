@@ -9,11 +9,14 @@ public class PortalLogic : MonoBehaviour
 {
 
     public string targetScene = null;
+    private GameObject nave;
     
     
     // Start is called before the first frame update
     void Start()
     {
+        nave = GameObject.Find("fighter01(Clone)");
+        
         //Tell the game what the current Screen is
         LoadingData.CurrentScene = SceneManager.GetActiveScene().name;
         
@@ -24,6 +27,11 @@ public class PortalLogic : MonoBehaviour
                 LoadingData.AsteroidMinigameList[Random.Range(0, (LoadingData.AsteroidMinigameList.Length))];
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        transform.LookAt(nave.transform);
     }
 
 
