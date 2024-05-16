@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 4741307289923795150}
   - component: {fileID: 8609503001005512810}
   - component: {fileID: 7417555742841995645}
-  - component: {fileID: 2800498316772759564}
   m_Layer: 12
   m_Name: Formacion6
   m_TagString: Enemy
@@ -175,30 +174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasSmaller: 0
   smallerMeteorite: {fileID: 0}
-  powerUp: {fileID: 2473972258420030975, guid: 729b3a9ca3fff9f41a3093453b68aa87, type: 3}
+  DoubleShotPower: {fileID: 0}
+  FanShotPower: {fileID: 0}
+  RocketShotPower: {fileID: 0}
+  _powerUpType: 0
   powerUpPercentile: 5
   speed: 300
---- !u!65 &2800498316772759564
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6331233501486130599}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
 --- !u!1001 &173357136185647083
 PrefabInstance:
   m_ObjectHideFlags: 0

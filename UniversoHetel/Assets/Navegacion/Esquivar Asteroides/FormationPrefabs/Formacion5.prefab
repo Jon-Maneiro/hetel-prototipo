@@ -238,7 +238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasSmaller: 0
   smallerMeteorite: {fileID: 0}
-  powerUp: {fileID: 2473972258420030975, guid: 729b3a9ca3fff9f41a3093453b68aa87, type: 3}
+  DoubleShotPower: {fileID: 0}
+  FanShotPower: {fileID: 0}
+  RocketShotPower: {fileID: 0}
+  _powerUpType: 0
   powerUpPercentile: 5
   speed: 300
 --- !u!114 &2884213783196426853

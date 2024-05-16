@@ -82,16 +82,14 @@ public class NaveScript2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        health--;
+        DamageReceived?.Invoke(health);
+        if (health == 0)
         {
-            Destroy(other.gameObject);
-            health--;
-            DamageReceived?.Invoke(health);
-            if (health == 0)
-            {
-                Destroy(gameObject);
-                
-            }
+            Destroy(gameObject);
         }
+        
+        Destroy(other.gameObject);
+
     }
 }
