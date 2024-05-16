@@ -42,8 +42,10 @@ public class LaserLogic : MonoBehaviour
 
     }
 
-    private void ActivateLaser()
+    public void ActivateLaser()
     {
+        Debug.Log("Activacion!");
+        
         _toggleLaser = !_toggleLaser;
         if (_toggleLaser)
         {
