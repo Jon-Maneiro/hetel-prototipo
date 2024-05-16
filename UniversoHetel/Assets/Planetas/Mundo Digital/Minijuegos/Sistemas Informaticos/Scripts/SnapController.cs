@@ -44,7 +44,15 @@ public class SnapController : MonoBehaviour
 
     private void StartTimer(bool check)
     {
-        StartCoroutine(nameof(TimerFunction));
+        if (check)
+        {
+            StartCoroutine(nameof(TimerFunction));
+        }
+        else
+        {
+            StopCoroutine(nameof(TimerFunction));
+        }
+        
     }
 
     private IEnumerator TimerFunction()

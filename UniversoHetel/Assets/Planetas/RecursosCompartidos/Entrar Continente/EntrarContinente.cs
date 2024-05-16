@@ -20,8 +20,6 @@ public class EntrarContinente : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadingData.CurrentScene = "DigitalScene";
-        LoadingData.NextContinent = continentToGo;
 
         EnterContButtonEvents.AcceptEnter += CanvasOutcome;
     }
@@ -38,14 +36,12 @@ public class EntrarContinente : MonoBehaviour
             ActivateCanvas();
         }
     }
-
-    
     
     private void ActivateCanvas()
     {
         Time.timeScale = 0;
         canvasEntrarContinente.SetActive(true);
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void ChangeText()//Needed for different continent texts
@@ -57,7 +53,7 @@ public class EntrarContinente : MonoBehaviour
         //TODO Change text to continent specific text
         //TODO Change text to continent specific text
         //TODO Change text to continent specific text
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void CanvasOutcome(bool enter)
@@ -77,6 +73,9 @@ public class EntrarContinente : MonoBehaviour
     public void AceptEnter()
     {
         Time.timeScale = 1;
+        LoadingData.CurrentScene = "DigitalScene";
+        LoadingData.NextContinent = continentToGo;
+        Debug.Log("ENTRANDO AL CONTINENTE " + LoadingData.NextContinent);
         string selectedMinigame = minigameToGo[Random.Range(0, minigameToGo.Length)];
         LoadingData.SceneToLoad = selectedMinigame;
         SceneManager.LoadScene("LoadingScreen");   
