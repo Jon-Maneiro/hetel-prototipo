@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2618287399852123747}
   - component: {fileID: 6280398879397036966}
   - component: {fileID: 7696239188482558407}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5657795195977299091}
   - component: {fileID: 8301109221131589554}
   - component: {fileID: 1521288777147145673}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5885132511132099846}
   - component: {fileID: 4288590934123814418}
   - component: {fileID: 4608208992160267972}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 6694829740828176102}
   - component: {fileID: 1114274047509446291}
   - component: {fileID: 3048788519465012528}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,8 +429,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 215065868132525650}
   - component: {fileID: 4699543552148869239}
   - component: {fileID: 4781647473825056292}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Button (Back)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 8238266113168482581}
   - component: {fileID: 8885273806902422382}
   - component: {fileID: 5988818990191484763}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,8 +739,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 2133810060121704543}
   - component: {fileID: 512650396786594911}
   - component: {fileID: 2417813679411908517}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,8 +915,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 5174510785042016238}
   - component: {fileID: 7372498252515153278}
   - component: {fileID: 4854751754183270765}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,8 +1092,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 7528477058057961096}
   - component: {fileID: 9059795355852813298}
   - component: {fileID: 3440214765918256859}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Button (Next)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 6984825698829154255}
   - component: {fileID: 964916160195668345}
   - component: {fileID: 4514806866231926200}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Button (Salir)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1440,6 +1440,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5696049902795538422}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5696049902795538422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,8 +1465,7 @@ GameObject:
   - component: {fileID: 7177834790879074387}
   - component: {fileID: 184825208116842505}
   - component: {fileID: 225591153962089024}
-  - component: {fileID: -388458712894697219}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: CanvasEdificio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1568,51 +1579,6 @@ MonoBehaviour:
   - {fileID: 3786190172742851785}
   - {fileID: 6628162295174417969}
   - {fileID: 8882190924212484378}
---- !u!61 &-388458712894697219
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5696049902795538422}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &5870881120016666993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1591,7 @@ GameObject:
   - component: {fileID: 620656980833280967}
   - component: {fileID: 866710476117995322}
   - component: {fileID: 7260707915212706085}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,8 +1673,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1801,7 +1767,7 @@ GameObject:
   - component: {fileID: 8848544500565812604}
   - component: {fileID: 6582590866137374731}
   - component: {fileID: 6759768932935275783}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1883,8 +1849,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1976,7 +1942,7 @@ GameObject:
   - component: {fileID: 5287650509569060976}
   - component: {fileID: 3573225052895911906}
   - component: {fileID: 4131783325027838241}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2030,7 +1996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 582fe0714c102914d934096863df4d7f, type: 3}
+  m_Texture: {fileID: 8400000, guid: a090ee80fb8385345a532fc672bbc41f, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2049,7 +2015,7 @@ GameObject:
   - component: {fileID: 8801604899862851509}
   - component: {fileID: 755123563069324682}
   - component: {fileID: 7826431935865015360}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2132,8 +2098,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2226,7 +2192,7 @@ GameObject:
   - component: {fileID: 2967390899158780601}
   - component: {fileID: 5735526827002278327}
   - component: {fileID: 582923399238739399}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2309,8 +2275,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2402,7 +2368,8 @@ GameObject:
   - component: {fileID: 4472208978977006759}
   - component: {fileID: 209040580989867427}
   - component: {fileID: 4068322558928754682}
-  m_Layer: 5
+  - component: {fileID: 1789441325650992614}
+  m_Layer: 10
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2421,9 +2388,6 @@ RectTransform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 867140572742378109}
-  - {fileID: 4886544382031493017}
-  - {fileID: 7613262850972286033}
   - {fileID: 1086667834075428447}
   - {fileID: 5287650509569060976}
   - {fileID: 6981815117613874503}
@@ -2437,6 +2401,9 @@ RectTransform:
   - {fileID: 6191674606546695448}
   - {fileID: 2460582977838107816}
   - {fileID: 8388010919520735868}
+  - {fileID: 867140572742378109}
+  - {fileID: 4886544382031493017}
+  - {fileID: 7613262850972286033}
   m_Father: {fileID: 6081339637759266456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2482,6 +2449,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!65 &1789441325650992614
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7149491061786034085}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1920.36, y: 806.2991, z: 10}
+  m_Center: {x: 0.00017846945, y: 0.94606656, z: 0}
 --- !u!1 &7635687727009434208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,7 +2480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1086667834075428447}
   - component: {fileID: 7818569063410914009}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Video Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2530,7 +2518,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: b045eddcb13bb054386e3a6a7ea8f1c0, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: a090ee80fb8385345a532fc672bbc41f, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -2563,7 +2551,7 @@ GameObject:
   - component: {fileID: 2276861107799971475}
   - component: {fileID: 4699811576972748075}
   - component: {fileID: 5997815315292632314}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2643,7 +2631,7 @@ GameObject:
   - component: {fileID: 4218359254362442694}
   - component: {fileID: 7964448850610464214}
   - component: {fileID: 5978647808850661987}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2726,8 +2714,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2820,7 +2808,7 @@ GameObject:
   - component: {fileID: 9056995545551490609}
   - component: {fileID: 3051789834754565121}
   - component: {fileID: 9200878881571555993}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2902,8 +2890,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
