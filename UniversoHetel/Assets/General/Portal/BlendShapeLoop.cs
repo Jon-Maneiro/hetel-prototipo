@@ -16,7 +16,6 @@ public class BlendShapeLoop : MonoBehaviour
         _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         _skinnedMesh = GetComponent<SkinnedMeshRenderer>().sharedMesh;
         blendShapeCount = _skinnedMesh.blendShapeCount;
-        Debug.Log(blendShapeCount);
     }
 
     // Update is called once per frame
