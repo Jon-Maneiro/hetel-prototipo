@@ -126,7 +126,7 @@ public class GameControllerAster2 : MonoBehaviour
         Debug.Log("has ganado yay");
         Time.timeScale = 0;
         LoadingData.MinigameWon = true;
-        ChangeScene(LoadingData.NextPlanet);
+        Invoke(nameof(ProxyChangeScene),2f);
     }
 
     private void Defeat()
@@ -137,12 +137,18 @@ public class GameControllerAster2 : MonoBehaviour
         Debug.Log("has perdido yoy");
         Time.timeScale = 0;
         LoadingData.MinigameWon = false;
+        Invoke(nameof(ProxyChangeScene),2f);
+    }
+
+    private void ProxyChangeScene()
+    {
         ChangeScene(LoadingData.CurrentScene);
     }
 
     private void ChangeScene(string targetScene)
     {
         LoadingData.SceneToLoad = targetScene;
+        Time.timeScale = 1;
         SceneManager.LoadScene("LoadingScreen");
     }
 

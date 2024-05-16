@@ -90,6 +90,7 @@ public class ShipMovement : MonoBehaviour
 
     private void FireWeapon()
     {
+        
         myWeapon.Fire(_rigidbody.velocity);
     }
 
