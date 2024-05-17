@@ -5,60 +5,46 @@ using UnityEngine;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] private GameObject pic;
-
-    [SerializeField] private GameObject pic2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] private GameObject canvasPausa;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale == 1)
             {
-                Continuar();
+                ActivarCanvas();
             }
             else
             {
-                pic2.SetActive(true);
-                Time.timeScale = 0;
-                
+                Continuar();
             }
+            
         }
     }
     
-    public void Continuar()
+    public void ActivarCanvas()
     {
-        Time.timeScale = 1;
-        pic2.SetActive(false);
+        Time.timeScale = 0;
+        canvasPausa.SetActive(true);
     }
 
     public void Customizacion()
     {
+        Time.timeScale = 1;
         LoadingData.SceneToLoad = "CustomizationScene";
         SceneManager.LoadScene("LoadingScreen");
     }
 
     public void MenuPrincipal()
     {
-        LoadingData.SceneToLoad = "Menu Principal";
+        Time.timeScale = 1;
+        LoadingData.SceneToLoad = "Menu";
         SceneManager.LoadScene("LoadingScreen");
     }
 
-    public void Idiomas()
+    public void Continuar()
     {
-        if (pic.activeInHierarchy == false)
-        {
-            pic.SetActive(true);
-        }
-        else
-        {
-            pic.SetActive(false);
-        }
+        Time.timeScale = 1;
+        canvasPausa.SetActive(false);
     }
 }

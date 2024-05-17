@@ -17,7 +17,7 @@ namespace Raul
 
         private void IrAPlaneta(GameObject planeta)
         {
-            Debug.Log("SE HA SELECCIONADO EL PLANTA " + planeta.transform.parent.gameObject);
+            //Debug.Log("SE HA SELECCIONADO EL PLANTA " + planeta.transform.parent.gameObject);
         }
 
         public void ButtonNo()

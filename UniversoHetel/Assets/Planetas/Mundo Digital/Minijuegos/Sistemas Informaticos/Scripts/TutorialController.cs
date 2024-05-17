@@ -23,9 +23,17 @@ public class TutorialController : MonoBehaviour
         
     }
 
-    public void ExitTutorial()
+    public void EnterTutorial()
     {
         GameStop?.Invoke(false);
+        tutorialCanvas.SetActive(true);
+        gameCanvas.SetActive(false);
+        Time.timeScale = 0;
+    }
+
+    public void ExitTutorial()
+    {
+        GameStop?.Invoke(true);
         tutorialCanvas.SetActive(false);
         gameCanvas.SetActive(true);
         Time.timeScale = 1;
