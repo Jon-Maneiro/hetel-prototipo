@@ -60,6 +60,8 @@ public class CosmeticosSingleton : MonoBehaviour
         { 
             Instance = this; 
         } 
+        DontDestroyOnLoad(gameObject);
+        
         UpdateCosmetics?.Invoke(true);
     }
     
