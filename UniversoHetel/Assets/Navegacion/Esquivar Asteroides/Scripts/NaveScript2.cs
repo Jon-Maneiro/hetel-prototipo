@@ -7,6 +7,7 @@ public class NaveScript2 : MonoBehaviour
 {
     
     [SerializeField] private int health;
+    [SerializeField] private float speed;
     private bool blockMovement = false;
     public static event Action<int> DamageReceived;
 
@@ -32,7 +33,7 @@ public class NaveScript2 : MonoBehaviour
             if (Input.GetKey(KeyCode.A) && (transform.position.x > -8))
             {
                 transform.position = new Vector3(
-                    transform.position.x - 0.03f,
+                    transform.position.x - speed,
                     transform.position.y,
                     transform.position.z);
             }
@@ -40,7 +41,7 @@ public class NaveScript2 : MonoBehaviour
             if (Input.GetKey(KeyCode.D) && (transform.position.x < 8))
             {
                 transform.position = new Vector3(
-                    transform.position.x + 0.03f,
+                    transform.position.x + speed,
                     transform.position.y,
                     transform.position.z);
             }
@@ -50,7 +51,7 @@ public class NaveScript2 : MonoBehaviour
                 transform.position = new Vector3(
                     transform.position.x,
                     transform.position.y,
-                    transform.position.z - 0.03f);
+                    transform.position.z - speed);
             }
 
             if (Input.GetKey(KeyCode.S) && (transform.position.z < 8))
@@ -58,7 +59,7 @@ public class NaveScript2 : MonoBehaviour
                 transform.position = new Vector3(
                     transform.position.x,
                     transform.position.y,
-                    transform.position.z + 0.03f);
+                    transform.position.z + speed);
             }
             
         }

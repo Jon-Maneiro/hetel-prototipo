@@ -121,6 +121,7 @@ public class GameControllerAster2 : MonoBehaviour
     private void Victory()
     {
         canvasVictoria.enabled = true;
+        Time.timeScale = 0;
         canvasJuego.GetComponent<Canvas>().enabled = false;
         GameStop?.Invoke(true);
         Debug.Log("has ganado yay");
@@ -132,6 +133,7 @@ public class GameControllerAster2 : MonoBehaviour
     private void Defeat()
     {
         canvasDerrota.enabled = true;
+        Time.timeScale = 0;
         canvasJuego.GetComponent<Canvas>().enabled = false;
         GameStop?.Invoke(true);
         Debug.Log("has perdido yoy");
