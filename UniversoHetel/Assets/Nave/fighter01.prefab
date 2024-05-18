@@ -5263,11 +5263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366194394130094756, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0017200001
+      value: 0.0002
       objectReference: {fileID: 0}
     - target: {fileID: 1366194394130094756, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0754
+      value: 0.0769
       objectReference: {fileID: 0}
     - target: {fileID: 1366194394130094756, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5305,6 +5305,18 @@ PrefabInstance:
       propertyPath: weaponBarrel
       value: 
       objectReference: {fileID: 6804087142538461316}
+    - target: {fileID: 1425780783389190655, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
+      propertyPath: CoolDownTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425780783389190655, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
+      propertyPath: muzzleVelocity
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425780783389190655, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
+      propertyPath: shotsPerSeconds
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1419898980750903640, guid: 6dfc7d800fd5ca04a890df0645656100, type: 3}
@@ -5338,7 +5350,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 808b1a3310d70ff45962c1aa9d49d371, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5695,15 +5707,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2451497283291207943, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2451497283291207943, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2451497283291207943, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2451497283291207943, guid: 0d7eda51aee534743bbd44414c616943, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

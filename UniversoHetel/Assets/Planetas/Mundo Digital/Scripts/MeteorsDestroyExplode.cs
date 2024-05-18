@@ -28,6 +28,7 @@ public class MeteorsDestroyExplode : MonoBehaviour
 
     private void TriggerDestroyMeteor()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         gameObject.GetComponent<ParticleSystem>().Play();
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<SphereCollider>().enabled = false;
