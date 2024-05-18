@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CosmeticosSingleton : MonoBehaviour
 {
-    public static CosmeticosSingleton Instance { get; private set; }
+    public static CosmeticosSingleton instance { get; private set; }
 
     public bool[] gorros1;
     public bool[] gorros2;
@@ -52,13 +52,13 @@ public class CosmeticosSingleton : MonoBehaviour
     { 
         // If there is an instance, and it's not me, delete myself.
     
-        if (Instance != null && Instance != this) 
+        if (instance != null && instance != this) 
         { 
             Destroy(this); 
         } 
         else 
         { 
-            Instance = this; 
+            instance = this; 
         } 
         DontDestroyOnLoad(gameObject);
         

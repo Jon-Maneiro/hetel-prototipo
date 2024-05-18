@@ -20,6 +20,11 @@ public class CosmeticsScript : MonoBehaviour
         updateCosmetics(true);
     }
     
+    void Awake()
+    {
+        CosmeticosSingleton.UpdateCosmetics += updateCosmetics;
+        updateCosmetics(true);
+    }
 
     private void OnDestroy()
     {
@@ -28,27 +33,30 @@ public class CosmeticsScript : MonoBehaviour
     
     public void updateCosmetics(bool booleano)
     {
+        Debug.Log("Updating!");
+        
         for (int i = 0; i < stickers.Length; i++)
         {
-            stickers[i].SetActive(CosmeticosSingleton.Instance.stickers[i]);
+            Debug.Log(stickers[i].gameObject.ToString());
+            //Debug.Log(CosmeticosSingleton.instance.stickers[i].ToString());
+            stickers[i].SetActive(CosmeticosSingleton.instance.stickers[i]);
         }
-
         
         for (int j = 0; j < gorros1.Length; j++)
         { 
-            gorros1[j].SetActive(CosmeticosSingleton.Instance.gorros1[j]);
-           
+            Debug.Log(gorros1[j].gameObject.ToString());
+            gorros1[j].SetActive(CosmeticosSingleton.instance.gorros1[j]);
         }
         
         for (int j = 0; j < gorros2.Length; j++)
         { 
-            gorros2[j].SetActive(CosmeticosSingleton.Instance.gorros2[j]);
+            gorros2[j].SetActive(CosmeticosSingleton.instance.gorros2[j]);
            
         }
         
         for (int j = 0; j < gorros3.Length; j++)
         { 
-            gorros3[j].SetActive(CosmeticosSingleton.Instance.gorros3[j]);
+            gorros3[j].SetActive(CosmeticosSingleton.instance.gorros3[j]);
            
         }
     }

@@ -1733,8 +1733,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changeHat
         m_Mode: 3
         m_Arguments:
@@ -2239,8 +2239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changeHat
         m_Mode: 3
         m_Arguments:
@@ -4837,8 +4837,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changeHat
         m_Mode: 3
         m_Arguments:
@@ -7111,8 +7111,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -7976,12 +7976,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 443243272}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -9186,8 +9186,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changeHat
         m_Mode: 3
         m_Arguments:
@@ -9606,83 +9606,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &536085015
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1765667269087772223, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_Name
-      value: CosmeticosSingleton
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917412989041840982, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959927920533648394, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: gorros1ocupied
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959927920533648394, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: gorros2ocupied
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959927920533648394, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: stickers.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959927920533648394, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: stickers.Array.data[9]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959927920533648394, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-      propertyPath: stickers.Array.data[10]
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
 --- !u!1 &546341934
 GameObject:
   m_ObjectHideFlags: 0
@@ -9994,12 +9917,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 565825672}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -18554,6 +18477,7 @@ GameObject:
   - component: {fileID: 1221656160}
   - component: {fileID: 1221656159}
   - component: {fileID: 1221656158}
+  - component: {fileID: 1221656162}
   m_Layer: 5
   m_Name: CanvasCosmeticos
   m_TagString: Untagged
@@ -18649,6 +18573,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1221656162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221656157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25792dd15ad068c4796d5e69e1d8a86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1228703297
 GameObject:
   m_ObjectHideFlags: 0
@@ -21489,12 +21425,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1425428621}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -21908,12 +21844,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1448869755}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -24557,8 +24493,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changeHat
         m_Mode: 3
         m_Arguments:
@@ -24977,17 +24913,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
---- !u!114 &1664826471 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8959927920533648394, guid: 9efa78333ef0c1b42a7dc44f5d0b0e8e, type: 3}
-  m_PrefabInstance: {fileID: 536085015}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9ef5a6be18fce468bc5489a5827b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1665744557
 GameObject:
   m_ObjectHideFlags: 0
@@ -25600,12 +25525,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1691963820}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -27766,12 +27691,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1840065881}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -27900,12 +27825,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1842887706}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -28234,12 +28159,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1853158816}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -28430,12 +28355,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1891767122}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -29729,8 +29654,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changeHat
         m_Mode: 3
         m_Arguments:
@@ -32812,12 +32737,12 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2142920284}
+  m_TargetGraphic: {fileID: 393659605}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1664826471}
-        m_TargetAssemblyTypeName: CosmeticosSingleton, Assembly-CSharp
+      - m_Target: {fileID: 1221656162}
+        m_TargetAssemblyTypeName: LlamarAlSingleton, Assembly-CSharp
         m_MethodName: changesticker
         m_Mode: 3
         m_Arguments:
@@ -32917,7 +32842,6 @@ SceneRoots:
   - {fileID: 1836811072}
   - {fileID: 46986062}
   - {fileID: 2114850457}
-  - {fileID: 536085015}
   - {fileID: 1059164754}
   - {fileID: 1458566}
   - {fileID: 23262797}
