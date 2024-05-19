@@ -37,14 +37,11 @@ public class CosmeticsScript : MonoBehaviour
         
         for (int i = 0; i < stickers.Length; i++)
         {
-            Debug.Log(stickers[i].gameObject.ToString());
-            //Debug.Log(CosmeticosSingleton.instance.stickers[i].ToString());
             stickers[i].SetActive(CosmeticosSingleton.instance.stickers[i]);
         }
         
         for (int j = 0; j < gorros1.Length; j++)
         { 
-            Debug.Log(gorros1[j].gameObject.ToString());
             gorros1[j].SetActive(CosmeticosSingleton.instance.gorros1[j]);
         }
         
