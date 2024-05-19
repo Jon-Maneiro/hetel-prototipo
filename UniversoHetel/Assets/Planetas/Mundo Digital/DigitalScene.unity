@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19528377, g: 0.097322635, b: 0.1191001, a: 1}
+  m_IndirectSpecularColor: {r: 0.19521803, g: 0.09740447, b: 0.118993826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2593,7 +2593,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ba0a84a6c16ea04595ee67101774603, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 8507255730055152230, guid: 2ba0a84a6c16ea04595ee67101774603, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35766,6 +35766,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2ba0a84a6c16ea04595ee67101774603, type: 2}
     - target: {fileID: 1607325311284579430, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8507255730055152230, guid: 2ba0a84a6c16ea04595ee67101774603, type: 2}
+    - target: {fileID: 1607325311284579430, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
@@ -35907,13 +35911,49 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7636394849295645155, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 129834751}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4681160824781178529, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8979377792788381826}
   m_SourcePrefab: {fileID: 100100000, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
 --- !u!1 &8979377792788381824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3019587934341898640, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
   m_PrefabInstance: {fileID: 8979377792788381823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8979377792788381825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4681160824781178529, guid: 9eec0d6602bd74843b8194998ce8e1e5, type: 3}
+  m_PrefabInstance: {fileID: 8979377792788381823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8979377792788381826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979377792788381825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:3b074314286164d45ba4b382d0cfebcd
+    m_TableEntryReference:
+      m_KeyId: 270973710336
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

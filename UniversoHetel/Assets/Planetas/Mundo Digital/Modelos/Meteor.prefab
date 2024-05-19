@@ -4985,8 +4985,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.039384805
-  m_Center: {x: -0.0026774546, y: -0.0058065793, z: -0.004429116}
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &135179327851634927
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4999,7 +4999,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 896d14d2761235e4ab88d7d5fb0cca2a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
