@@ -49,4 +49,9 @@ public class CanvasContinenteScrip : MonoBehaviour
                 break;
         }
     }
+
+    private void OnDestroy()
+    {
+        Raycastcosa.ActivaCanvasContinente -= OnActivaCanvasContinente;
+    }
 }

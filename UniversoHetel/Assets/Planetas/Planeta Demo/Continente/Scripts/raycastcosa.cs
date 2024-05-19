@@ -26,4 +26,9 @@ public class Raycastcosa : MonoBehaviour
         ActivaCanvasContinente?.Invoke(tipo);
         //canvas.gameObject.SetActive(true); 
     }
+
+    private void OnDestroy()
+    {
+        PointScript.RayHit -= RayHit;
+    }
 }
