@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Planetas.Mundo_Digital.Scripts
 {
@@ -40,6 +42,12 @@ namespace Planetas.Mundo_Digital.Scripts
             do { 
                 agent.SetDestination(puntos[Random.Range(0, puntos.Count)]);
             } while (Vector3.Distance(transform.position, agent.destination) < 1);
+        }
+
+        private void OnDestroy()
+        {
+            PuntoScript.OtroPunto -= IrAOtroPunto;
+            PuntoScript.DecirPuntos -= AniadirPunto;
         }
     }
 }
