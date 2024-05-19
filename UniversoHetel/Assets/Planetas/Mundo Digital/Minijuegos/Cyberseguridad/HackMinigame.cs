@@ -48,7 +48,7 @@ public class HackMinigame : MonoBehaviour
             allButtonsRed();
             endScreen("Failure!");
             Invoke(nameof(Failure),2f);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
     }
 
@@ -258,7 +258,7 @@ public class HackMinigame : MonoBehaviour
                 selectedButtonSequence[i].GetComponent<Image>().color = Color.white;
                 endScreen("Success!");
                 Invoke(nameof(Success),2f);//Salir al Continente
-                Time.timeScale = 0;
+                //Time.timeScale = 0;
             }
         }
         else// Si no es correcto
