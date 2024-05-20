@@ -13,14 +13,15 @@ public class LaserScoreScript : MonoBehaviour
     [SerializeField] private int _vida = 0;
     [SerializeField] private Text _textoVida;
     [SerializeField] private Text _textoResultado;
+    [SerializeField] private GameObject canvasWin;
+    [SerializeField] private GameObject canvasLose;
     
     // Start is called before the first frame update
     void Start()
     {
         GoodCubeScript.SumarPunto += Add;
         BadCubeScript.RestarPunto += Substract;
-        _textoVida.text = "Vida: " + _vida;
-        _textoResultado.text = "";
+        _textoVida.text = "" + _vida;
     }
 
     private void OnDestroy()
@@ -33,7 +34,7 @@ public class LaserScoreScript : MonoBehaviour
     {
         _vida++;
         _goodPoints++;
-        _textoResultado.text = "Success!";
+        canvasWin.SetActive(true);
         
         Invoke(nameof(Success),2f);
 
@@ -42,13 +43,13 @@ public class LaserScoreScript : MonoBehaviour
     private void Substract()
     {
         _vida--;
-        _textoVida.text = "Vida: " + _vida;
+        _textoVida.text = "" + _vida;
         _badPoints++;
 
         if (_vida <= 0)
         {
-            _textoResultado.text = "Failure!";
-            _textoVida.text = "Vida: " + 0;
+            canvasLose.SetActive(true);
+            _textoVida.text = "" + 0;
             Invoke(nameof(Failure), 2f);
         }
     }

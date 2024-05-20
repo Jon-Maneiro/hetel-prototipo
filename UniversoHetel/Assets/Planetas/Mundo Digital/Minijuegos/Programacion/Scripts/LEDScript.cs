@@ -17,6 +17,7 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
         [SerializeField] private GameObject salida;
         [SerializeField] private GameObject modelo;
         [SerializeField] private bool and;
+        [SerializeField] private GameObject CanvasWin;
         
         public static event Action WinGame;
         
@@ -97,7 +98,8 @@ namespace Planetas.Mundo_Digital.Minijuegos.Programacion.Scripts
             yield return new WaitForSeconds(3f);
             if (_pata1 || _pata2)
             {
-                Debug.Log("GANADO");
+                CanvasWin.SetActive(true);
+                yield return new WaitForSeconds(2f);
                 WinGame?.Invoke();
             }
         }

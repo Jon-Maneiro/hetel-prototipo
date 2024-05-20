@@ -18,7 +18,7 @@ public class TubeGameControllerScript : MonoBehaviour
     private int _correctTubes = 0;
     [SerializeField]  private int neededCorrectTubes = 0;
     
-    [SerializeField] private Text text;
+    [SerializeField] private GameObject canvasWin;
 
     public static Action Win;
     
@@ -40,8 +40,7 @@ public class TubeGameControllerScript : MonoBehaviour
 
     private void CanvasWin()
     {
-        text.text = "Success!";
-        text.gameObject.SetActive(true);
+        canvasWin.SetActive(true);
         StartCoroutine(nameof(EndGame));
     }
 
