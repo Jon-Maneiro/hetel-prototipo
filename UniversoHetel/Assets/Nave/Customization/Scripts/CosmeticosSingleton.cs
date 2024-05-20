@@ -17,7 +17,7 @@ public class CosmeticosSingleton : MonoBehaviour
 
     public bool[] stickers;
     
-    public static event Action<bool> UpdateCosmetics;
+    public static event Action UpdateCosmetics;
     
     void Start()
     {
@@ -45,7 +45,7 @@ public class CosmeticosSingleton : MonoBehaviour
                 gorros3ocupied = true;
             }
         }
-        UpdateCosmetics?.Invoke(true);
+        UpdateCosmetics?.Invoke();
         
     }
     private void Awake() 
@@ -62,7 +62,7 @@ public class CosmeticosSingleton : MonoBehaviour
         } 
         DontDestroyOnLoad(gameObject);
         
-        UpdateCosmetics?.Invoke(true);
+        UpdateCosmetics?.Invoke();
     }
     
     public void changeHat(int id)
@@ -181,7 +181,7 @@ public class CosmeticosSingleton : MonoBehaviour
             }
         }
 
-        UpdateCosmetics?.Invoke(true);
+        UpdateCosmetics?.Invoke();
     }
     
     public void changesticker(int id)
@@ -201,7 +201,7 @@ public class CosmeticosSingleton : MonoBehaviour
                 stickers[id] = true;
             }
         } 
-        UpdateCosmetics?.Invoke(true);
+        UpdateCosmetics?.Invoke();
     }
     
 }

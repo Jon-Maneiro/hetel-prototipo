@@ -8,8 +8,7 @@ public class CosmeticsScript : MonoBehaviour
     [SerializeField] GameObject[] gorros1;
     [SerializeField] GameObject[] gorros2;
     [SerializeField] GameObject[] gorros3;
-
-
+    
     [SerializeField] GameObject[] stickers;
 
     
@@ -17,21 +16,14 @@ public class CosmeticsScript : MonoBehaviour
     void Start()
     {
         CosmeticosSingleton.UpdateCosmetics += updateCosmetics;
-        updateCosmetics(true);
+        updateCosmetics();
     }
-    
-    void Awake()
-    {
-        CosmeticosSingleton.UpdateCosmetics += updateCosmetics;
-        updateCosmetics(true);
-    }
-
     private void OnDestroy()
     {
         CosmeticosSingleton.UpdateCosmetics -= updateCosmetics;
     }
     
-    public void updateCosmetics(bool booleano)
+    public void updateCosmetics()
     {
         Debug.Log("Updating!");
         
