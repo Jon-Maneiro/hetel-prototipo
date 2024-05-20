@@ -69,11 +69,13 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
             if (won)
             {
                 victoryPanel.SetActive(true);
+                Invoke(nameof(WinGame),2f);
                 cam.GetComponent<CameraMusic>().Win();
             }
             else
             {
                 losePanel.SetActive(true);
+                Invoke(nameof(LoseGame),2f);
                 cam.GetComponent<CameraMusic>().Lose();
             }
         }
@@ -88,11 +90,6 @@ namespace Planetas.Mundo_Digital.Minijuegos.Big_Data.Scripts
         {
             LoadingData.SceneToLoad = LoadingData.CurrentScene;
             SceneManager.LoadScene("LoadingScreen");
-        }
-
-        public void RestartGame()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
