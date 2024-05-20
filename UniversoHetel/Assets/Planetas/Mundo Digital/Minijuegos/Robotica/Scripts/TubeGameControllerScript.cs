@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO.Pipes;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TubeGameControllerScript : MonoBehaviour
@@ -41,6 +42,7 @@ public class TubeGameControllerScript : MonoBehaviour
     {
         text.text = "Success!";
         text.gameObject.SetActive(true);
+        StartCoroutine(nameof(EndGame));
     }
 
     public void CorrectMove()
@@ -49,7 +51,6 @@ public class TubeGameControllerScript : MonoBehaviour
         if (_correctTubes == neededCorrectTubes)
         {
             Win?.Invoke();
-            EndGame();
         }
     }
 
@@ -58,8 +59,10 @@ public class TubeGameControllerScript : MonoBehaviour
         _correctTubes -= 1;
     }
 
-    private void EndGame()
+    private IEnumerator EndGame()
     {
-        //Scene Change or Victory Text Here
+        yield return new WaitForSeconds(3f);
+        LoadingData.SceneToLoad = LoadingData.NextContinent;
+        SceneManager.LoadScene("LoadingScreen");
     }
 }

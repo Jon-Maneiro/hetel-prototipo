@@ -23,11 +23,23 @@ public class NaveScript2 : MonoBehaviour
     void Start()
     {
         GameControllerAster1.GameStop += StopMovement;
+        InvokeRepeating(nameof(MoverNave), 0f, 0.01f);
     }
 
     private void Update()
     {
-        if (!blockMovement)
+       
+    }
+
+    private void OnDestroy()
+    {
+        GameControllerAster1.GameStop -= StopMovement;
+    }
+
+    private void FixedUpdate()
+    {
+        _shootTimer += Time.deltaTime;
+        /*if (!blockMovement)
         {
             //Esto habra que hacerlo con InputManager,de momento queda asi guarrete
             if (Input.GetKey(KeyCode.A) && (transform.position.x > -8))
@@ -60,20 +72,46 @@ public class NaveScript2 : MonoBehaviour
                     transform.position.x,
                     transform.position.y,
                     transform.position.z + speed);
+                
             }
             
+        }*/
+    }
+
+    private void MoverNave()
+    {
+        if (Input.GetKey(KeyCode.A) && (transform.position.x > -8))
+        {
+            transform.position = new Vector3(
+                transform.position.x - speed,
+                transform.position.y,
+                transform.position.z);
         }
-    }
 
-    private void OnDestroy()
-    {
-        GameControllerAster1.GameStop -= StopMovement;
-    }
+        if (Input.GetKey(KeyCode.D) && (transform.position.x < 8))
+        {
+            transform.position = new Vector3(
+                transform.position.x + speed,
+                transform.position.y,
+                transform.position.z);
+        }
+            
+        if (Input.GetKey(KeyCode.W) && (transform.position.z > -8))
+        {
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                transform.position.z - speed);
+        }
 
-    private void FixedUpdate()
-    {
-        _shootTimer += Time.deltaTime;
-
+        if (Input.GetKey(KeyCode.S) && (transform.position.z < 8))
+        {
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                transform.position.z + speed);
+                
+        }
     }
 
     private void StopMovement(bool stop)
