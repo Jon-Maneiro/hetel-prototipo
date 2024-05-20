@@ -27,15 +27,15 @@ public class RocketScript : MonoBehaviour
     private void ApplyForce()
     {
         //_projectileBody.AddRelativeForce(gameObject.transform.up * projectileSpeed);
-        InvokeRepeating(nameof(MoveUp),0,0.05f);
+        InvokeRepeating(nameof(MoveUp),0,0.01f);
     }
 
     private void MoveUp()
     {
-        var speed = 60;
+        var speed = 0.1f;
         
         transform.position = new Vector3(transform.position.x,
-            transform.position.y + speed * Time.deltaTime,
+            transform.position.y + speed * Time.timeScale,
             transform.position.z);
     }
     
