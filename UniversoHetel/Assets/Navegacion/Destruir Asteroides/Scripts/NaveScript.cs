@@ -30,7 +30,7 @@ public class NaveScript : MonoBehaviour
 
     private void Update()
     {
-        if (!blockMovement)
+        /*if (!blockMovement)
         {
             //Esto habra que hacerlo con InputManager,de momento queda asi guarrete
             if (Input.GetKey(KeyCode.A) && (transform.position.x > -8))
@@ -56,7 +56,7 @@ public class NaveScript : MonoBehaviour
                 }
             }
 
-            /*QUITAR ESTO DEBUG DEBUG DEBUG DEBUG DEVELOPMENT*/
+            /*QUITAR ESTO DEBUG DEBUG DEBUG DEBUG DEVELOPMENT#1#
             /*
             if (Input.GetKeyDown((KeyCode.H)))
             {
@@ -72,8 +72,8 @@ public class NaveScript : MonoBehaviour
             {
                 _selectedFireMode = GameControllerAster1.FireMode.FanFire;
             }
-            */
-        }
+            #1#
+        }*/
     }
 
     private void OnDestroy()
@@ -84,7 +84,32 @@ public class NaveScript : MonoBehaviour
     private void FixedUpdate()
     {
         _shootTimer += Time.deltaTime;
+        if (!blockMovement)
+        {
+            //Esto habra que hacerlo con InputManager,de momento queda asi guarrete
+            if (Input.GetKey(KeyCode.A) && (transform.position.x > -8))
+            {
+                transform.position = new Vector3(transform.position.x - 0.1f,
+                    transform.position.y,
+                    transform.position.z);
+            }
 
+            if (Input.GetKey(KeyCode.D) && (transform.position.x < 8))
+            {
+                transform.position = new Vector3(transform.position.x + 0.1f,
+                    transform.position.y,
+                    transform.position.z);
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (_shootTimer >= timeBetweenShots)
+                {
+                    _shootTimer = 0;
+                    FireSelector(_selectedFireMode);
+                }
+            }
+        }
     }
 
     private void StopMovement(bool stop)
