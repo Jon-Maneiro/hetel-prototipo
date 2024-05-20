@@ -26859,7 +26859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1512834471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27677,13 +27677,14 @@ GameObject:
   - component: {fileID: 1551031283}
   - component: {fileID: 1551031285}
   - component: {fileID: 1551031284}
+  - component: {fileID: 1551031286}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1551031283
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27716,7 +27717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.119199276, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -27745,6 +27746,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551031282}
   m_CullTransparentMesh: 1
+--- !u!114 &1551031286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551031282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:4ddf29255e4473746903db72ec2e160d
+    m_TableEntryReference:
+      m_KeyId: 3706518134784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1551031284}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1553557455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1632278124443331859, guid: 1c3d857fc9ff5d24384916412be2fcf9, type: 3}
@@ -37536,7 +37577,11 @@ PrefabInstance:
     - target: {fileID: 7572039691436109309, guid: c8b4aa0cd9a7d9149ad8ae49cf9a2d2c, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 1551031284}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572039691436109309, guid: c8b4aa0cd9a7d9149ad8ae49cf9a2d2c, type: 3}
+      propertyPath: canvasWin
+      value: 
+      objectReference: {fileID: 1512834470}
     - target: {fileID: 7572039691436109309, guid: c8b4aa0cd9a7d9149ad8ae49cf9a2d2c, type: 3}
       propertyPath: neededCorrectTubes
       value: 28

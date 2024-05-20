@@ -15,6 +15,8 @@ public class HackMinigame : MonoBehaviour
     [SerializeField] private Text text1; //Mostar solucion
     [SerializeField] private Text text3; //Timer
     [SerializeField] private Text text4; //Mensaje final
+    [SerializeField] private GameObject textWin;
+    [SerializeField] private GameObject textLose;
     
     [SerializeField] private Button[] butons; //Los bottones tablero central
     [SerializeField] private float moveRate; //Cada cuantos segundos se mueven el tablero
@@ -46,7 +48,7 @@ public class HackMinigame : MonoBehaviour
         { //Game over
             text3.text = "Time over";
             allButtonsRed();
-            endScreen("Failure!");
+            endScreen(false);
             Invoke(nameof(Failure),2f);
             //Time.timeScale = 0;
         }
@@ -122,11 +124,9 @@ public class HackMinigame : MonoBehaviour
         
         //Checkear el limite superior
         int limiteInferior = 0 - selectedButtonId;
-        Debug.Log("inferior"+limiteInferior);
         
         //Checkear el limite inferior
         int limiteSuperior = butons.Length - selectedButtonId;
-        Debug.Log("superior"+limiteSuperior);
         
         
         //Si hay valores inferiores al limite, pasar al limite superior
@@ -255,8 +255,8 @@ public class HackMinigame : MonoBehaviour
             isCorrect = true;//Si es correcto
             for (int i = 0; i < selectedButtonSequence.Length; i++)
             {
-                selectedButtonSequence[i].GetComponent<Image>().color = Color.white;
-                endScreen("Success!");
+                selectedButtonSequence[i].GetComponent<Image>().color = Color.green;
+                endScreen(true);
                 Invoke(nameof(Success),2f);//Salir al Continente
                 //Time.timeScale = 0;
             }
@@ -293,16 +293,23 @@ public class HackMinigame : MonoBehaviour
     }
 
     //Mensaje final
-    private void endScreen(String message)
+    private void endScreen(bool win)
     {
         for (int i = 0; i < butons.Length; i++) //Quitar los botones
         {
             butons[i].gameObject.SetActive(false);
         }
 
-        //Mostrar el mensaje
-        text4.text = message;
-        text4.gameObject.SetActive(true);
+        if (win)
+        {
+            textWin.SetActive(true);
+        }
+        else
+        {
+            textLose.SetActive(true);
+        }
+
+        
     }
 
     private void Failure()
